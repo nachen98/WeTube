@@ -22,6 +22,22 @@ class Video(db.Model):
             'title': self.title,
             'description': self.description, 
             'thumbnail_pic': self.thumbnail_pic,
+            'user': self.user.to_dict(),
+            'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
+
+    # def to_dict_without_description(self):
+    #     return {
+    #         'id': self.id,
+    #         'title': self.title,
+    #         'thumbnail_pic': self.thumbnail_pic,
+    #         'user': self.user.to_dict(),
+    #         'created_at': self.created_at,
+    #         'updated_at': self.updated_at
+    #     }
+    
+
+    def __repr__(self):
+        return f'<Video, id={self.id}, title={self.title}, description={self.description}>'
