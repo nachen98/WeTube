@@ -13,7 +13,7 @@ class Video(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False)
 
     user = db.relationship("User", back_populates="videos")
-    comments = db.relationship("Comment", back_populates="Videos", cascade="all, delete-orphan")
+    comments = db.relationship("Comment", back_populates="video", cascade="all, delete-orphan")
    
     
     def to_dict(self):
