@@ -34,3 +34,6 @@ class User(db.Model, UserMixin):
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
+
+    def __repr__(self):
+        return f'<User, id={self.id}, username={self.username}>'
