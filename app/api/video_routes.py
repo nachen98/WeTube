@@ -70,4 +70,4 @@ def delete_video(video_id):
         db.session.commit()
         return {"message": "video successfully deleted"}, 200
     else:
-        return {"errors": "video server not found"}, 404
+        return {"errors": "video not found"}, 404
