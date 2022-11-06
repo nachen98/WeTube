@@ -11,12 +11,13 @@ video_routes = Blueprint('videos', __name__)
 #get all the videos
 @video_routes.route('/')
 def get_all_videos():
+    
     videos = Video.query.all()
     data = [video.to_dict() for video in videos]
     return {"Videos": data}, 200
 
 #get one video by id
-@video_routes.route('/<int:video_Id>')
+@video_routes.route('/<int:video_id>')
 def get_video_by_id(video_id):
     video = Video.query.get(video_id)
     return video.to_dict(), 200
@@ -62,10 +63,10 @@ def edit_video(video_id):
 
 #delete a video
 @video_routes.route('/<int:video_id>', methods=['DELETE'])
-@login_required
+# @login_required
 def delete_video(video_id):
     video=Video.query.get(video_id)
-
+    import pdb; pdb.set_trace()
     if video is not None:
         db.session.delete(video)
         db.session.commit()

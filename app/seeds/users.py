@@ -12,11 +12,29 @@ def seed_users():
         username='bobbie', email='bobbie@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
     nancy = User(
         username='nancy', email='nancy@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
-
+    leo = User(
+        username='leo', email='leo@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    steven = User(
+        username='steven', email='steven@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    peter = User(
+        username='peter', email='peter@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    alex = User(
+        username='alex', email='alex@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    rick = User(
+        username='rick', email='rick@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    emily = User(
+        username='emily', email='emily@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+    
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(nancy)
+    db.session.add(leo)
+    db.session.add(steven)
+    db.session.add(peter)
+    db.session.add(alex)
+    db.session.add(rick)
+    db.session.add(emily)
 
     db.session.commit()
 

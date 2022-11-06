@@ -12,7 +12,7 @@ channel2user_id={
 res = []
 ids = set()
 for video_path in video_paths:
-    #pdb.set_trace()
+    # pdb.set_trace()
     name = video_path.name
     stem = video_path.stem
     #name = str(video_path).split('/')[-1].split('.')[0]
