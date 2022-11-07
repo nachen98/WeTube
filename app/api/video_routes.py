@@ -63,10 +63,10 @@ def edit_video(video_id):
 
 #delete a video
 @video_routes.route('/<int:video_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_video(video_id):
     video=Video.query.get(video_id)
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     if video is not None:
         db.session.delete(video)
         db.session.commit()
@@ -115,7 +115,8 @@ def post_comment(video_id):
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 #edit a comment
-@video_routes.route('/<int:video_id>/comments/<int:comment_id>', methods=['POST'])
+@video_routes.route('/comments/<int:comment_id>', methods=['POST'])
+@login_required
 def edit_comment(comment_id):
     comment = Comment.query.get(comment_id)
     if comment is not None:
@@ -130,8 +131,10 @@ def edit_comment(comment_id):
         return {"errors": "comment not found"}, 404
 
 #delete a comment
-@video_routes.route('/<int:video_id>/comments/<int:comment_id>', methods=['DELETE'])
+@video_routes.route('/comments/<int:comment_id>', methods=['DELETE'])
+# @login_required
 def delete_comment(comment_id):
+    import pdb; pdb.set_trace()
     comment = Comment.query.get(comment_id)
     if comment is not None:
         db.session.delete(comment)
