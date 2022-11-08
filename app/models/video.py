@@ -1,17 +1,14 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 
 class Video(db.Model):
     __tablename__='videos'
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id=db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(255), nullable=False)
     description=db.Column(db.String(255), nullable=True)
     thumbnail_pic = db.Column(db.Text, nullable=True)
     body=db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
