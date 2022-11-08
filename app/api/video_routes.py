@@ -88,10 +88,7 @@ def get_all_comments(video_id):
 @video_routes.route('/<int:video_id>/comments', methods=['POST'])
 @login_required
 def post_comment(video_id):
-    print('''
-        get here
-        '''
-    )
+
     form=CommentForm()
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -102,10 +99,7 @@ def post_comment(video_id):
         comment.video_id = video_id
         comment.created_at=datetime.now()
         comment.updated_at=datetime.now()
-        print('''
-        get here again
-        '''
-    )
+   
         db.session.add(comment)
         db.session.commit()
 
