@@ -64,7 +64,7 @@ export const addVideo =(videoBody, user) => async(dispatch) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(spotBody)
+        body: JSON.stringify(videoBody)
 
     }).catch(res=>res)
 
@@ -105,37 +105,29 @@ export const deleteVideo = (videoId) => async(dispatch)=>{
     }
 }
 
-const initialState={
-    allVideos: {},
-    singleVideo: {}
-}
 
 //reducer
-const videosReducer = (state = initialState, action) => {
+const videosReducer = (state, action) => {
     let newState= {...state}
     switch(action.type){
         case GET_ALL_VIDEOS:
-            const newAllVideos={}
-            action.videos.Videos.forEach((video)=>newAllVideos[video.id] = video)
-            newState.allVideos=newAllVideos
+            action.videos.Videos.forEach((video)=>newState[video.id] = video)
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
-            newState.singleVideo = action.videoId
+            newState = action.videoId
             return newState;
         
         case CREATE_ONE_VIDEO:
-            newState.allVideos = {...state.allVideos, [action.video.id]: action.video}
+            newState[action.video.id] = action.video
             return newState;
         
         case UPDATE_ONE_VIDEO:
-            newState.allVideos={...state.allVideos, [action.video.id]:action.video}
-            newState.singleVideo={...state.singleVideo, ...action.video}
+            newState[action.video.id] = action.video
             return newState;
         
         case DELETE_ONE_VIDEO:
-            delete newState.allVideos[action.videoId]
-            if(newState.singleVideo.id === action.videoId) newState.singleVideo = {}
+            delete newState[action.videoId]
             return newState
         
         default:
