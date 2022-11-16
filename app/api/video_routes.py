@@ -126,7 +126,7 @@ def edit_comment(comment_id):
 
 #delete a comment
 @video_routes.route('/comments/<int:comment_id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_comment(comment_id):
     import pdb; pdb.set_trace()
     comment = Comment.query.get(comment_id)
