@@ -1,1 +1,33 @@
 /* TODO Add site wide styles */
+* {
+    font-family: 'Roboto, Arial, sans-serif';
+    text-decoration: none;
+}
+
+.flx-row-space-btw {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pos-rel{
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+.flx-col-justify-align-ctr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flx-row-justify-align-ctr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
