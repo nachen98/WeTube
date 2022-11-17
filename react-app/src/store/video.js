@@ -106,9 +106,9 @@ export const deleteVideo = (videoId) => async(dispatch)=>{
     }
 }
 
-
+const initialState={}
 //reducer
-const videosReducer = (state, action) => {
+const videosReducer = (state=initialState, action) => {
     let newState= {...state}
     switch(action.type){
         case GET_ALL_VIDEOS:

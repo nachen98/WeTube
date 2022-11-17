@@ -5,7 +5,7 @@ import VideoCards from '../VideoCards/VideoCards';
 import "./VideosList.css"
 const VideosList = () => {
     const dispatch = useDispatch();
-    const videosList = useSelector(state=> state.videos)
+    const videosList = useSelector(state=> state.videosReducer)
     console.log("videoList!!!!!!!!!!!!!", videosList)
     const videos = Object.values(videosList)
 
