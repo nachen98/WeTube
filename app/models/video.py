@@ -22,6 +22,7 @@ class Video(db.Model):
             'title': self.title,
             'description': self.description, 
             'thumbnail_pic': self.thumbnail_pic,
+            'body':self.body,
             'user': self.user.to_dict(),
             'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,

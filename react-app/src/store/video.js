@@ -42,6 +42,7 @@ const deleteOneVideo = (videoId) => {
 //thunk action creator
 export const getAllVideos = () => async(dispatch) => {
     const response = await fetch('/api/videos')
+    console.log("response!!!!!!!!!!!", response)
     if(response.ok){
         const videos=await response.json()
         console.log('videos!!!!!!!!!!!!!', videos)
