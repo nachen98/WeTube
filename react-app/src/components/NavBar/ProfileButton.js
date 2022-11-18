@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import * as sessionActions from '../../store/session';
 import LogoutButton from "../auth/LogoutButton";
 
 function ProfileButton({ user }) {
@@ -26,14 +25,16 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
- 
-
+  const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
+  const colorInd = user.id % COLORS.length
+  console.log('user.username!!!!!!!!!!!!!!!', user.username)
+  const userName = user.usernamme
+  const firstLetter=userName[0]
   return (
     <>
       {/* <CreateVideoModal /> */}
-      <button onClick={openMenu} className='profile-button'>
-        <i className="fa-solid fa-bars"></i>
-        <i className="fas fa-user-circle" />
+      <button onClick={openMenu} className={`profile-icon ${COLORS[colorInd]}-bg`}>
+        {firstLetter}
       </button>
       {showMenu && (
         <div className="div-profile-dropdown">

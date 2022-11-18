@@ -31,3 +31,23 @@
     justify-content: center;
     align-items: center;
 }
+
+.gray-bg {
+    background-color: #757e8a;
+}
+
+.purple-bg {
+    background-color: #5865f2;
+}
+
+.red-bg {
+    background-color: #ed4245;
+}
+
+.yellow-bg {
+    background-color: #faa61a;
+}
+
+.green-bg {
+    background-color: #3ba55c;
+}

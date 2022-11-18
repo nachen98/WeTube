@@ -14,6 +14,8 @@ export default function VideoCards({ video }) {
                 light={video.thumbnail_pic}
                 width="100%"
                 height="100%"
+                playing
+                playIcon={<button>Play</button>}
                 controls={true}
             />
         <div className='link-for-video'>
