@@ -7,11 +7,12 @@ from app.models import User, Video, Comment, db
 from datetime import datetime
 
 video_routes = Blueprint('videos', __name__)
-
+print("here &&&&&&&&& "*10)
 #get all the videos
 @video_routes.route('/')
 def get_all_videos():
     print("hello!!!!!!!!!!!!")
+    import pdb;pdb.set_trace()
     videos = Video.query.all()
  
     data = [video.to_dict() for video in videos]
@@ -20,6 +21,8 @@ def get_all_videos():
 #get one video by id
 @video_routes.route('/<int:video_id>')
 def get_video_by_id(video_id):
+    print(f"{video_id=}")
+    import pdb;pdb.set_trace()
     video = Video.query.get(video_id)
     return video.to_dict(), 200
 

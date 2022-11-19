@@ -52,7 +52,7 @@ export const getAllVideos = () => async(dispatch) => {
 
 export const getOneVideo = (videoId) => async(dispatch) => {
     const response = await fetch(`/api/videos/${videoId}`)
-
+    console.log("response", response)
     if (response.ok){
         const oneVideo = await response.json()
         dispatch(loadOneVideo(oneVideo))

@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import VideosList from './components/VideosList/VideosList';
+import { SingleVideo } from './components/SingleVideo/SingleVideo';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
         <Route exact path="/">
           <NavBar />
           <VideosList/>
+        </Route>
+        <Route exact path="/videos/:videoId">
+          <SingleVideo />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
