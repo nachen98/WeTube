@@ -11,31 +11,34 @@ import { getProfileIcon } from "../../util/helper"
 
 export function SingleVideo(){
     const {videoId} = useParams();
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
     const history = useHistory()
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
-    console.log('onevideo!!!!!!!!!!!', video)
+    console.log('onevideo!!!!!!!!!!!', video, videos)
     const currUser = useSelector(state => state.session.user)
     const comments = useSelector(state => state.commentsReducer)
     const playerRef = React.useRef(null)
     
+    const numComments = comments.length()
+    console.log("number of comments!!!!!!!!!", numComments)
     const commentsBody = Object.values(comments)
-
     useEffect(()=>{
         dispatch(getOneVideo(videoId))
-        //dispatch(getAllComments())
-    }, [dispatch, videoId])
+        dispatch(getAllComments())
+    }, [])
 
     let currUserIsOwner = false;
-    if (currUser && "id" in currUser && currUser.id === video.userId) currUserIsOwner = true;
+    console.log(currUser, "$$$$$$$$$$$$$$")
+    console.log(video, "&&&&&&&&&&&&&&&&&")
+    if (!(video===null || video===null)) currUserIsOwner = true;
 
     const deleteVideoButton = async (e) => {
         e.preventDefault();
         await dispatch(deleteVideo(videoId))
         history.push('/')
     }
-    if (Object.keys(video).length === 0) return null
+    if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
 
     
     return (
@@ -44,19 +47,32 @@ export function SingleVideo(){
                 className="react-player"
                 ref={playerRef}
                 url={video.body}
-                light={video.thumbnail_pic}
-                width="100%"
-                height="100%"
-                playing
-                playIcon={<button>Play</button>}
                 controls={true}
             />
+                <div id="video-title">
+                    {video.title}
+                </div>
              
                 <div>
                     {getProfileIcon(video.user)}
                 </div>
-                <div id="video-title">
-                        {video.title}
+                <div id="video-description">
+                    {video.description}
+                </div>
+                <div id="num-comments">
+                    {numComments} Comments
+                </div>
+
+                <div id="profile-icon">
+                    {getProfileIcon(currUser)}
+                </div>
+
+                {!currUserIsOwner && (
+                    <CreateCommentFrom videoId = {videoId}/>
+                )}
+
+                <div id="side-videos"> 
+                    <SideVideos/>
                 </div>
         </div>
     )

@@ -11,10 +11,10 @@ const loadVideos = (videos) => {
     }
 }
 
-const loadOneVideo = (videoId) => {
+const loadOneVideo = (video) => {
     return {
         type: GET_ONE_VIDEO_BY_ID,
-        videoId
+        video
     }
 }
 
@@ -52,7 +52,10 @@ export const getAllVideos = () => async(dispatch) => {
 
 export const getOneVideo = (videoId) => async(dispatch) => {
     const response = await fetch(`/api/videos/${videoId}`)
-    console.log("response", response)
+    .catch(res=>{
+        console.log("errror", res)
+        return res
+    })
     if (response.ok){
         const oneVideo = await response.json()
         dispatch(loadOneVideo(oneVideo))
@@ -116,7 +119,7 @@ const videosReducer = (state=initialState, action) => {
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
-            newState = action.videoId
+            newState[action.video.id]= action.video
             return newState;
         
         case CREATE_ONE_VIDEO:
