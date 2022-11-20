@@ -8,30 +8,34 @@ import { deleteVideo, getOneVideo } from '../../store/video';
 import { getAllComments } from '../../store/comment';
 import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
+import { CreateCommentForm } from "../CreateComment/CreateComment";
+
 
 export function SingleVideo(){
     const {videoId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory()
+
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
     console.log('onevideo!!!!!!!!!!!', video, videos)
-    const currUser = useSelector(state => state.session.user)
-    const comments = useSelector(state => state.commentsReducer)
-    const playerRef = React.useRef(null)
     
-    const numComments = comments.length()
+    const currUser = useSelector(state => state.session.user)
+    
+    const comments = useSelector(state => state.commentsReducer)
+    console.log('comments$$$$$$$$$$$$$$$', comments)
+    
+    const commentContents = Object.values(comments.video)
+    const numComments = commentContents.length
+    const playerRef = React.useRef(null)
     console.log("number of comments!!!!!!!!!", numComments)
-    const commentsBody = Object.values(comments)
     useEffect(()=>{
         dispatch(getOneVideo(videoId))
-        dispatch(getAllComments())
-    }, [])
+        dispatch(getAllComments(videoId))
+    }, [videoId])
 
     let currUserIsOwner = false;
-    console.log(currUser, "$$$$$$$$$$$$$$")
-    console.log(video, "&&&&&&&&&&&&&&&&&")
-    if (!(video===null || video===null)) currUserIsOwner = true;
+    if (currUser && "id" in currUser && currUser.id === video.user.id) currUserIsOwner = true;
 
     const deleteVideoButton = async (e) => {
         e.preventDefault();
@@ -63,17 +67,21 @@ export function SingleVideo(){
                     {numComments} Comments
                 </div>
 
-                <div id="profile-icon">
-                    {getProfileIcon(currUser)}
-                </div>
+               
 
-                {!currUserIsOwner && (
-                    <CreateCommentFrom videoId = {videoId}/>
+                {!currUserIsOwner &&(
+                    <CreateCommentForm videoId = {videoId}/>
                 )}
+                
+                 {/* <div id="comment-outer-container">
+                    {commentContents.map(commentContent=> {
+                        return (<VideoComment key={commentContent.id} commentContent={commentContent}/>)
+                    })}
+                </div> */}
 
-                <div id="side-videos"> 
+                {/* <div id="side-videos"> 
                     <SideVideos/>
-                </div>
+                </div>  */}
         </div>
     )
 }

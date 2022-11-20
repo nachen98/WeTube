@@ -79,10 +79,9 @@ def delete_video(video_id):
 @video_routes.route('/<int:video_id>/comments')
 def get_all_comments(video_id):
     comments = Comment.query.filter( Comment.video_id == video_id ).all()
-    # print('hello!!!!!!!!!!')
-    # print('video_id!!!!!!!!', video_id)
-    # data=[]
+    print('comments$$$$$$$$$$$$', comments)
     data = [comment.to_dict() for comment in comments]
+    print('comment data!!!!!', data)
     return {"Comments": data}, 200
 
 #post a comment

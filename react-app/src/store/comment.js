@@ -33,6 +33,7 @@ const deleteComment = (commentId)=> {
 
 export const getAllComments =(videoId) => async(dispatch) =>{
     const response = await fetch(`/api/videos/${videoId}/comments`);
+    console.log(response, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     if(response.ok){
         const comments = await response.json()
         dispatch(getCommentsByVideo(comments))
@@ -94,11 +95,12 @@ const commentsReducer = (state=initialState, action) => {
     let newState = {...state}
     switch(action.type){
         case GET_ALL_COMMENTS_BY_VIDEO:
-            const allReviews={}
+            console.log("runs here!!!!!!!!!!!")
+            const allComments={}
             action.comments.Comments.forEach((comment)=>{
-                allReviews[comment.id] = comment
+                allComments[comment.id] = comment
             })
-            newState.video = allReviews
+            newState.video = allComments
             return newState
         
         case CREATE_ONE_COMMENT:

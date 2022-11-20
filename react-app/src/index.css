@@ -1,7 +1,8 @@
 /* TODO Add site wide styles */
 * {
-    font-family: 'Roboto, sans-serif';
+    font-family: 'Roboto';
     text-decoration: none;
+    color: black
 }
 
 .flx-row-space-btw {
@@ -50,4 +51,8 @@
 
 .green-bg {
     background-color: #3ba55c;
+}
+
+.display-none{
+    display: none
 }
