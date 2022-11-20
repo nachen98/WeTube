@@ -12,7 +12,7 @@ export function CreateCommentForm(){
     
     const hidden="display-none"
     const currUser = useSelector(state=> state.session.user)
-    console.log(currUser, 'xxxxxxxxxxxxxxxxxxxxxxx')
+
     const [comment, setComment] = useState("")
     const [disabled, setDisabled] = useState(true)
 
@@ -41,7 +41,7 @@ export function CreateCommentForm(){
    
     return(
         <div id="form-container">
-            <div id="profile-icon">
+            <div >
                     {getProfileIcon(currUser)}
             </div>
             <div id="comment-content">

@@ -33,7 +33,6 @@ const deleteComment = (commentId)=> {
 
 export const getAllComments =(videoId) => async(dispatch) =>{
     const response = await fetch(`/api/videos/${videoId}/comments`);
-    console.log(response, "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     if(response.ok){
         const comments = await response.json()
         dispatch(getCommentsByVideo(comments))

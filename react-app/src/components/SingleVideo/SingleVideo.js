@@ -9,7 +9,7 @@ import { getAllComments } from '../../store/comment';
 import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
 import { CreateCommentForm } from "../CreateComment/CreateComment";
-
+import {VideoComment} from "../VideoComment/VideoComment";
 
 export function SingleVideo(){
     const {videoId} = useParams();
@@ -28,7 +28,7 @@ export function SingleVideo(){
     const commentContents = Object.values(comments.video)
     const numComments = commentContents.length
     const playerRef = React.useRef(null)
-    console.log("number of comments!!!!!!!!!", numComments)
+    
     useEffect(()=>{
         dispatch(getOneVideo(videoId))
         dispatch(getAllComments(videoId))
@@ -43,8 +43,6 @@ export function SingleVideo(){
         history.push('/')
     }
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
-
-    console.log('videoDate!!!!!!!!!!!!', video.created_at)
     
     return (
         <div className="player-wrapper">
@@ -74,11 +72,11 @@ export function SingleVideo(){
                     <CreateCommentForm videoId = {videoId}/>
                 )}
                 
-                {/* <div id="comment-outer-container">
+                <div id="comment-outer-container">
                     {commentContents.map(commentContent=> {
                         return (<VideoComment key={commentContent.id} commentContent={commentContent}/>)
                     })}
-                </div> */}
+                </div>
 
                 {/* <div id="side-videos"> 
                     <SideVideos/>

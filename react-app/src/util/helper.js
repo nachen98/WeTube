@@ -21,6 +21,9 @@ export const getProfileIcon=(user)=>{
     )
 }
 
+export function formatDate(stringDate) {
+     return stringDate.slice(0, -3)
+}
 export function timeDifference(current, previous) {
     
     var msPerMinute = 60 * 1000;
