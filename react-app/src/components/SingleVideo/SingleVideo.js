@@ -18,12 +18,12 @@ export function SingleVideo(){
 
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
-    console.log('onevideo!!!!!!!!!!!', video, videos)
+    
     
     const currUser = useSelector(state => state.session.user)
     
     const comments = useSelector(state => state.commentsReducer)
-    console.log('comments$$$$$$$$$$$$$$$', comments)
+
     
     const commentContents = Object.values(comments.video)
     const numComments = commentContents.length
@@ -44,6 +44,7 @@ export function SingleVideo(){
     }
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
 
+    console.log('videoDate!!!!!!!!!!!!', video.created_at)
     
     return (
         <div className="player-wrapper">
@@ -56,7 +57,7 @@ export function SingleVideo(){
                 <div id="video-title">
                     {video.title}
                 </div>
-             
+                
                 <div>
                     {getProfileIcon(video.user)}
                 </div>
@@ -73,7 +74,7 @@ export function SingleVideo(){
                     <CreateCommentForm videoId = {videoId}/>
                 )}
                 
-                 {/* <div id="comment-outer-container">
+                {/* <div id="comment-outer-container">
                     {commentContents.map(commentContent=> {
                         return (<VideoComment key={commentContent.id} commentContent={commentContent}/>)
                     })}

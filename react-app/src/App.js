@@ -40,6 +40,7 @@ function App() {
           <VideosList/>
         </Route>
         <Route exact path="/videos/:videoId">
+          <NavBar />
           <SingleVideo />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
