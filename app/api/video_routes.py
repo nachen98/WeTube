@@ -5,7 +5,7 @@ from app.forms.videos_form import VideoForm
 from app.forms.comments_form import CommentForm
 from app.models import User, Video, Comment, db
 from datetime import datetime
-
+import pdb, time, json
 video_routes = Blueprint('videos', __name__)
 #get all the videos
 @video_routes.route('/')
@@ -49,10 +49,10 @@ def create_video():
 @video_routes.route('/<int:video_id>', methods=['POST'])
 @login_required
 def edit_video(video_id):
-    video=Video.query.get(video_id)
-
+    video=Video.query(video_id=video_id).get()
+    #import pdb;pdb.set_trace()
     if video is not None:
-        form=VideoForm()
+        form=VideoForm(request.form, obj=video)
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             form.populate_obj(video)
@@ -88,7 +88,8 @@ def get_all_comments(video_id):
 @video_routes.route('/<int:video_id>/comments', methods=['POST'])
 @login_required
 def post_comment(video_id):
-
+    print("gets here!!!!!!!!!!")
+    #pdb.set_trace()
     form=CommentForm()
     form['csrf_token'].data=request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -99,10 +100,8 @@ def post_comment(video_id):
         comment.video_id = video_id
         comment.created_at=datetime.now()
         comment.updated_at=datetime.now()
-   
         db.session.add(comment)
         db.session.commit()
-
         return comment.to_dict()
     
     else:
@@ -112,15 +111,17 @@ def post_comment(video_id):
 @video_routes.route('/comments/<int:comment_id>', methods=['POST'])
 @login_required
 def edit_comment(comment_id):
+    #import pdb; pdb.set_trace()
     comment = Comment.query.get(comment_id)
     if comment is not None:
         form=CommentForm()
         form['csrf_token'].data=request.cookies['csrf_token']
+        form.populate_obj(comment)
         if form.validate_on_submit():
-            form.populate_obj(comment)
             db.session.commit()
             return comment.to_dict(), 200
         return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+    
     else:
         return {"errors": "comment not found"}, 404
 

@@ -39,22 +39,26 @@ export const getAllComments =(videoId) => async(dispatch) =>{
     }
 }
 
-export const addComment = (videoId, commentBody)=>async(dispatch)=>{
+export const addComment = (videoId, content)=>async(dispatch)=>{
     const response = await fetch(`/api/videos/${videoId}/comments`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
 
         },
-        body: JSON.stringify(commentBody)
-    }).catch(res=>res)
+        body: JSON.stringify({"content": content})
+    })
 
+    console.log("response*************", response)
     if(response.ok){
-        const newComment = response.json()
+        const newComment = await response.json()
+        console.log("no error##############", newComment)
         dispatch(createComment(newComment))
+        console.log("no error##############222", newComment)
         return newComment
     }else{
         const result = await response.json();
+        console.log("error##############", result)
         return result
     }
 }
@@ -65,12 +69,12 @@ export const editComment = (commentId, commentBody) => async(dispatch)=> {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(commentBody)
+        body: JSON.stringify({"content": commentBody})
     
     }).catch(res=>res)
 
     if(response.ok){
-        const updatedComment = response.json()
+        const updatedComment = await response.json()
         dispatch(updateComment(updatedComment))
         return updatedComment
     }else{
@@ -103,6 +107,7 @@ const commentsReducer = (state=initialState, action) => {
             return newState
         
         case CREATE_ONE_COMMENT:
+            console.log(action, state, "####################")
             newState={video:{...state.video}, user:{...state.user}}
             newState.video[action.comment.id] = action.comment
             return newState

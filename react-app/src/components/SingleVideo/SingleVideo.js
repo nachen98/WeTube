@@ -10,6 +10,7 @@ import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
 import { CreateCommentForm } from "../CreateComment/CreateComment";
 import {VideoComment} from "../VideoComment/VideoComment";
+import { currUserIsOwner } from "../../util/helper";
 
 export function SingleVideo(){
     const {videoId} = useParams();
@@ -34,8 +35,7 @@ export function SingleVideo(){
         dispatch(getAllComments(videoId))
     }, [videoId])
 
-    let currUserIsOwner = false;
-    if (currUser && "id" in currUser && currUser.id === video.user.id) currUserIsOwner = true;
+    let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video.user.id);
 
     const deleteVideoButton = async (e) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ export function SingleVideo(){
                
 
                 {!currUserIsOwner &&(
-                    <CreateCommentForm videoId = {videoId}/>
+                    <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment"/>
                 )}
                 
                 <div id="comment-outer-container">

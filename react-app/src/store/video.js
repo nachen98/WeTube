@@ -119,6 +119,7 @@ const videosReducer = (state=initialState, action) => {
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
+            console.log(action, "actionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
             newState[action.video.id]= action.video
             return newState;
         

@@ -14,6 +14,7 @@ export const onErrorLoadDiscLogoHandler = (e) => {
 
 export const getProfileIcon=(user)=>{
     const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
+    console.log(user, "user##################")
     const colorInd = user.id % COLORS.length
     const firstLetter=user.username[0]
     return (
@@ -22,17 +23,20 @@ export const getProfileIcon=(user)=>{
 }
 
 export function formatDate(stringDate) {
+     console.log(stringDate, "DATE@@@@@@@@@@@@@@@@@@@")
+     if(stringDate===undefined)
+          stringDate = new Date().toDateString()
      return stringDate.slice(0, -3)
 }
 export function timeDifference(current, previous) {
     
-    var msPerMinute = 60 * 1000;
-    var msPerHour = msPerMinute * 60;
-    var msPerDay = msPerHour * 24;
-    var msPerMonth = msPerDay * 30;
-    var msPerYear = msPerDay * 365;
+    let msPerMinute = 60 * 1000;
+    let msPerHour = msPerMinute * 60;
+    let msPerDay = msPerHour * 24;
+    let msPerMonth = msPerDay * 30;
+    let msPerYear = msPerDay * 365;
     
-    var elapsed = current - previous;
+    let elapsed = current - previous;
     
     if (elapsed <= 10000) return "just now";
 
@@ -49,14 +53,14 @@ export function timeDifference(current, previous) {
     }
 
     else if (elapsed < msPerMonth) {
-         return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+         return Math.round(elapsed/msPerDay) + ' days ago';   
     }
     
     else if (elapsed < msPerYear) {
-         return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';   
+         return Math.round(elapsed/msPerMonth) + ' months ago';   
     }
     
     else {
-         return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+         return Math.round(elapsed/msPerYear ) + ' years ago';   
     }
 }

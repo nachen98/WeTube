@@ -1,45 +1,61 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './VideoComment.css'
-import { useParams } from "react-router-dom";
+
 import { getProfileIcon } from "../../util/helper";
 import { formatDate } from "../../util/helper";
 import { timeDifference } from "../../util/helper";
+import { EditDeleteDropDown } from "../EditDeleteCommentDropDown/EditDeleteDropDown";
+import { CreateCommentForm } from "../CreateComment/CreateComment";
 
 export function VideoComment({commentContent}){
     console.log("content!!!!!!!!!!", commentContent)
-    const {videoId} = useParams()
-    const dispatch = useDispatch()
+ 
     const currUser = useSelector(state=>state.session.user)
-
+    const [editable, setEditable] = useState(false)
+    let currUserIsOwner = (currUser && "id" in currUser && commentContent && "user" in commentContent && currUser.id === commentContent.user.id);
+    
     const current = new Date()
     
     const uploadedTime = new Date(formatDate(commentContent.created_at))
+    const updatedTime = new Date(formatDate(commentContent.updated_at))
 
-    const formatedTime = timeDifference(current, uploadedTime)
+    const formatedUploadedTime = timeDifference(current, uploadedTime)
+    const formatedUpdateTime = timeDifference(current, updatedTime)
 
     return (
         <div id="comment-container">
-            <div id="individual-comment">
-                <div id="profile-icon">
+            {!editable && (
+                <div id="individual-comment">
+                    <div id="profile-icon">
 
-                    {getProfileIcon(commentContent.user)}
+                        {getProfileIcon(commentContent.user)}
+                    </div>
+
+                    <div id="comment-username">
+                        {commentContent.user.username}
+                    </div>
+
+                    <div id="posted-time">
+                        {formatedUpdateTime}
+
+                    </div>
+
+                    <div id="comment-content">
+                        {commentContent.content}
+                    </div>
+
+                    <div id="edit-delete-comment-icon">
+                        {currUserIsOwner&&(
+                            <EditDeleteDropDown commentContent={commentContent} setEditable={setEditable}/>
+                        )}
+                    </div>
+                
                 </div>
+            )}
+            {editable && <CreateCommentForm videoId={commentContent.video_id} commentId={commentContent.id} content={commentContent.content} placeholder="" buttonName="Save" setEditable={setEditable}/>
 
-                <div id="comment-username">
-                    {commentContent.user.username}
-                </div>
-
-                <div id="posted-time">
-                    {formatedTime}
-
-                </div>
-
-                <div id="comment-content">
-                    {commentContent.content}
-                </div>
-            </div>
-
+            }
         </div>
     )
 }

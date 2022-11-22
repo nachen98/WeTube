@@ -1,40 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./CreateComment.css"
+import "./EditComment.css"
 import { useParams } from "react-router-dom";
-import { addComment, editComment } from "../../store/comment";
+import { editComment } from "../../store/comment";
 import { getOneVideo } from "../../store/video";
 import { getProfileIcon } from "../../util/helper";
-export function CreateCommentForm({videoId, commentId, formatedTime, content, placeholder, buttonName, setEditable}){
+
+export function EditComment( {commentContent }){
+    const {commentId} = useParams()
     const dispatch = useDispatch()
-    
+    const oldContent = commentContent.content
     const hidden="display-none"
     const currUser = useSelector(state=> state.session.user)
-    const [comment, setComment] = useState(content)
+
+    const [comment, setComment] = useState("")
     const [disabled, setDisabled] = useState(true)
 
     const handleCancel=(e)=> {
         e.preventDefault()
         setComment("")
-        setEditable(false)
-        document.getElementById("buttons_").className=hidden
+        document.getElementById("_buttons_").className=hidden
     }
     const handleSubmit = (e)=> {
         e.preventDefault()
-        document.getElementById("buttons_").className=hidden
-        if(commentId>0){
-            dispatch(editComment(commentId, comment))
-             .then(()=>dispatch(getOneVideo(videoId)))
-             .then(()=>setEditable(false))
-
-        }else{
-            dispatch(addComment(videoId, comment))
-             .then(()=>dispatch(getOneVideo(videoId)))
-             .then(()=>setComment(""))
-        }
-    
-    
         
+        dispatch(editComment(commentId, comment))
+             .then(()=>dispatch(getOneVideo(commentContent.video.id)))
+        
+        setComment("")
         // dispatch (addComment(videoId, comment)).then(
         //     async(res) => {
         //         if(res && res.errors){
@@ -63,21 +56,18 @@ export function CreateCommentForm({videoId, commentId, formatedTime, content, pl
             <div >
                     {getProfileIcon(currUser)}
             </div>
-            {/* <div>
-                {formatedTime}
-            </div> */}
             <div id="comment-content">
                 <form>
                     <input
                         type="text"
                         value={comment}
-                        onFocus={()=>{document.getElementById("buttons_").className=""}}
-                        placeholder={placeholder}
+                        onFocus={()=>{document.getElementById("_buttons_").className=""}}
+                        placeholder={oldContent}
                         onChange={(e)=> setComment(e.target.value)}
                     />
-                    <div id="buttons_" className={commentId===0?"display-none":""}>
-                        <button type="submit"  onClick={handleCancel}>Cancel</button>
-                        <button type="submit" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
+                    <div id="_buttons_" className="">
+                        <button type="submit" disabled={disabled} onClick={handleSubmit}>SAVE</button>
+                        <button type="submit"  onClick={handleCancel}>CANCEL</button>
                     </div>
                 </form>
             </div>
