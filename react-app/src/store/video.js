@@ -41,7 +41,7 @@ const deleteOneVideo = (videoId) => {
 
 //thunk action creator
 export const getAllVideos = () => async(dispatch) => {
-    const response = await fetch('/api/videos')
+    const response = await fetch('/api/videos/')
     .catch(res=>{
         console.log("error", res)
         return res
@@ -67,7 +67,7 @@ export const getOneVideo = (videoId) => async(dispatch) => {
 }
 
 export const addVideo =(videoBody, user) => async(dispatch) => {
-    const response = await fetch (`/api/videos`, {
+    const response = await fetch (`/api/videos/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
