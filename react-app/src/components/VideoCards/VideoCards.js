@@ -9,11 +9,7 @@ import { timeDifference } from "../../util/helper"
 export default function VideoCards({ video }) {
     const playerRef = React.useRef(null)
 
-    const current = new Date()
-    
-    const uploadedTime = new Date(formatDate(video.created_at))
-
-    const formatedTime = timeDifference(current, uploadedTime)
+    const formatedTime = timeDifference(video.created_at)
     return (
         <div className='link-for-video'>
             <Link to={`/videos/${video.id}`}>

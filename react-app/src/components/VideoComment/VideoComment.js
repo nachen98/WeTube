@@ -15,13 +15,7 @@ export function VideoComment({commentContent}){
     const [editable, setEditable] = useState(false)
     let currUserIsOwner = (currUser && "id" in currUser && commentContent && "user" in commentContent && currUser.id === commentContent.user.id);
     
-    const current = new Date()
-    
-    const uploadedTime = new Date(formatDate(commentContent.created_at))
-    const updatedTime = new Date(formatDate(commentContent.updated_at))
-
-    const formatedUploadedTime = timeDifference(current, uploadedTime)
-    const formatedUpdateTime = timeDifference(current, updatedTime)
+    const formatedUpdateTime = timeDifference(commentContent.updated_at)
 
     return (
         <div id="comment-container">
@@ -37,7 +31,7 @@ export function VideoComment({commentContent}){
                     </div>
 
                     <div id="posted-time">
-                        {formatedUpdateTime}
+                        { formatedUpdateTime}
 
                     </div>
 

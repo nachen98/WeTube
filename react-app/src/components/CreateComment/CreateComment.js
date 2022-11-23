@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 import { addComment, editComment } from "../../store/comment";
 import { getOneVideo } from "../../store/video";
 import { getProfileIcon } from "../../util/helper";
-export function CreateCommentForm({videoId, commentId, formatedTime, content, placeholder, buttonName, setEditable}){
+
+
+export function CreateCommentForm({videoId, commentId, content, placeholder, buttonName, setEditable}){
     const dispatch = useDispatch()
     
     const hidden="display-none"
@@ -16,12 +18,12 @@ export function CreateCommentForm({videoId, commentId, formatedTime, content, pl
     const handleCancel=(e)=> {
         e.preventDefault()
         setComment("")
-        setEditable(false)
-        document.getElementById("buttons_").className=hidden
+        if(setEditable !== undefined) setEditable(false)
+        document.getElementById(`buttons_${buttonName}`).className=hidden
     }
     const handleSubmit = (e)=> {
         e.preventDefault()
-        document.getElementById("buttons_").className=hidden
+        document.getElementById(`buttons_${buttonName}`).className=hidden
         if(commentId>0){
             dispatch(editComment(commentId, comment))
              .then(()=>dispatch(getOneVideo(videoId)))
@@ -63,19 +65,17 @@ export function CreateCommentForm({videoId, commentId, formatedTime, content, pl
             <div >
                     {getProfileIcon(currUser)}
             </div>
-            {/* <div>
-                {formatedTime}
-            </div> */}
+         
             <div id="comment-content">
                 <form>
                     <input
                         type="text"
                         value={comment}
-                        onFocus={()=>{document.getElementById("buttons_").className=""}}
+                        onFocus={()=>{document.getElementById(`buttons_${buttonName}`).className=""}}
                         placeholder={placeholder}
                         onChange={(e)=> setComment(e.target.value)}
                     />
-                    <div id="buttons_" className={commentId===0?"display-none":""}>
+                    <div id={`buttons_${buttonName}`} className={commentId===0?"display-none":""}>
                         <button type="submit"  onClick={handleCancel}>Cancel</button>
                         <button type="submit" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
                     </div>

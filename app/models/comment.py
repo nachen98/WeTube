@@ -1,6 +1,6 @@
 from .db import db
 from sqlalchemy import func
-
+from datetime import datetime
 class Comment(db.Model):
     __tablename__='comments'
 
@@ -8,8 +8,8 @@ class Comment(db.Model):
     content=db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     video_id = db.Column(db.Integer, db.ForeignKey("videos.id"), nullable=False)
-    created_at = db.Column(db.DateTime(), nullable=False, server_default=func.now())
-    updated_at = db.Column(db.DateTime(), nullable=False, server_default=func.now(), onupdate=func.now())
+    created_at = db.Column(db.DateTime(timezone=False), nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime(timezone=False), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = db.relationship("User", back_populates="comments")
     video = db.relationship("Video", back_populates="comments")

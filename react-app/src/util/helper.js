@@ -22,14 +22,9 @@ export const getProfileIcon=(user)=>{
     )
 }
 
-export function formatDate(stringDate) {
-     console.log(stringDate, "DATE@@@@@@@@@@@@@@@@@@@")
-     if(stringDate===undefined)
-          stringDate = new Date().toDateString()
-     return stringDate.slice(0, -3)
-}
-export function timeDifference(current, previous) {
-    
+export function timeDifference(previous) {
+    previous = new Date(previous.slice(0, -4))
+    let current = new Date()
     let msPerMinute = 60 * 1000;
     let msPerHour = msPerMinute * 60;
     let msPerDay = msPerHour * 24;
@@ -37,6 +32,7 @@ export function timeDifference(current, previous) {
     let msPerYear = msPerDay * 365;
     
     let elapsed = current - previous;
+    console.log("current, previous, elapsed!!!!!!!!!!", current.toLocaleString(), previous.toLocaleString(), elapsed)
     
     if (elapsed <= 10000) return "just now";
 

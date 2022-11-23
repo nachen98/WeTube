@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { EditComment } from "../EditComment/EditComment";
+import DeleteCommentModal from "../DeleteCommentModal";
+import { Modal } from '../../context/Modal';
 
 export function EditDeleteDropDown ({commentContent, setEditable}){
     
     const [showMenu, setShowMenu] = useState(false);
+    const [showCommentDeleteModal, setShowCommentDeleteModal] = useState(false)
 
     const openMenu=()=> {
         if(showMenu) return;
@@ -37,13 +39,16 @@ export function EditDeleteDropDown ({commentContent, setEditable}){
                   </button>
                 </div>
                 
-                {/* <div id="delete-comment-button">
-                  <button onClick={<DeleteComment commentContent={commentContent}/>}>Delete
-                    <i class="fa-regular fa-trash-can"></i>
-                    Delete
-                  </button>
-                </div> */}
-                
+                {showMenu && (
+                  <>
+                    <button onClick={() => setShowCommentDeleteModal(true)}>
+                     <i class="fa-regular fa-trash-can"></i>
+                     Delete
+                    </button>
+                    {/* <DeleteCommentModal commentContent={commentContent} showCommentDeleteModal={showCommentDeleteModal} setShowCommentDeleteModal={setShowCommentDeleteModal} /> */}
+                  </>
+                     
+                )}
               </div>
             )}
         </>
