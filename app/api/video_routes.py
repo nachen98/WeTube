@@ -10,8 +10,8 @@ video_routes = Blueprint('videos', __name__)
 #get all the videos
 @video_routes.route('/')
 def get_all_videos():
-    print("videos!!!!!!!!!!!!!!!!", videos)
     videos = Video.query.all()
+    print("videos!!!!!!!!!!!!!!!!", videos)
     print("data!!!!!!!!!!!!!!!!!!", data)
     data = [video.to_dict() for video in videos]
     return {"Videos": data}, 200

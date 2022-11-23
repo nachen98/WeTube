@@ -1,0 +1,381 @@
+2022-11-22T00:00:45.749590+00:00 app[api]: Update DATABASE by heroku-postgresql by user nachen98@gmail.com
+2022-11-22T00:00:45.749590+00:00 app[api]: Release v11 created by user nachen98@gmail.com
+2022-11-22T00:00:46.024824+00:00 heroku[web.1]: State changed from down to starting
+2022-11-22T00:00:58.016456+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-22T00:00:59.082691+00:00 app[web.1]: [2022-11-22 00:00:59 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-22T00:00:59.083040+00:00 app[web.1]: [2022-11-22 00:00:59 +0000] [5] [INFO] Listening at: http://0.0.0.0:48072 (5)
+2022-11-22T00:00:59.083077+00:00 app[web.1]: [2022-11-22 00:00:59 +0000] [5] [INFO] Using worker: sync
+2022-11-22T00:00:59.086218+00:00 app[web.1]: [2022-11-22 00:00:59 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-22T00:00:59.246621+00:00 heroku[web.1]: State changed from starting to up
+2022-11-22T00:31:45.239587+00:00 app[api]: Scaled to web@1:Eco by user nachen98@gmail.com
+2022-11-22T00:31:45.316275+00:00 heroku[web.1]: State changed from up to down
+2022-11-22T00:31:46.220253+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-22T00:31:46.448194+00:00 heroku[web.1]: Process exited with status 143
+2022-11-22T00:31:58.949695+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-22T00:32:01.059947+00:00 app[web.1]: [2022-11-22 00:32:01 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-22T00:32:01.060468+00:00 app[web.1]: [2022-11-22 00:32:01 +0000] [5] [INFO] Listening at: http://0.0.0.0:23496 (5)
+2022-11-22T00:32:01.060529+00:00 app[web.1]: [2022-11-22 00:32:01 +0000] [5] [INFO] Using worker: sync
+2022-11-22T00:32:01.063846+00:00 app[web.1]: [2022-11-22 00:32:01 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-22T00:32:01.194016+00:00 heroku[web.1]: State changed from starting to up
+2022-11-22T01:36:43.748806+00:00 heroku[web.1]: Idling
+2022-11-22T01:36:43.751411+00:00 heroku[web.1]: State changed from up to down
+2022-11-22T01:36:44.499096+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-22T01:36:44.741713+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T07:17:34.595706+00:00 app[api]: Deployed web (8d37207138c8) by user nachen98@gmail.com
+2022-11-23T07:17:34.595706+00:00 app[api]: Release v12 created by user nachen98@gmail.com
+2022-11-23T07:17:34.889591+00:00 heroku[web.1]: State changed from down to starting
+2022-11-23T07:17:37.655132+00:00 app[api]: Starting process with command `flask db upgrade` by user nachen98@gmail.com
+2022-11-23T07:17:46.606692+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T07:17:47.692948+00:00 app[web.1]: [2022-11-23 07:17:47 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T07:17:47.693389+00:00 app[web.1]: [2022-11-23 07:17:47 +0000] [5] [INFO] Listening at: http://0.0.0.0:44983 (5)
+2022-11-23T07:17:47.693484+00:00 app[web.1]: [2022-11-23 07:17:47 +0000] [5] [INFO] Using worker: sync
+2022-11-23T07:17:47.697181+00:00 app[web.1]: [2022-11-23 07:17:47 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T07:17:47.834459+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T07:17:52.982316+00:00 heroku[run.6480]: State changed from starting to up
+2022-11-23T07:17:53.107638+00:00 heroku[run.6480]: Awaiting client
+2022-11-23T07:17:53.131350+00:00 heroku[run.6480]: Starting process with command `flask db upgrade`
+2022-11-23T07:17:57.961539+00:00 heroku[run.6480]: Process exited with status 0
+2022-11-23T07:17:57.962752+00:00 heroku[run.6480]: Client connection closed. Sending SIGHUP to all processes
+2022-11-23T07:17:58.091419+00:00 heroku[run.6480]: State changed from up to complete
+2022-11-23T07:18:15.874678+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=abad47e1-4f94-453d-88b5-77a6786ba11b fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=2592 protocol=https
+2022-11-23T07:18:16.015502+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=e97d80d1-fbff-4c55-9063-169d79038c48 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T07:18:16.020987+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=19cc628f-7b4f-4661-8457-42bc1c636803 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=283775 protocol=https
+2022-11-23T07:18:16.113105+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=848af7a1-b2c1-4f2a-a7c9-0441e055825c fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=24147 protocol=https
+2022-11-23T07:18:16.575440+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=04a49976-372c-4e41-a36a-0fe272108f39 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T07:18:16.763270+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=84498efe-b375-4062-901a-006f213efeab fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T07:18:16.782866+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=48bff73d-2100-4c74-ad10-2c9c0786eb14 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=308 bytes=719 protocol=https
+2022-11-23T07:18:16.783332+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=c84f7b33-39ca-431a-99c4-1c8415f6ad80 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=4768 protocol=https
+2022-11-23T07:18:55.876692+00:00 app[api]: Starting process with command `flask seed all` by user nachen98@gmail.com
+2022-11-23T07:19:09.870688+00:00 heroku[run.9144]: State changed from starting to up
+2022-11-23T07:19:09.988689+00:00 heroku[run.9144]: Awaiting client
+2022-11-23T07:19:10.014619+00:00 heroku[run.9144]: Starting process with command `flask seed all`
+2022-11-23T07:19:17.008888+00:00 heroku[run.9144]: Process exited with status 0
+2022-11-23T07:19:17.010220+00:00 heroku[run.9144]: Client connection closed. Sending SIGHUP to all processes
+2022-11-23T07:19:17.075718+00:00 heroku[run.9144]: State changed from up to complete
+2022-11-23T07:19:25.724811+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=936ed213-9590-4265-bcdd-a99f8aa593e2 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=2592 protocol=https
+2022-11-23T07:19:25.860441+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=3f4c6adf-8807-432a-a3ad-d7ee51c7dd18 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=1728 protocol=https
+2022-11-23T07:19:25.869560+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=4b91b39b-90a0-46c9-a887-f816e4d325de fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=283775 protocol=https
+2022-11-23T07:19:25.967457+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=60168872-58f3-42fe-925b-c92cd6840c99 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=24147 protocol=https
+2022-11-23T07:19:26.345539+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=2a118ca7-3f6d-433a-aa59-9ecc8ce0336c fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T07:19:26.436536+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=9a6b9f3e-7f44-4eea-957c-c1d2feb1915e fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T07:19:26.459405+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=ad0105c6-0546-4369-8071-e65b06bd5b9f fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T07:19:26.460353+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=a1d6a809-0329-4a01-8b96-123df77f8e08 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:19:32.433885+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=b76e5631-7c07-4793-93aa-6c7c7f8ed19d fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T07:19:32.569014+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=a4e2aa63-0208-492a-8b6b-169123af15b2 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T07:19:32.591568+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=40aa1e69-1404-4ab9-b8b3-70dad85cd400 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24147 protocol=https
+2022-11-23T07:19:32.600676+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=b5c40e62-cb50-4d00-8cb8-83ba3457e4e2 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=283775 protocol=https
+2022-11-23T07:19:33.134539+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=e9212161-f672-4e33-bb47-f3a8c086e0b9 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T07:19:33.293031+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=315a80b5-de07-43d4-8bd4-59e88742fe54 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T07:19:33.312763+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=a723792a-69e7-45e4-979b-aeee2a40bbfd fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:19:41.393313+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=e0ac54d1-7253-41fe-aa0b-ed532f964402 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:19:42.042954+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js.map" host=wetube-nc.herokuapp.com request_id=fb2b7301-9248-45e2-b749-124dfb147407 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=60228 protocol=https
+2022-11-23T07:19:42.050694+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=525e4e7e-4f14-47b3-a694-cf909a9765f3 fwd="76.133.63.88" dyno=web.1 connect=0ms service=12ms status=200 bytes=908948 protocol=https
+2022-11-23T07:19:42.060132+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=40752e84-c9a7-4283-bbf8-847ca856f3cc fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T07:19:52.609983+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=020fc2d1-6179-444a-84f9-b7b9b37fd64b fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=2592 protocol=https
+2022-11-23T07:19:52.748688+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=96ed5118-66f5-4596-972a-f36a06420843 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T07:19:52.758345+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=468c7711-5f38-423f-9b3d-faca99de21bb fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=283775 protocol=https
+2022-11-23T07:19:52.762572+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=9548345c-c469-496a-8c4c-94cdc1b055dc fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24147 protocol=https
+2022-11-23T07:19:53.437986+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=16b27c39-c8ee-43b0-8403-25233f3342bc fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T07:19:53.448128+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js.map" host=wetube-nc.herokuapp.com request_id=5ecae322-7197-4d7c-90ac-605051c379fa fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=60228 protocol=https
+2022-11-23T07:19:53.453041+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=634f7304-d047-4b9e-8857-7afff0c303b1 fwd="76.133.63.88" dyno=web.1 connect=0ms service=9ms status=200 bytes=908948 protocol=https
+2022-11-23T07:19:53.536999+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=6fdbc845-7273-4c32-a333-d31208b05b5b fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=549 protocol=https
+2022-11-23T07:19:53.674492+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=2da10d7f-32e6-4ae6-8c7b-451177b30062 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T07:19:53.684269+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=702f2b27-02e6-4028-ac3e-1dcf11f668c5 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T07:19:53.699550+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=72291b57-02a1-43b8-8059-f7be159f3734 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:28:26.693962+00:00 app[web.1]: error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&
+2022-11-23T07:28:26.693986+00:00 app[web.1]: error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&
+2022-11-23T07:28:26.693986+00:00 app[web.1]: error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&
+2022-11-23T07:28:26.693987+00:00 app[web.1]: error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&
+2022-11-23T07:28:26.693989+00:00 app[web.1]: 2022-11-23 07:28:26,693 INFO sqlalchemy.engine.Engine select version()
+2022-11-23T07:28:26.694017+00:00 app[web.1]: 2022-11-23 07:28:26,693 INFO sqlalchemy.engine.Engine [raw sql] {}
+2022-11-23T07:28:26.700933+00:00 app[web.1]: 2022-11-23 07:28:26,700 INFO sqlalchemy.engine.Engine select current_schema()
+2022-11-23T07:28:26.700998+00:00 app[web.1]: 2022-11-23 07:28:26,700 INFO sqlalchemy.engine.Engine [raw sql] {}
+2022-11-23T07:28:26.703089+00:00 app[web.1]: 2022-11-23 07:28:26,703 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2022-11-23T07:28:26.703144+00:00 app[web.1]: 2022-11-23 07:28:26,703 INFO sqlalchemy.engine.Engine [raw sql] {}
+2022-11-23T07:28:26.705513+00:00 app[web.1]: 2022-11-23 07:28:26,705 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2022-11-23T07:28:26.707957+00:00 app[web.1]: 2022-11-23 07:28:26,707 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.hashed_password AS users_hashed_password, users.profile_pic AS users_profile_pic, users.created_at AS users_created_at, users.updated_at AS users_updated_at
+2022-11-23T07:28:26.707958+00:00 app[web.1]: FROM users
+2022-11-23T07:28:26.707960+00:00 app[web.1]: WHERE users.email = %(email_1)s
+2022-11-23T07:28:26.707961+00:00 app[web.1]: LIMIT %(param_1)s
+2022-11-23T07:28:26.708026+00:00 app[web.1]: 2022-11-23 07:28:26,707 INFO sqlalchemy.engine.Engine [generated in 0.00017s] {'email_1': 'demo@aa.io', 'param_1': 1}
+2022-11-23T07:28:26.712471+00:00 app[web.1]: 2022-11-23 07:28:26,712 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.hashed_password AS users_hashed_password, users.profile_pic AS users_profile_pic, users.created_at AS users_created_at, users.updated_at AS users_updated_at
+2022-11-23T07:28:26.712473+00:00 app[web.1]: FROM users
+2022-11-23T07:28:26.712473+00:00 app[web.1]: WHERE users.email = %(email_1)s
+2022-11-23T07:28:26.712474+00:00 app[web.1]: LIMIT %(param_1)s
+2022-11-23T07:28:26.712532+00:00 app[web.1]: 2022-11-23 07:28:26,712 INFO sqlalchemy.engine.Engine [cached since 0.004681s ago] {'email_1': 'demo@aa.io', 'param_1': 1}
+2022-11-23T07:28:26.898442+00:00 app[web.1]: 2022-11-23 07:28:26,898 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.hashed_password AS users_hashed_password, users.profile_pic AS users_profile_pic, users.created_at AS users_created_at, users.updated_at AS users_updated_at
+2022-11-23T07:28:26.898444+00:00 app[web.1]: FROM users
+2022-11-23T07:28:26.898444+00:00 app[web.1]: WHERE users.email = %(email_1)s
+2022-11-23T07:28:26.898445+00:00 app[web.1]: LIMIT %(param_1)s
+2022-11-23T07:28:26.898508+00:00 app[web.1]: 2022-11-23 07:28:26,898 INFO sqlalchemy.engine.Engine [cached since 0.1906s ago] {'email_1': 'demo@aa.io', 'param_1': 1}
+2022-11-23T07:28:26.901937+00:00 app[web.1]: 2022-11-23 07:28:26,901 INFO sqlalchemy.engine.Engine ROLLBACK
+2022-11-23T07:28:26.905895+00:00 heroku[router]: at=info method=POST path="/api/auth/login" host=wetube-nc.herokuapp.com request_id=2e0c9fcf-1e7c-4c76-a64d-00522e0ce9a9 fwd="76.133.63.88" dyno=web.1 connect=1ms service=306ms status=200 bytes=844 protocol=https
+2022-11-23T07:28:27.101604+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=f574d1d3-d7f6-4def-a0e8-38a8bf7e1a4b fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:28:29.353225+00:00 heroku[router]: at=info method=GET path="/login" host=wetube-nc.herokuapp.com request_id=f18d2f6e-491b-44ac-b8b0-2a98fe47082e fwd="66.171.92.69" dyno=web.1 connect=0ms service=3ms status=200 bytes=2743 protocol=https
+2022-11-23T07:28:29.841684+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=4706a4a9-44d9-4a69-a6db-e21b8f8552e6 fwd="66.171.92.69" dyno=web.1 connect=7ms service=15ms status=200 bytes=24147 protocol=https
+2022-11-23T07:28:29.924037+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=1db48894-24d8-4a11-b96e-7f81995d48e5 fwd="66.171.92.69" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:28:35.439602+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=e21b884c-84d1-4bfe-87b3-437d2485d125 fwd="66.171.92.69" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T07:28:40.638641+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=6e5bdffa-2cbe-402a-be8e-ddbc1e30bc55 fwd="76.133.63.88" dyno=web.1 connect=1ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T07:28:40.912611+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=dab1e59b-26ed-487c-aa03-a7700b3d8a7f fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T07:28:40.920483+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=5d77c9ae-d327-4ace-abf8-bc7233188085 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=283775 protocol=https
+2022-11-23T07:28:41.015413+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js" host=wetube-nc.herokuapp.com request_id=8fbb6cb9-7a7c-4286-a316-643ef2750985 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=24147 protocol=https
+2022-11-23T07:28:41.658116+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=c707d575-257a-4a57-a112-9340d55f3771 fwd="76.133.63.88" dyno=web.1 connect=0ms service=13ms status=200 bytes=908948 protocol=https
+2022-11-23T07:28:41.664667+00:00 heroku[router]: at=info method=GET path="/static/js/main.08a08bc4.chunk.js.map" host=wetube-nc.herokuapp.com request_id=dd2dbafd-0886-4930-9d73-ee2e9ffc642f fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=60228 protocol=https
+2022-11-23T07:28:41.670987+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=f9bea26f-345c-476c-9e17-05df3fc870cd fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T07:28:41.763274+00:00 app[web.1]: 2022-11-23 07:28:41,763 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2022-11-23T07:28:41.764589+00:00 app[web.1]: 2022-11-23 07:28:41,764 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.hashed_password AS users_hashed_password, users.profile_pic AS users_profile_pic, users.created_at AS users_created_at, users.updated_at AS users_updated_at
+2022-11-23T07:28:41.764590+00:00 app[web.1]: FROM users
+2022-11-23T07:28:41.764591+00:00 app[web.1]: WHERE users.id = %(pk_1)s
+2022-11-23T07:28:41.764682+00:00 app[web.1]: 2022-11-23 07:28:41,764 INFO sqlalchemy.engine.Engine [generated in 0.00022s] {'pk_1': 1}
+2022-11-23T07:28:41.768556+00:00 app[web.1]: 2022-11-23 07:28:41,768 INFO sqlalchemy.engine.Engine ROLLBACK
+2022-11-23T07:28:41.771323+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=333e82d8-5bc9-4e63-9ca8-2ea435b5eb8a fwd="76.133.63.88" dyno=web.1 connect=0ms service=10ms status=200 bytes=508 protocol=https
+2022-11-23T07:28:41.868431+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=a67effc4-15d6-4a21-a824-dcec02c25a45 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T07:28:41.906328+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=9a60cb64-b778-43d8-932b-e996d68a0264 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T07:28:41.965380+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=04d75dee-cf15-4418-bf73-8ef33b184c72 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=308 bytes=719 protocol=https
+2022-11-23T07:28:47.865042+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=1648ea9e-5f99-477c-acaa-936d3b261f37 fwd="66.171.92.69" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T07:28:49.297025+00:00 app[web.1]: error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&error?&&&&&&&&
+2022-11-23T07:28:49.297046+00:00 app[web.1]: 2022-11-23 07:28:49,296 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2022-11-23T07:28:49.297376+00:00 app[web.1]: 2022-11-23 07:28:49,297 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.hashed_password AS users_hashed_password, users.profile_pic AS users_profile_pic, users.created_at AS users_created_at, users.updated_at AS users_updated_at
+2022-11-23T07:28:49.297377+00:00 app[web.1]: FROM users
+2022-11-23T07:28:49.297377+00:00 app[web.1]: WHERE users.id = %(pk_1)s
+2022-11-23T07:28:49.297489+00:00 app[web.1]: 2022-11-23 07:28:49,297 INFO sqlalchemy.engine.Engine [cached since 7.533s ago] {'pk_1': 1}
+2022-11-23T07:28:49.301594+00:00 app[web.1]: 2022-11-23 07:28:49,301 INFO sqlalchemy.engine.Engine ROLLBACK
+2022-11-23T07:28:49.304394+00:00 heroku[router]: at=info method=GET path="/api/auth/logout" host=wetube-nc.herokuapp.com request_id=b120c502-daaf-4dca-a76f-6f8fe0b75161 fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=531 protocol=https
+2022-11-23T07:28:54.185446+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=aa396a3a-55fc-4274-b7e3-b47727a12fbb fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=308 bytes=719 protocol=https
+2022-11-23T07:34:32.511852+00:00 app[api]: Deployed web (f62947234faf) by user nachen98@gmail.com
+2022-11-23T07:34:32.511852+00:00 app[api]: Release v13 created by user nachen98@gmail.com
+2022-11-23T07:34:32.815776+00:00 heroku[web.1]: Restarting
+2022-11-23T07:34:32.837647+00:00 heroku[web.1]: State changed from up to starting
+2022-11-23T07:34:33.567483+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-23T07:34:33.814494+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T07:34:34.599248+00:00 app[api]: Starting process with command `flask db upgrade` by user nachen98@gmail.com
+2022-11-23T07:34:46.358075+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T07:34:46.722850+00:00 heroku[run.1198]: State changed from starting to up
+2022-11-23T07:34:46.743560+00:00 heroku[run.1198]: Awaiting client
+2022-11-23T07:34:46.762555+00:00 heroku[run.1198]: Starting process with command `flask db upgrade`
+2022-11-23T07:34:47.571387+00:00 app[web.1]: [2022-11-23 07:34:47 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T07:34:47.571711+00:00 app[web.1]: [2022-11-23 07:34:47 +0000] [5] [INFO] Listening at: http://0.0.0.0:13529 (5)
+2022-11-23T07:34:47.571758+00:00 app[web.1]: [2022-11-23 07:34:47 +0000] [5] [INFO] Using worker: sync
+2022-11-23T07:34:47.574764+00:00 app[web.1]: [2022-11-23 07:34:47 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T07:34:48.089449+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T07:34:50.945535+00:00 heroku[run.1198]: Process exited with status 0
+2022-11-23T07:34:50.998082+00:00 heroku[run.1198]: State changed from up to complete
+2022-11-23T07:35:43.288123+00:00 app[api]: Starting process with command `flask seed all` by user nachen98@gmail.com
+2022-11-23T07:35:57.525182+00:00 heroku[run.5003]: Awaiting client
+2022-11-23T07:35:57.544007+00:00 heroku[run.5003]: Starting process with command `flask seed all`
+2022-11-23T07:35:57.549911+00:00 heroku[run.5003]: State changed from starting to up
+2022-11-23T07:36:03.509908+00:00 heroku[run.5003]: Process exited with status 0
+2022-11-23T07:36:03.567293+00:00 heroku[run.5003]: State changed from up to complete
+2022-11-23T07:36:12.560908+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=a91c3675-275e-4ef8-856c-c42137102c74 fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=2592 protocol=https
+2022-11-23T07:36:12.700891+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=123c67fc-48e3-4541-b26c-1089625be558 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T07:36:12.703311+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=aae19d8a-32d2-4eb4-a339-1eee3e66553c fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=1728 protocol=https
+2022-11-23T07:36:12.806721+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=ed34422c-4dc7-42bc-aaf4-e10e62d9b7d7 fwd="76.133.63.88" dyno=web.1 connect=0ms service=9ms status=200 bytes=283775 protocol=https
+2022-11-23T07:36:13.271937+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=38685b17-0483-4a80-9797-516507ec1ec9 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T07:36:13.437067+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=7a0a92c3-cbe9-4ece-bfdb-9acc88dc075c fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=251673 protocol=https
+2022-11-23T07:36:13.450007+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=b81ed21b-dde5-4a53-8dff-876592c09907 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:36:22.535661+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=562c9a63-a7d4-4db6-8bfb-fbbe0163a085 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:36:23.195571+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=8f173980-2542-47e9-8152-bc3ee44fd8fa fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=60367 protocol=https
+2022-11-23T07:36:23.199147+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=29910215-4fab-40f4-bf10-ac1087b0a1c7 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T07:36:23.202116+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=de6f8633-a9be-4b3c-af02-789956dbc2f1 fwd="76.133.63.88" dyno=web.1 connect=1ms service=17ms status=200 bytes=908948 protocol=https
+2022-11-23T07:39:22.326439+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=1d52c41c-a62f-4197-9da1-51f04ba84e3c fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=301 bytes=688 protocol=http
+2022-11-23T07:39:22.454723+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=4b8c162c-cec9-49be-83fc-1f29cdb8cbad fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=2592 protocol=https
+2022-11-23T07:39:22.602420+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=d6fe5d79-9674-4ae3-a6f9-6be5b2b287ca fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:39:22.702116+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=7f9b1dbe-7cf7-4ce5-b7ae-a24bf8f5f613 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T07:39:22.860178+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=7a07c1d0-8744-4241-9091-2bc25036fc72 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=24201 protocol=https
+2022-11-23T07:39:23.438657+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=a47d2ef5-6123-4771-a63e-32b0273b488f fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=60367 protocol=https
+2022-11-23T07:39:23.444391+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=8e80e551-ad90-4796-a484-3d085f6899ce fwd="76.133.63.88" dyno=web.1 connect=0ms service=12ms status=200 bytes=908948 protocol=https
+2022-11-23T07:39:23.447613+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=1e00c5f2-de86-4a5e-b662-f55b776ac03f fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T07:39:23.552339+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=3d6d67ae-5d19-45ab-8098-105be30d2614 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=549 protocol=https
+2022-11-23T07:39:23.769125+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=dc292e14-e0ba-410b-9efd-8f76866589ff fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=251673 protocol=https
+2022-11-23T07:39:23.787957+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=9d7bbfec-acc2-4c9b-95fd-ebb5c35def6d fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:39:31.936947+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=7da00a85-f293-449d-9a9a-733129f386b0 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=2592 protocol=https
+2022-11-23T07:39:32.058182+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=c061004e-9211-4a8a-9d3f-3047f0f16dca fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:39:32.068594+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=5b831219-aef9-44b8-a8c8-ba4142790822 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T07:39:32.068681+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=c4c8e9a2-9631-4184-a9c2-841c41a4b9eb fwd="76.133.63.88" dyno=web.1 connect=0ms service=10ms status=200 bytes=283775 protocol=https
+2022-11-23T07:39:32.611206+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=f2678bb0-cd4d-4d5e-af51-38824f0041ff fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T07:39:32.777353+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=e4c5c41e-acf8-4cc5-9d94-a051d9c47b3b fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=251673 protocol=https
+2022-11-23T07:39:32.793258+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=61267c02-70e2-45bd-8f6f-120b79800447 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T07:39:39.127701+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=090984e2-b2f3-45a5-a80a-c490eb09029d fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:39:39.762510+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=b049d5ac-a5f7-4e8d-9bfb-c689fbc7bc56 fwd="76.133.63.88" dyno=web.1 connect=0ms service=11ms status=200 bytes=60367 protocol=https
+2022-11-23T07:39:39.767981+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=a1ba3c49-e64a-4dad-a14c-d27b8d9c1dcd fwd="76.133.63.88" dyno=web.1 connect=0ms service=1ms status=200 bytes=3302 protocol=https
+2022-11-23T07:39:39.768025+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=56baaf05-22b0-477d-b2eb-8464a92297d1 fwd="76.133.63.88" dyno=web.1 connect=0ms service=15ms status=200 bytes=908948 protocol=https
+2022-11-23T07:40:50.770081+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=926910a0-a03f-4716-8a6a-90e3f33e6006 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T07:40:50.887737+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=42a1c5ae-6c3b-41c5-b5d2-480f5d599439 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T07:40:50.888946+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=d5b40fe8-cc50-4709-866d-d407df7da1eb fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T07:40:50.992612+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=7236691d-567b-4b88-8e7e-aeb9c9230b97 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=24201 protocol=https
+2022-11-23T07:40:51.359767+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=550df0ef-5c80-4cca-b391-a18684cf135f fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T07:40:51.372591+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=924cd5d3-4e9c-46fa-b5c5-2cbdbba87c9b fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T07:40:51.457750+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=e1c53f23-8a46-49e2-91ea-9565addea9e0 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=251673 protocol=https
+2022-11-23T07:40:51.465574+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=769fc732-442f-4827-b7c8-75d491e95cd6 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T08:43:29.573900+00:00 heroku[web.1]: Idling
+2022-11-23T08:43:29.576653+00:00 heroku[web.1]: State changed from up to down
+2022-11-23T08:43:30.218335+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-23T08:43:30.376594+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T08:46:36.326390+00:00 heroku[web.1]: Unidling
+2022-11-23T08:46:36.340470+00:00 heroku[web.1]: State changed from down to starting
+2022-11-23T08:46:55.490047+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T08:46:57.149151+00:00 app[web.1]: [2022-11-23 08:46:57 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T08:46:57.149905+00:00 app[web.1]: [2022-11-23 08:46:57 +0000] [5] [INFO] Listening at: http://0.0.0.0:55514 (5)
+2022-11-23T08:46:57.149969+00:00 app[web.1]: [2022-11-23 08:46:57 +0000] [5] [INFO] Using worker: sync
+2022-11-23T08:46:57.156878+00:00 app[web.1]: [2022-11-23 08:46:57 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T08:46:57.577889+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T08:46:58.332958+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=38d3b129-ee2f-4279-a026-021a6a04727f fwd="76.133.49.122" dyno=web.1 connect=0ms service=6ms status=301 bytes=839 protocol=http
+2022-11-23T08:46:58.426087+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=9e3ba6a1-ed82-4736-ab42-3f3c278cbe96 fwd="76.133.63.88" dyno=web.1 connect=0ms service=10ms status=200 bytes=2592 protocol=https
+2022-11-23T08:46:58.560034+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=0528f46b-58f2-49ca-867e-f61924b10a70 fwd="76.133.63.88" dyno=web.1 connect=0ms service=11ms status=200 bytes=283775 protocol=https
+2022-11-23T08:46:58.560413+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=9de72d64-a28f-4349-ab73-d50e6b9e404b fwd="76.133.63.88" dyno=web.1 connect=0ms service=12ms status=200 bytes=1728 protocol=https
+2022-11-23T08:46:58.655126+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=3309dc03-46dd-4188-8c25-b12036273406 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=24201 protocol=https
+2022-11-23T08:46:58.717747+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=45e9bde7-be82-4bf1-84c7-611f81695a7d fwd="76.133.49.122" dyno=web.1 connect=0ms service=5ms status=200 bytes=2592 protocol=https
+2022-11-23T08:46:58.919142+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=f6299f06-ccf1-489f-91d5-59faf13b5a26 fwd="76.133.49.122" dyno=web.1 connect=0ms service=6ms status=200 bytes=1728 protocol=https
+2022-11-23T08:46:59.021061+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=0d312c3e-72e2-4ef2-8b48-d73ba15aa305 fwd="76.133.49.122" dyno=web.1 connect=0ms service=14ms status=200 bytes=283775 protocol=https
+2022-11-23T08:46:59.090726+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=1bf39fa9-08ac-4910-b844-9424c31692f6 fwd="76.133.49.122" dyno=web.1 connect=0ms service=4ms status=200 bytes=24201 protocol=https
+2022-11-23T08:46:59.114919+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=3bf2c243-fa5a-4331-aef6-d565d2279c3e fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T08:46:59.286488+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=9e16dbb4-f87a-4270-bc96-09ad8df55cc2 fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=251673 protocol=https
+2022-11-23T08:46:59.289534+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=c6fc162b-7a4d-43bf-92d3-de5763d57343 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=308 bytes=719 protocol=https
+2022-11-23T08:46:59.444705+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=136fac1a-d998-4282-969f-8604ffcd9e33 fwd="76.133.49.122" dyno=web.1 connect=0ms service=4ms status=200 bytes=549 protocol=https
+2022-11-23T08:46:59.655068+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=12aa8ae3-b312-4d54-8fde-fdf322a1fce9 fwd="76.133.49.122" dyno=web.1 connect=0ms service=9ms status=200 bytes=251673 protocol=https
+2022-11-23T08:46:59.655690+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=6012e022-37a6-4a2e-aaac-07556b2a15f3 fwd="76.133.49.122" dyno=web.1 connect=0ms service=9ms status=200 bytes=4768 protocol=https
+2022-11-23T08:46:59.657684+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=05496593-b2df-4022-8645-dd2b82b8f4ea fwd="76.133.49.122" dyno=web.1 connect=0ms service=12ms status=308 bytes=719 protocol=https
+2022-11-23T08:47:05.478197+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=1a24708d-52b3-4f30-a6cb-26451122eeaf fwd="76.133.49.122" dyno=web.1 connect=0ms service=6ms status=304 bytes=396 protocol=https
+2022-11-23T08:47:10.472362+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=047c8514-140b-4625-b863-eb3cb5731c03 fwd="34.229.10.175" dyno=web.1 connect=0ms service=3ms status=206 bytes=2812 protocol=https
+2022-11-23T08:47:10.513006+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=0c0a5296-d3a8-446e-b32c-ad4771b965d1 fwd="3.238.119.37" dyno=web.1 connect=0ms service=10ms status=200 bytes=4919 protocol=https
+2022-11-23T08:47:21.944873+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=1f2626eb-c539-4642-a55b-894f1f5af2db fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T08:47:22.645407+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=60152f0d-0ca7-461e-9103-bc025bb39443 fwd="76.133.63.88" dyno=web.1 connect=0ms service=20ms status=200 bytes=908948 protocol=https
+2022-11-23T08:47:22.646884+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=94e8b843-9f80-440f-ae53-80907c4e4f0e fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=3302 protocol=https
+2022-11-23T08:47:22.647437+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=bc7ad90d-7bdb-47c0-8703-123d8731e85e fwd="76.133.63.88" dyno=web.1 connect=1ms service=17ms status=200 bytes=60367 protocol=https
+2022-11-23T09:50:10.482623+00:00 heroku[web.1]: Idling
+2022-11-23T09:50:10.484557+00:00 heroku[web.1]: State changed from up to down
+2022-11-23T09:50:11.542337+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-23T09:50:11.817847+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T15:15:27.937670+00:00 heroku[web.1]: Unidling
+2022-11-23T15:15:27.940526+00:00 heroku[web.1]: State changed from down to starting
+2022-11-23T15:15:40.486720+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T15:15:41.594257+00:00 app[web.1]: [2022-11-23 15:15:41 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T15:15:41.594567+00:00 app[web.1]: [2022-11-23 15:15:41 +0000] [5] [INFO] Listening at: http://0.0.0.0:15042 (5)
+2022-11-23T15:15:41.594628+00:00 app[web.1]: [2022-11-23 15:15:41 +0000] [5] [INFO] Using worker: sync
+2022-11-23T15:15:41.598109+00:00 app[web.1]: [2022-11-23 15:15:41 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T15:15:42.235959+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T15:15:44.016302+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=4ad37f2b-c254-465c-9c37-8aca2b5cbb4b fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=2592 protocol=https
+2022-11-23T15:15:44.143456+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=2143e737-4455-4a58-9b1a-76b8f1cc9141 fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=1728 protocol=https
+2022-11-23T15:15:44.657269+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=71252a47-e9a7-4a77-8577-48393bf560ef fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T15:15:44.661760+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=4f98f57e-c34c-4c86-a18e-d927a7e31f00 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T15:15:45.125359+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=53054238-6303-44f2-af0d-3538c14a1aa9 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T15:15:45.279020+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=0c46cf73-d41f-4a20-ae42-9eedef6809c6 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=251673 protocol=https
+2022-11-23T15:15:45.301747+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=c6ade66a-b565-4f5b-a162-3f64bdacca0d fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=308 bytes=719 protocol=https
+2022-11-23T15:18:37.984182+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=1a53f2a4-024e-4728-ade2-1a37b3e402cf fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T15:18:38.110375+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=c559d85c-4253-4b2e-9f1d-484b9383f64f fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T15:18:38.121174+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=79e057f8-0423-4e5e-8250-2ac7db880f7c fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T15:18:38.197068+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=0a36a337-b824-4802-8dd2-88c82d04f048 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=24201 protocol=https
+2022-11-23T15:18:38.623061+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=f7f19832-12a3-4bf8-9145-b38e699d0fe6 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=549 protocol=https
+2022-11-23T15:18:38.715781+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=0261c08e-d4ce-4d6b-984b-a84e241c9e54 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T15:18:38.745380+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=82bf536a-d0b5-47fd-8b2f-2453dfde088b fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=308 bytes=719 protocol=https
+2022-11-23T15:18:38.746492+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=69bf83d8-81eb-4f33-8d13-0db46b2c8352 fwd="76.133.63.88" dyno=web.1 connect=0ms service=12ms status=200 bytes=251673 protocol=https
+2022-11-23T15:25:10.758933+00:00 app[api]: Deployed web (f7c1e6d63058) by user nachen98@gmail.com
+2022-11-23T15:25:10.758933+00:00 app[api]: Release v14 created by user nachen98@gmail.com
+2022-11-23T15:25:11.046336+00:00 heroku[web.1]: Restarting
+2022-11-23T15:25:11.049446+00:00 heroku[web.1]: State changed from up to starting
+2022-11-23T15:25:12.007191+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-23T15:25:12.133452+00:00 app[web.1]: [2022-11-23 15:25:12 +0000] [5] [INFO] Handling signal: term
+2022-11-23T15:25:12.261171+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T15:25:12.945706+00:00 app[api]: Starting process with command `flask db upgrade` by user nachen98@gmail.com
+2022-11-23T15:25:25.440157+00:00 heroku[run.4790]: State changed from starting to up
+2022-11-23T15:25:25.467620+00:00 heroku[run.4790]: Awaiting client
+2022-11-23T15:25:25.483415+00:00 heroku[run.4790]: Starting process with command `flask db upgrade`
+2022-11-23T15:25:27.183356+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T15:25:28.487907+00:00 app[web.1]: [2022-11-23 15:25:28 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T15:25:28.488348+00:00 app[web.1]: [2022-11-23 15:25:28 +0000] [5] [INFO] Listening at: http://0.0.0.0:18801 (5)
+2022-11-23T15:25:28.488849+00:00 app[web.1]: [2022-11-23 15:25:28 +0000] [5] [INFO] Using worker: sync
+2022-11-23T15:25:28.491708+00:00 app[web.1]: [2022-11-23 15:25:28 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T15:25:28.522104+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T15:25:30.358133+00:00 heroku[run.4790]: Process exited with status 0
+2022-11-23T15:25:30.360687+00:00 heroku[run.4790]: Client connection closed. Sending SIGHUP to all processes
+2022-11-23T15:25:30.498611+00:00 heroku[run.4790]: State changed from up to complete
+2022-11-23T15:26:01.363586+00:00 app[api]: Starting process with command `flask seed all` by user nachen98@gmail.com
+2022-11-23T15:26:13.945602+00:00 heroku[run.7153]: State changed from starting to up
+2022-11-23T15:26:13.967795+00:00 heroku[run.7153]: Awaiting client
+2022-11-23T15:26:13.985523+00:00 heroku[run.7153]: Starting process with command `flask seed all`
+2022-11-23T15:26:19.912064+00:00 heroku[run.7153]: Process exited with status 0
+2022-11-23T15:26:19.966008+00:00 heroku[run.7153]: State changed from up to complete
+2022-11-23T15:26:25.077804+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=a40f1e93-cc54-4c67-835a-6b25eb361402 fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=2592 protocol=https
+2022-11-23T15:26:25.230833+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=17de9fde-1f48-4a0b-8751-1333c7a07a4b fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T15:26:25.238822+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=3aa72301-caeb-4d22-b7d8-8f089e17d3b5 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=283775 protocol=https
+2022-11-23T15:26:25.327860+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=88158daa-09bd-4753-82bf-d30410a3e426 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T15:26:25.769637+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=e5d05722-00ba-495b-adeb-00ae706dfa5a fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=549 protocol=https
+2022-11-23T15:26:25.925387+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=28fbb963-b813-4be3-8d85-fd1f17ace470 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=251673 protocol=https
+2022-11-23T15:26:25.942438+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=18fb4c7d-745a-481d-8cbd-4ff1dc74ed43 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=308 bytes=719 protocol=https
+2022-11-23T15:26:30.480892+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=23f65134-9be6-4317-8774-517b1e575cae fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T15:26:31.149992+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=25c9d682-bc67-41b8-b11a-25104e6c3ad7 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=60367 protocol=https
+2022-11-23T15:26:31.159655+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=b22633a9-5109-4e0f-a6ab-f4965b12bf45 fwd="76.133.63.88" dyno=web.1 connect=0ms service=17ms status=200 bytes=908948 protocol=https
+2022-11-23T15:26:31.166808+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=b1c0eed8-2a24-4345-8116-dd3f771bf0f6 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T15:32:30.463026+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=f27a0484-1097-4743-adae-5f4c391b307b fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=301 bytes=688 protocol=http
+2022-11-23T15:32:30.555777+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=5fe51a0a-21ed-4677-be5d-6ba8e77c9b43 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T15:32:30.710652+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=4d5df82c-7398-49f5-8e91-8db006d7a8ef fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=1728 protocol=https
+2022-11-23T15:32:30.801848+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=4053346a-efbb-4ea5-a718-5e80581dfcbd fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=283775 protocol=https
+2022-11-23T15:32:30.874137+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=975e0511-dbd6-484c-a715-40eda5df27a7 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T15:32:31.402936+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=e8a6a0d7-4b35-4758-a716-28c0d43c1a22 fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=908948 protocol=https
+2022-11-23T15:32:31.403430+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=1f8c71f8-a65c-4377-a0e8-b3797883b99a fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=60367 protocol=https
+2022-11-23T15:32:31.408120+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=1481ffaa-32bc-4e41-b996-404f93da9bd8 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T15:32:31.499320+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=ac1bffd9-f0af-4ee8-8729-8b4dfdc54999 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T15:32:31.625696+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=6015dac1-f5f9-4163-a236-d4b021669953 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=308 bytes=719 protocol=https
+2022-11-23T15:32:31.630084+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=1d779f47-557d-4f30-9274-b546fbcf5d81 fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=251673 protocol=https
+2022-11-23T15:33:42.301151+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=9f8ec99a-44c3-407c-a0eb-ede4efbce09f fwd="76.133.63.88" dyno=web.1 connect=0ms service=10ms status=200 bytes=2743 protocol=https
+2022-11-23T15:33:42.431111+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=324211be-ce07-494c-b09c-0b2fc7622dfa fwd="76.133.63.88" dyno=web.1 connect=0ms service=9ms status=304 bytes=392 protocol=https
+2022-11-23T15:33:42.431989+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=03f964a1-d218-4ed0-8633-880be2b0888f fwd="76.133.63.88" dyno=web.1 connect=0ms service=7ms status=200 bytes=1728 protocol=https
+2022-11-23T15:33:42.522185+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=d73e38c5-2ffc-4197-988d-6ccf6290051c fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=304 bytes=395 protocol=https
+2022-11-23T15:33:43.115134+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=b1be748b-d786-41d9-9335-c2852bd3b581 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=3302 protocol=https
+2022-11-23T15:33:43.116067+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=efa72b51-a19c-4e7c-bad5-693cc27db019 fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=908948 protocol=https
+2022-11-23T15:33:43.135622+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js.map" host=wetube-nc.herokuapp.com request_id=4aade507-70e0-46db-ae06-9ef8755026f7 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=60367 protocol=https
+2022-11-23T15:33:43.209452+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=c7e1cd69-aa28-44dd-8359-68c7889cc075 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=549 protocol=https
+2022-11-23T15:33:43.344154+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=370e2e0b-8c4f-4b54-bba9-5cab02c186c0 fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=304 bytes=390 protocol=https
+2022-11-23T15:33:43.346775+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=336fea69-4eb3-4933-9fa5-970ae2a8d4b3 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=200 bytes=4768 protocol=https
+2022-11-23T15:33:43.426427+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=c70a3073-24b3-4c92-90bf-b9afb092d0c8 fwd="76.133.63.88" dyno=web.1 connect=0ms service=2ms status=308 bytes=719 protocol=https
+2022-11-23T15:35:53.864957+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=4778343d-f039-43de-b434-1d0a4ef5735d fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=2592 protocol=https
+2022-11-23T15:35:54.002938+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=d48bca17-76e4-4cff-8f61-b43c9842103c fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=200 bytes=1728 protocol=https
+2022-11-23T15:35:54.009367+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=95a28ae9-5140-4d12-a74a-4573c19ebf05 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=283775 protocol=https
+2022-11-23T15:35:54.103239+00:00 heroku[router]: at=info method=GET path="/static/js/main.fa7e9e8d.chunk.js" host=wetube-nc.herokuapp.com request_id=d82ccaa7-db97-43ae-af31-413029576cc1 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24201 protocol=https
+2022-11-23T15:35:54.561111+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=6b3329e4-0b8d-4ffd-aa8e-f05f373dbf37 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=549 protocol=https
+2022-11-23T15:35:54.721688+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=4ee388c8-f03c-4cd9-b7a0-fc2c479da107 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=251673 protocol=https
+2022-11-23T15:35:54.732652+00:00 heroku[router]: at=info method=GET path="/api/videos" host=wetube-nc.herokuapp.com request_id=b07d6cf4-f7ee-403b-b9c8-4e17b34d4e60 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=308 bytes=719 protocol=https
+2022-11-23T15:53:40.388656+00:00 app[api]: Release v15 created by user nachen98@gmail.com
+2022-11-23T15:53:40.388656+00:00 app[api]: Deployed web (fca3c41e3162) by user nachen98@gmail.com
+2022-11-23T15:53:40.646444+00:00 heroku[web.1]: Restarting
+2022-11-23T15:53:40.661882+00:00 heroku[web.1]: State changed from up to starting
+2022-11-23T15:53:41.353862+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-11-23T15:53:41.636098+00:00 heroku[web.1]: Process exited with status 143
+2022-11-23T15:53:42.250270+00:00 app[api]: Starting process with command `flask db upgrade` by user nachen98@gmail.com
+2022-11-23T15:53:56.511251+00:00 heroku[web.1]: Starting process with command `/bin/sh -c gunicorn\ app:app`
+2022-11-23T15:53:57.586003+00:00 app[web.1]: [2022-11-23 15:53:57 +0000] [5] [INFO] Starting gunicorn 20.1.0
+2022-11-23T15:53:57.586318+00:00 app[web.1]: [2022-11-23 15:53:57 +0000] [5] [INFO] Listening at: http://0.0.0.0:43107 (5)
+2022-11-23T15:53:57.586359+00:00 app[web.1]: [2022-11-23 15:53:57 +0000] [5] [INFO] Using worker: sync
+2022-11-23T15:53:57.589475+00:00 app[web.1]: [2022-11-23 15:53:57 +0000] [6] [INFO] Booting worker with pid: 6
+2022-11-23T15:53:58.256703+00:00 heroku[web.1]: State changed from starting to up
+2022-11-23T15:54:02.403034+00:00 heroku[run.1096]: Awaiting client
+2022-11-23T15:54:02.424036+00:00 heroku[run.1096]: Starting process with command `flask db upgrade`
+2022-11-23T15:54:02.479141+00:00 heroku[run.1096]: State changed from starting to up
+2022-11-23T15:54:06.677598+00:00 heroku[run.1096]: Process exited with status 0
+2022-11-23T15:54:06.784499+00:00 heroku[run.1096]: State changed from up to complete
+2022-11-23T15:54:32.698216+00:00 heroku[router]: at=info method=GET path="/" host=wetube-nc.herokuapp.com request_id=24fc0945-b09c-4b64-9d73-b28a73e4f918 fwd="76.133.63.88" dyno=web.1 connect=0ms service=12ms status=200 bytes=2592 protocol=https
+2022-11-23T15:54:32.815750+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css" host=wetube-nc.herokuapp.com request_id=c246a43a-36b9-4bbd-befc-081ef6e4b42e fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=1728 protocol=https
+2022-11-23T15:54:32.839199+00:00 heroku[router]: at=info method=GET path="/static/js/main.f9c37bdf.chunk.js" host=wetube-nc.herokuapp.com request_id=8eed9c5c-becd-455f-b61e-088b918d84a3 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=24202 protocol=https
+2022-11-23T15:54:32.909800+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js" host=wetube-nc.herokuapp.com request_id=a45e7aad-d577-4c6e-86a6-91d2f19a5b91 fwd="76.133.63.88" dyno=web.1 connect=0ms service=8ms status=200 bytes=283775 protocol=https
+2022-11-23T15:54:33.588781+00:00 heroku[router]: at=info method=GET path="/api/auth/" host=wetube-nc.herokuapp.com request_id=44b4b929-2f50-4255-896d-c4b359d7a561 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=549 protocol=https
+2022-11-23T15:54:33.760035+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=wetube-nc.herokuapp.com request_id=3c5aa7e2-c776-4380-a192-4ce37dad537a fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=4768 protocol=https
+2022-11-23T15:54:33.781038+00:00 heroku[router]: at=info method=GET path="/static/media/logo.62d49558.png" host=wetube-nc.herokuapp.com request_id=07b8452a-1104-40b0-99be-7c2976f4f0ae fwd="76.133.63.88" dyno=web.1 connect=0ms service=5ms status=200 bytes=251673 protocol=https
+2022-11-23T15:54:33.793922+00:00 app[web.1]: [2022-11-23 15:54:33,792] ERROR in app: Exception on /api/videos/ [GET]
+2022-11-23T15:54:33.793940+00:00 app[web.1]: Traceback (most recent call last):
+2022-11-23T15:54:33.793943+00:00 app[web.1]: File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2070, in wsgi_app
+2022-11-23T15:54:33.793944+00:00 app[web.1]: response = self.full_dispatch_request()
+2022-11-23T15:54:33.793944+00:00 app[web.1]: File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1515, in full_dispatch_request
+2022-11-23T15:54:33.793945+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2022-11-23T15:54:33.793945+00:00 app[web.1]: File "/usr/local/lib/python3.9/site-packages/flask_cors/extension.py", line 161, in wrapped_function
+2022-11-23T15:54:33.793945+00:00 app[web.1]: return cors_after_request(app.make_response(f(*args, **kwargs)))
+2022-11-23T15:54:33.793945+00:00 app[web.1]: File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1513, in full_dispatch_request
+2022-11-23T15:54:33.793946+00:00 app[web.1]: rv = self.dispatch_request()
+2022-11-23T15:54:33.793946+00:00 app[web.1]: File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1499, in dispatch_request
+2022-11-23T15:54:33.793946+00:00 app[web.1]: return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+2022-11-23T15:54:33.793947+00:00 app[web.1]: File "/var/www/app/api/video_routes.py", line 13, in get_all_videos
+2022-11-23T15:54:33.793947+00:00 app[web.1]: print("videos!!!!!!!!!!!!!!!!", videos)
+2022-11-23T15:54:33.793947+00:00 app[web.1]: UnboundLocalError: local variable 'videos' referenced before assignment
+2022-11-23T15:54:33.794712+00:00 heroku[router]: at=info method=GET path="/api/videos/" host=wetube-nc.herokuapp.com request_id=1a6ec2ed-c5d9-40d5-816c-35c8d892c97f fwd="76.133.63.88" dyno=web.1 connect=0ms service=4ms status=500 bytes=668 protocol=https
+2022-11-23T15:54:33.896952+00:00 heroku[router]: at=info method=GET path="/static/js/main.f9c37bdf.chunk.js.map" host=wetube-nc.herokuapp.com request_id=35bfddbe-c205-46d0-897d-0dc3444d3f78 fwd="76.133.63.88" dyno=web.1 connect=0ms service=6ms status=200 bytes=60370 protocol=https
+2022-11-23T15:54:33.900813+00:00 heroku[router]: at=info method=GET path="/static/js/2.4a6c381f.chunk.js.map" host=wetube-nc.herokuapp.com request_id=a0ef4544-b97f-4220-b4ed-d3693b46bbde fwd="76.133.63.88" dyno=web.1 connect=0ms service=9ms status=200 bytes=908948 protocol=https
+2022-11-23T15:54:33.988042+00:00 heroku[router]: at=info method=GET path="/static/css/main.bb8880b4.chunk.css.map" host=wetube-nc.herokuapp.com request_id=9debd932-52c8-4fea-9048-98cb988753f5 fwd="76.133.63.88" dyno=web.1 connect=0ms service=3ms status=200 bytes=3302 protocol=https
