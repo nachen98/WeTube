@@ -15,8 +15,8 @@ export const onErrorLoadDiscLogoHandler = (e) => {
 export const getProfileIcon=(user)=>{
     const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
     console.log(user, "user##################")
-    const colorInd = user===undefined? 0:user.id % COLORS.length
-    const firstLetter=user===undefined? '?':user.username[0]
+    const colorInd = user===null? 0:user.id % COLORS.length
+    const firstLetter=user===null? '?':user.username[0]
     return (
        <i className={`profile-icon ${COLORS[colorInd]}-bg`}>{firstLetter}</i> 
     )

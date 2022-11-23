@@ -47,7 +47,7 @@ export function VideoComment({commentContent}){
                 
                 </div>
             )}
-            {editable && <CreateCommentForm videoId={commentContent.video_id} commentId={commentContent.id} content={commentContent.content} placeholder="" buttonName="Save" setEditable={setEditable}/>
+            {editable && !!currUser && <CreateCommentForm videoId={commentContent.video_id} commentId={commentContent.id} content={commentContent.content} placeholder="" buttonName="Save" setEditable={setEditable}/>
 
             }
         </div>

@@ -68,7 +68,7 @@ export function SingleVideo(){
 
                
 
-                {!currUserIsOwner &&(
+                {!!currUser && !currUserIsOwner &&(
                     <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment"/>
                 )}
                 
