@@ -1,0 +1,24 @@
+#nav-container{
+    min-width: 1024px;
+    width: 100%;
+    flex-grow: 1;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#inner-nav-container{
+    width: 95%
+}
+#home-logo{
+    height: 40px;
+    width: auto
+}
+
+#nav-link>h1{
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+}
+

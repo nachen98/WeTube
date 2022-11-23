@@ -1,5 +1,5 @@
 from app.models import db, Video
-import json, pdb
+import json
 from datetime import datetime
 def max240(line):
     res = ''
@@ -9,7 +9,6 @@ def max240(line):
         res += l+'.'
     return res
 def seed_videos():
-    # pdb.set_trace()
     items = json.load(open('app/seeds/videos.json'))
     for item in items:
         video = Video(user_id=item['user_id'], title=item['title'], description=max240(item['description']), thumbnail_pic=item['thumbnail_pic'], body=item['body'], created_at=datetime.now(), updated_at=datetime.now())

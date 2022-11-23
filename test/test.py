@@ -91,7 +91,4 @@ class Comment(db.Model):
     def __repr__(self):
         return f'<Comment, id={self.id}, content={self.content}, user={self.user_id}, video={self.video_id}>'
 
-import pdb;
-pdb.set_trace()
-
 comments = Comment.query.filter(video_id = 1).all()
