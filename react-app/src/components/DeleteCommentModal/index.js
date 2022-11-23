@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
-import DeleteCommentForm from './DeleteComment';
+import ConfirmDeleteComment from './ConfirmDeleteComment';
 
-function CommentDeleteModal({ showCommentDeleteModal, setShowCommentDeleteModal }) {
+function DeleteCommentModal({ commentContent, showCommentDeleteModal, setShowCommentDeleteModal }) {
     const sessionUser = useSelector((state) => state.session.user);
     if (!sessionUser) {
         return null;
@@ -13,7 +13,7 @@ function CommentDeleteModal({ showCommentDeleteModal, setShowCommentDeleteModal 
         <>
             {showCommentDeleteModal && (
                 <Modal onClose={() => setShowCommentDeleteModal(false)}>
-                    <DeleteCommentForm setShowCommentDeleteModal={setShowCommentDeleteModal} />
+                    <ConfirmDeleteComment setShowCommentDeleteModal={setShowCommentDeleteModal} commentContent={commentContent} />
                 </Modal>
             )}
 
@@ -22,4 +22,4 @@ function CommentDeleteModal({ showCommentDeleteModal, setShowCommentDeleteModal 
 }
 
 
-export default CommentDeleteModal;
+export default DeleteCommentModal;

@@ -15,7 +15,8 @@ export function EditDeleteDropDown ({commentContent, setEditable}){
     useEffect(() => {
         if (!showMenu) return;
     
-        const closeMenu = () => {
+        const closeMenu = (e) => {
+          if (e.target.className.includes('edit-delete-ele')) return;
           setShowMenu(false);
         };
     
@@ -31,21 +32,21 @@ export function EditDeleteDropDown ({commentContent, setEditable}){
             </button>
 
             {showMenu && (
-              <div id="edit-delete-menu">
-                <div id="edit-comment-button">
-                  <button onClick={()=>setEditable(true)}>
-                    <i class="fa-solid fa-pencil"></i>
+              <div id="edit-delete-dropdown" className="edit-delete-ele">
+                <div id="edit-comment-button" className="edit-delete-ele">
+                  <button className="edit-delete-ele" onClick={()=>setEditable(true)}>
+                    <i className="edit-delete-ele fa-solid fa-pencil"></i>
                       Edit
                   </button>
                 </div>
                 
                 {showMenu && (
                   <>
-                    <button onClick={() => setShowCommentDeleteModal(true)}>
-                     <i class="fa-regular fa-trash-can"></i>
+                    <button className="edit-delete-ele" onClick={() => setShowCommentDeleteModal(true)}>
+                     <i className="edit-delete-ele fa-regular fa-trash-can"></i>
                      Delete
                     </button>
-                    {/* <DeleteCommentModal commentContent={commentContent} showCommentDeleteModal={showCommentDeleteModal} setShowCommentDeleteModal={setShowCommentDeleteModal} /> */}
+                    {showCommentDeleteModal && <DeleteCommentModal commentContent={commentContent} showCommentDeleteModal={showCommentDeleteModal} setShowCommentDeleteModal={setShowCommentDeleteModal} />}
                   </>
                      
                 )}

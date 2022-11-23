@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { removeComment } from "../../store/comment"
-import "./DeleteComment.css"
+import "./ConfirmDeleteComment.css"
 
-function DeleteCommentForm( {commentContent, showCommentDeleteModal, setShowCommentDeleteModal}){
+function ConfirmDeleteComment( {commentContent, showCommentDeleteModal, setShowCommentDeleteModal}){
     const dispatch = useDispatch()
     const history = useHistory()
     const {videoId} = useParams()
@@ -12,6 +12,7 @@ function DeleteCommentForm( {commentContent, showCommentDeleteModal, setShowComm
 
     const deleteCommentButton = async (e) => {
         e.preventDefault();
+        console.log("commentContent!!!!!!!!!!!!!!!!!!!!", commentContent)
         await dispatch(removeComment(commentContent.id))
         setShowCommentDeleteModal(false)
         history.push(`/videos/${videoId}`)
@@ -41,4 +42,4 @@ function DeleteCommentForm( {commentContent, showCommentDeleteModal, setShowComm
     
 }
 
-export default DeleteCommentForm
+export default ConfirmDeleteComment
