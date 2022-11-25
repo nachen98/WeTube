@@ -67,8 +67,6 @@ const LoginForm = () => {
             <div>
               <label className="custom-field">
                 <input className='login-input'
-
-              
                   type='text'
                   value={email}
                   onChange={updateEmail}
