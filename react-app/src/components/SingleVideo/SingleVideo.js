@@ -49,7 +49,7 @@ export function SingleVideo(){
             <ReactPlayer
                 className="react-player"
                 ref={playerRef}
-                url={video.body}
+                url={video.url}
                 controls={true}
             />
                 <div id="video-title">

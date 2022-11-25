@@ -5,15 +5,18 @@ from app.forms.videos_form import VideoForm
 from app.forms.comments_form import CommentForm
 from app.models import User, Video, Comment, db
 from datetime import datetime
+from app.api.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3
+)
 import pdb, time, json
+
 video_routes = Blueprint('videos', __name__)
+
 #get all the videos
 @video_routes.route('/')
 def get_all_videos():
     videos = Video.query.all()
-    print("videos!!!!!!!!!!!!!!!!", videos)
     data = [video.to_dict() for video in videos]
-    print("data!!!!!!!!!!!!!!!!!!", data)
     return {"Videos": data}, 200
 
 #get one video by id
@@ -28,14 +31,15 @@ def get_video_by_id(video_id):
 @video_routes.route('/', methods=['POST'])
 @login_required
 def create_video():
+    import pdb;pdb.set_trace()
     form=VideoForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print(form, "##################")
     if form.validate_on_submit():
         video=Video()
         form.populate_obj(video)
 
-        video.user_id=current_user.id 
+        video.user_id=current_user.id
         video.created_at=datetime.now()
         video.updated_at=datetime.now()
 
@@ -45,6 +49,23 @@ def create_video():
         return video.to_dict()
     else:
         return  {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+# #Add video to AWS
+@video_routes.route('/upload-video', methods=["POST"])
+@login_required
+def add_video_to_s3():
+    pdb.set_trace()
+    print("request!!!!!!!!!", request)
+    if "content" not in request.files:
+        return {"errors": "Video file is required."}, 400
+    content=request.files["url"]
+    
+    if not allowed_file(content.filename):
+        return {"errors": "This file does not meet the format requirement."}, 400
+
+    # url.filename=get_unique_filename(url)
+
+    # video_upload = upload_file_to_s3(url)
 
 #edit a video
 @video_routes.route('/<int:video_id>', methods=['POST'])

@@ -7,7 +7,7 @@ class Video(db.Model):
     title=db.Column(db.String(255), nullable=False)
     description=db.Column(db.String(255), nullable=True)
     thumbnail_pic = db.Column(db.Text, nullable=True)
-    body=db.Column(db.Text, nullable=False)
+    url=db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
@@ -22,7 +22,7 @@ class Video(db.Model):
             'title': self.title,
             'description': self.description, 
             'thumbnail_pic': self.thumbnail_pic,
-            'body':self.body,
+            'url':self.url,
             'user': self.user.to_dict(),
             'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,

@@ -11,7 +11,7 @@ def max240(line):
 def seed_videos():
     items = json.load(open('app/seeds/videos.json'))
     for item in items:
-        video = Video(user_id=item['user_id'], title=item['title'], description=max240(item['description']), thumbnail_pic=item['thumbnail_pic'], body=item['body'], created_at=datetime.now(), updated_at=datetime.now())
+        video = Video(user_id=item['user_id'], title=item['title'], description=max240(item['description']), thumbnail_pic=item['thumbnail_pic'], url=item['url'], created_at=datetime.now(), updated_at=datetime.now())
         db.session.add(video)
     db.session.commit()
 

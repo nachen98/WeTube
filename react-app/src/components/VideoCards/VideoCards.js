@@ -17,7 +17,7 @@ export default function VideoCards({ video }) {
                     <ReactPlayer
                         className="react-player"
                         ref={playerRef}
-                        url={video.body}
+                        url={video.url}
                         light={video.thumbnail_pic}
                         width="100%"
                         height="100%"

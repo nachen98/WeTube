@@ -66,16 +66,16 @@ export const getOneVideo = (videoId) => async(dispatch) => {
     }
 }
 
-export const addVideo =(videoBody, user) => async(dispatch) => {
-    const response = await fetch (`/api/videos/`, {
+export const uploadVideo = (video) => async(dispatch) => {
+    console.log(video, "video@@@@@@@@@@@@@@@@@")
+    const response = await fetch (`/api/videos/`, { //upload-video
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(videoBody)
+        body: video
 
     }).catch(res=>res)
-
     if(response.ok){
         const newVideo = await response.json()
         dispatch(createOneVideo(newVideo))
@@ -85,6 +85,7 @@ export const addVideo =(videoBody, user) => async(dispatch) => {
         return result
     }
 }
+
 
 export const updateVideo = (videoBody, videoId) => async(dispatch)=> {
     const response = await fetch(`/api/videos/${videoId}`, {
