@@ -40,8 +40,6 @@ def create_video():
         form.populate_obj(video)
 
         video.user_id=current_user.id
-        video.created_at=datetime.now()
-        video.updated_at=datetime.now()
 
         db.session.add(video)
         db.session.commit()
@@ -120,8 +118,6 @@ def post_comment(video_id):
 
         comment.user_id=current_user.id 
         comment.video_id = video_id
-        comment.created_at=datetime.now()
-        comment.updated_at=datetime.now()
         db.session.add(comment)
         db.session.commit()
         return comment.to_dict()

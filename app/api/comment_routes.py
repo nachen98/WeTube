@@ -35,10 +35,7 @@ def post_comment(video_id):
         form.populate_obj(comment)
 
         comment.user_id=current_user.id 
-        comment.video_id = video_id
-        comment.created_at=datetime.now()
-        comment.updated_at=datetime.now()
-        
+        comment.video_id = video_id      
       
         db.session.add(comment)
         db.session.commit()

@@ -1,0 +1,35 @@
+.login-input{
+    border:none;
+    appearance:none;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 14px;
+
+}
+
+.custom-field{
+    position: relative;
+    font-size: 14px;
+    padding-top: 20px;
+    margin-bottom:5px;
+}
+.custom-field .placeholder{
+    position: absolute;
+    left: 12px;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color: #aaa;
+    transition:
+        top 0.3s ease,
+        font-size 0.3s ease,
+        color 0.3s ease
+
+}
+
+.custom-field input:valid + .placeholder,
+.custom-field input:focus +  .placeholder{
+    top: 10px;
+    font-size: 10px;
+    color: #222
+}

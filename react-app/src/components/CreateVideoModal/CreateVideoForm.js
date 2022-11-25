@@ -48,7 +48,7 @@ const CreateVideoForm = ({setShowModal}) => {
         setIsLoading(true)
 
         setErrors([]);
-        await dispatch(uploadVideo(formData)).then(
+        dispatch(uploadVideo(formData)).then(
             async (res) => {
 
                 let newVideo = res

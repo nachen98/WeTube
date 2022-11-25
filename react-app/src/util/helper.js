@@ -1,5 +1,6 @@
 import logo from '../components/Images/logo.png';
-import defaultLogo from '../components/Images/default-logo.png'
+import defaultLogo from '../components/Images/default-logo.png';
+
 export const onLoadImg = (e) => {
     e.target.className = e.target.className + ' loading-img';
     e.target.src = logo;

@@ -68,11 +68,8 @@ export const getOneVideo = (videoId) => async(dispatch) => {
 
 export const uploadVideo = (video) => async(dispatch) => {
     console.log(video, "video@@@@@@@@@@@@@@@@@")
-    const response = await fetch (`/api/videos/`, { //upload-video
+    const response = await fetch (`/api/videos/upload-video`, { 
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
         body: video
 
     }).catch(res=>res)
