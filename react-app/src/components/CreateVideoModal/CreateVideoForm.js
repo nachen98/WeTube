@@ -45,15 +45,17 @@ const CreateVideoForm = ({setShowModal}) => {
         formData.append("content", video)
         //const formData =  {"title": title, "description": description, "thumbnailPic": thumbnailPic, "content": video}
         //console.log("title************", title, description, thumbnailPic)
+        console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
 
         setErrors([]);
         dispatch(uploadVideo(formData)).then(
             async (res) => {
-
+                console.log(res, "res#################")
                 let newVideo = res
-                if (res && res.errors) {
+                if (res && res.errors.length>0) {
                     setErrors(res.errors);
+                    console.log(errors, "ERRORS~~~~~~~~~~~~~~~~~~~")
                     setIsLoading(false)
                 } else {
                     setShowModal(false)
@@ -75,7 +77,7 @@ const CreateVideoForm = ({setShowModal}) => {
                 <form onSubmit={handleSubmit}>
                     {errors.length > 0 && (
                         <div id="error-message-create-video">
-                            {errors.map((error, idx) => <div key={idx}>{error}</div>)}
+                            {/* {errors.map((error, idx) => <div key={idx}>{error}</div>)} */}
                         </div>
                         )}
                     <div id="uploadvideo-inputfield-container">

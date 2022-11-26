@@ -1,12 +1,13 @@
 .login-input{
-   
+    outline:none;
     appearance:none;
     padding: 12px;
     border-radius: 3px;
     width: 250px;
     font-size: 16px;
     margin-bottom: 10px;
-    border-color: rgb(219,220,224)
+    border-color: rgb(219,220,224);
+    
 }
 
 .custom-field{
@@ -47,6 +48,6 @@
     
 }
 
-.custom-field:focus{
+.login-input:focus{
     border: 1px solid rgb(74,118,228);
 }

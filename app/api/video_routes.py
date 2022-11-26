@@ -48,22 +48,64 @@ def create_video():
     else:
         return  {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
-# #Add video to AWS
+#Add video to AWS
 @video_routes.route('/upload-video', methods=["POST"])
 @login_required
 def add_video_to_s3():
-    pdb.set_trace()
+    # pdb.set_trace()
     print("request!!!!!!!!!", request)
     if "content" not in request.files:
         return {"errors": "Video file is required."}, 400
-    content=request.files["url"]
-    
+    content=request.files["content"]
+    #pdb.set_trace()
     if not allowed_file(content.filename):
         return {"errors": "This file does not meet the format requirement."}, 400
 
-    # url.filename=get_unique_filename(url)
+    content.filename=get_unique_filename(content.filename)
 
-    # video_upload = upload_file_to_s3(url)
+    video_uploaded = upload_file_to_s3(content)
+
+    if "url" not in video_uploaded:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return video_uploaded, 400
+
+    video_url=video_uploaded["url"]
+    # flask_login allows us to get the current user from the request
+
+    #do the same for thumbnail picture
+    if "thumbnail_pic" not in request.files:
+        return {"errors": "Image File is Required"}, 400
+
+    picture = request.files["thumbnail_pic"]
+
+
+    if not allowed_file(picture.filename):
+        return {"errors": "This file does not meet the format requirement."}, 400
+
+    picture.filename = get_unique_filename(picture.filename)
+
+    thumbnail_uploaded = upload_file_to_s3(picture)
+
+
+    if "url" not in thumbnail_uploaded:
+        return thumbnail_uploaded, 400
+
+    thumbnail_url = thumbnail_uploaded["url"]
+
+    uploaded_video = Video(
+
+            description=request.form.get('description'),
+            title=request.form.get('title'),
+            thumbnail_pic=thumbnail_url,
+            url=video_url,
+            user_id=current_user.id,
+            )
+   
+    db.session.add(uploaded_video)
+    db.session.commit()
+    return {"video": uploaded_video.to_dict()}
 
 #edit a video
 @video_routes.route('/<int:video_id>', methods=['POST'])
