@@ -41,6 +41,7 @@ def upload_file_to_s3(file, acl="public-read"):
     return {"url": f"{S3_LOCATION}{file.filename}"}
 
 def delete_file_from_s3(filename):
+    import pdb; pdb.set_trace()
     try:
         s3.delete_object(Bucket=BUCKET_NAME, Key=filename)
     except Exception as e:
