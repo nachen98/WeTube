@@ -9,6 +9,7 @@ const CreateVideoForm = ({setShowModal}) => {
     const history = useHistory();
 
     const currUser = useSelector(state => state.session.user);
+
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -20,23 +21,26 @@ const CreateVideoForm = ({setShowModal}) => {
 
 
     useEffect(() => {
-        const validationerrors = [];
+        const allErrors = []
 
-        if (video?.type !== "video/mp4" && video?.type !== "video/mkv") validationerrors.push("File format must be either .mp4 or .mpk")
+        if (video?.type !== "video/mp4" && video?.type !== "video/mkv") allErrors.push("File format must be either .mp4 or .mpk")
         console.log("1video@@@@@@@@@@@@@@@@@@@@", video)
-        if (video?.size > 500000000) validationerrors.push("Video size is limited to 50MB.")
-        console.log("2video@@@@@@@@@@@@@@@@@@@@", video)
+
+        if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
+        console.log("2video@@@@@@@@@@@@@@@@@@@@", video?.size, allErrors)
         if (thumbnailPic?.type !== "image/png" && thumbnailPic?.type !== "image/gif" && thumbnailPic?.type !== "image/jpg" && thumbnailPic?.type !== "image/jpeg") {
 
-            validationerrors.push("The accepted extentions for thumbnail pictures are .png, .gif, .jpg, .jpeg.")
+            allErrors.push("The accepted extentions for thumbnail pictures are .png, .gif, .jpg, .jpeg.")
         }
         console.log("3video@@@@@@@@@@@@@@@@@@@@", video)
-        setErrors(validationerrors)
+        setErrors(allErrors)
 
     }, [video, thumbnailPic])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("errors@@@@@@@@@@@@@@@@@@@@", errors)
+        if(errors.length>0) return;
 
         const formData = new FormData()
         formData.append("title", title)
@@ -48,13 +52,12 @@ const CreateVideoForm = ({setShowModal}) => {
         console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
 
-        setErrors([]);
         dispatch(uploadVideo(formData)).then(
             async (res) => {
                 console.log(res, "res#################")
                 let newVideo = res
-                if (res && res.errors.length>0) {
-                    setErrors(res.errors);
+                if (res && res.errors?.length>0) {
+                    setErrors(res.errors)
                     console.log(errors, "ERRORS~~~~~~~~~~~~~~~~~~~")
                     setIsLoading(false)
                 } else {
@@ -70,16 +73,17 @@ const CreateVideoForm = ({setShowModal}) => {
     return (
         <div id="form-container">
             <div id="form-header">
-                Upload a Video
+                Upload a Video:
+                <ul>
+                    {errors.map(error => (
+                        <li>{error}</li>
+                    ))}
+                </ul>
             </div>
 
             <div id="form-body">
                 <form onSubmit={handleSubmit}>
-                    {errors.length > 0 && (
-                        <div id="error-message-create-video">
-                            {/* {errors.map((error, idx) => <div key={idx}>{error}</div>)} */}
-                        </div>
-                        )}
+
                     <div id="uploadvideo-inputfield-container">
                         <div className="input-field">
                             <label>
@@ -92,7 +96,7 @@ const CreateVideoForm = ({setShowModal}) => {
 
                                 />
                             </label>
-                            <label>
+                            <label> Drop your file here
                                 <input
                                     type="file"
                                     placeholder="Drop your video file(.mp4 and .mkv format)"
@@ -118,10 +122,7 @@ const CreateVideoForm = ({setShowModal}) => {
                                     placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
                                     //value={thumbnailPic}
                                     accept="image/jpeg, image/jpg, image/png, image/gif"
-                                    onChange={(e) => {
-                                        console.log(e.target.files[0], "XXXXXXXXXXXXXXXXXXXXX")
-                                        setThumbNailPic(e.target.files[0])}
-                                    }
+                                    onChange={(e) => setThumbNailPic(e.target.files[0])}
 
                                 />
                             </label>
@@ -130,7 +131,7 @@ const CreateVideoForm = ({setShowModal}) => {
                         <div className="submit-button">
                             <button
                                 type="submit"
-                                disabled={hasSubmitted && errors.length > 0}>
+                                disabled={!hasSubmitted && errors.length > 0}>
                                 Submit
                             </button>
                             {isLoading && <p>Loading...</p>}

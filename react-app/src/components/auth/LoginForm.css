@@ -1,3 +1,32 @@
+#login-container{
+    position:relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#login-box{
+   
+    width: 650px;
+    height: auto;
+    border-radius: 5px;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    transform: translate(0, -50%)
+
+}
+
+#welcome{
+    font-size: 20px;
+    font-weight:bolder;
+    color: var(--off-white-text);
+    margin-top:20px;
+    margin-bottom: 10px
+
+}
 .login-input{
     outline:none;
     appearance:none;

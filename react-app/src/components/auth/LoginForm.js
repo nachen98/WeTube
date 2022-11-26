@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import { getAllVideos } from '../../store/video'
@@ -88,8 +89,9 @@ const LoginForm = () => {
                 <span className="placeholder">Password</span>
               </label>
               <div id="signup-meessage">
-                <div id="need-account">Create account</div>
-                {/* <Link to={"/sign-up"} id="linktosignup">Register</Link> */}
+              <Link to={"/sign-up"} id="linktosignup">
+                Create account
+              </Link>
               </div>
               <button type='submit' id="login-button">Log In</button>
               <div id="or-message">or</div>

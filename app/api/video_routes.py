@@ -102,10 +102,11 @@ def add_video_to_s3():
             url=video_url,
             user_id=current_user.id,
             )
-   
+    
     db.session.add(uploaded_video)
     db.session.commit()
-    return {"video": uploaded_video.to_dict()}
+    db.session.refresh(uploaded_video)
+    return  uploaded_video.to_dict()
 
 #edit a video
 @video_routes.route('/<int:video_id>', methods=['POST'])
