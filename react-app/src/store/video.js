@@ -85,17 +85,15 @@ export const uploadVideo = (video) => async(dispatch) => {
 
 
 export const updateVideo = (videoBody, videoId) => async(dispatch)=> {
-    const response = await fetch(`/api/videos/${videoId}`, {
+    const response = await fetch(`/api/videos/${videoId}/update-video`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(videoBody)
+        body: videoBody
     }).catch(res=>res)
 
     if(response.ok){
         const updatedVideo = await response.json()
         dispatch(updateOneVideo(updatedVideo))
+        return updatedVideo
     }else{
         const result = await response.json()
         return result

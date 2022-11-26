@@ -125,6 +125,81 @@ def edit_video(video_id):
     else:
         return {'errors': "video not found"}, 400
 
+
+#edit video on aws
+@video_routes.route('/<int:video_id>/update-video', methods=['POST'])
+@login_required
+
+def update_video_on_s3(video_id):
+    video=Video.query.get(video_id)
+
+    #delete the original video and its picture on aws    
+
+    if video is not None and len(video.url) > 0:
+
+        url=video.url
+
+        video_filename=url.split(".com/")[1]
+        delete_file_from_s3(video_filename)
+    if video is not None and len(video.thumbnail_pic) > 0:
+        thumbnail_pic = video.thumbnail_pic
+        thumbNail_filename= thumbnail_pic.split(".com/")[1]
+        delete_file_from_s3(thumbNail_filename)
+
+    #commit the requested video and its picture 
+    if "content" not in request.files:
+        return {"errors": "Video file is required."}, 400
+    content=request.files["content"]
+    #pdb.set_trace()
+    if not allowed_file(content.filename):
+        return {"errors": "This file does not meet the format requirement."}, 400
+
+    content.filename=get_unique_filename(content.filename)
+
+    video_uploaded = upload_file_to_s3(content)
+
+    if "url" not in video_uploaded:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return video_uploaded, 400
+
+    video_url=video_uploaded["url"]
+    # flask_login allows us to get the current user from the request
+
+    #do the same for thumbnail picture
+    if "thumbnail_pic" not in request.files:
+        return {"errors": "Image File is Required"}, 400
+
+    picture = request.files["thumbnail_pic"]
+
+
+    if not allowed_file(picture.filename):
+        return {"errors": "This file does not meet the format requirement."}, 400
+
+    picture.filename = get_unique_filename(picture.filename)
+
+    thumbnail_uploaded = upload_file_to_s3(picture)
+
+
+    if "url" not in thumbnail_uploaded:
+        return thumbnail_uploaded, 400
+
+    thumbnail_url = thumbnail_uploaded["url"]
+
+ 
+
+    video.description=request.form.get('description')
+    video.title=request.form.get('title')
+    video.thumbnail_pic=thumbnail_url
+    video.url=video_url
+    
+ 
+    db.session.commit()
+    db.session.refresh(video)
+    return  video.to_dict()
+
+
 #delete a video
 @video_routes.route('/<int:video_id>', methods=['DELETE'])
 @login_required

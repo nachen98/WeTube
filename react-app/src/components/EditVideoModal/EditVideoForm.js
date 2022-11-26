@@ -1,27 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { uploadVideo } from "../../store/video";
-import "./CreateVideo.css"
+import { useHistory, useParams } from "react-router-dom";
+import "./EditVideo.css"
+import { updateVideo } from '../../store/video';
 
-const CreateVideoForm = ({setShowModal}) => {
+
+
+const EditVideoForm = ({setShowModal, videoId, old_title, old_description}) =>{
+    console.log("oldtitle!!!!!!!!!!!!!", old_title)
+    console.log("videoId!!!!!!!!!!!", videoId)
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useHistory()
 
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState(old_title);
+    const [description, setDescription] = useState(old_description);
     const [thumbnailPic, setThumbNailPic] = useState(null);
-    const [video, setVideo] = useState(null);
+    const [video, setVideo] = useState(null)
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
 
     useEffect(() => {
         const allErrors = []
 
-        if (title.length > 255 ) {
+        if (title?.length > 255 ) {
             allErrors.push("The title must be less than 255 characters")
         }
         if (description?.length > 255) {
@@ -42,6 +46,7 @@ const CreateVideoForm = ({setShowModal}) => {
 
     }, [title, description, video, thumbnailPic])
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
        
@@ -53,12 +58,12 @@ const CreateVideoForm = ({setShowModal}) => {
         formData.append("thumbnail_pic", thumbnailPic)
         formData.append("content", video)
         
+        console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
 
-        dispatch(uploadVideo(formData)).then(
+        dispatch(updateVideo(formData, videoId)).then(
             async (res) => {
                 
-                let newVideo = res
                 if (res && res.errors?.length>0) {
                     setErrors(res.errors)
                     
@@ -66,7 +71,7 @@ const CreateVideoForm = ({setShowModal}) => {
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/videos/${newVideo.id}`)
+                    history.push(`/videos/${videoId}`)
                 }
             }
         )
@@ -76,7 +81,7 @@ const CreateVideoForm = ({setShowModal}) => {
     return (
         <div id="form-container">
             <div id="form-header">
-                Upload a Video:
+                Edit your video:
                 <ul>
                     {errors.map(error => (
                         <li>{error}</li>
@@ -87,33 +92,36 @@ const CreateVideoForm = ({setShowModal}) => {
             <div id="form-body">
                 <form onSubmit={handleSubmit}>
 
-                    <div id="uploadvideo-inputfield-container">
+                    <div id="editvideo-inputfield-container">
                         <div className="input-field">
                             <label>
                                 <input
                                     type="text"
-                                    placeholder="Title"
+                                    placeholder={old_title}
                                     required
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
 
                                 />
                             </label>
-                            <label> Drop your file here
+                            <label> 
                                 <input
                                     type="file"
                                     placeholder="Drop your video file(.mp4 and .mkv format)"
                                     //value={video}
                                     accept="video/mp4, video/mkv"
-                                    onChange={(e) => setVideo(e.target.files[0])
-                                }
+                                    onChange={(e) => {
+                                        console.log("e!!!!!!!!!!", e)
+                        
+                                        setVideo(e.target.files[0])
+                                    }}
                                     required
                                 />
                             </label>
                             <label>
                                 <input
                                     type="text"
-                                    placeholder="Description"
+                                    placeholder={old_description}
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
@@ -146,5 +154,4 @@ const CreateVideoForm = ({setShowModal}) => {
         </div>
     )
 }
-
-export default CreateVideoForm;
+export default EditVideoForm

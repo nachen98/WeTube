@@ -10,7 +10,8 @@ import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
 import { CreateCommentForm } from "../CreateComment/CreateComment";
 import {VideoComment} from "../VideoComment/VideoComment";
-import { currUserIsOwner } from "../../util/helper";
+import EditVideoModal from "../EditVideoModal";
+
 
 export function SingleVideo(){
     const {videoId} = useParams();
@@ -55,7 +56,16 @@ export function SingleVideo(){
                 <div id="video-title">
                     {video.title}
                 </div>
-                
+                <div id="delete-edit-video-buttons">
+
+               
+                {!!currUserIsOwner && (
+                    <div>
+                        <button onClick = {deleteVideoButton} id="delete-spot-button">Delete Video</button>
+                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description}/>
+                    </div>
+                )}
+                </div>
                 <div>
                     {getProfileIcon(video.user)}
                 </div>
