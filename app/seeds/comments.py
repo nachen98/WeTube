@@ -7,7 +7,7 @@ def seed_comments():
 
     for item in items:
         # pdb.set_trace()
-        comment=Comment(content=item['content'][1], user_id=item['content'][0], video_id=item['video_id'], created_at=datetime.now(), updated_at=datetime.now())
+        comment=Comment(content=item['content'][1], user_id=item['content'][0], video_id=item['video_id'])
         db.session.add(comment)
     db.session.commit()
 

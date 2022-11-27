@@ -1,5 +1,6 @@
 import logo from '../components/Images/logo.png';
-import defaultLogo from '../components/Images/default-logo.png'
+import defaultLogo from '../components/Images/default-logo.png';
+
 export const onLoadImg = (e) => {
     e.target.className = e.target.className + ' loading-img';
     e.target.src = logo;
@@ -14,7 +15,7 @@ export const onErrorLoadDiscLogoHandler = (e) => {
 
 export const getProfileIcon=(user)=>{
     const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
-    console.log(user, "user##################")
+
     const colorInd = user===null? 0:user.id % COLORS.length
     const firstLetter=user===null? '?':user.username[0]
     return (
@@ -32,7 +33,7 @@ export function timeDifference(previous) {
     let msPerYear = msPerDay * 365;
     
     let elapsed = current - previous;
-    console.log("current, previous, elapsed!!!!!!!!!!", current.toLocaleString(), previous.toLocaleString(), elapsed)
+//     console.log("current, previous, elapsed!!!!!!!!!!", current.toLocaleString(), previous.toLocaleString(), elapsed)
     
     if (elapsed <= 10000) return "just now";
 

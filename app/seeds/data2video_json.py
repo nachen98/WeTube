@@ -23,7 +23,7 @@ for video_path in video_paths:
         'title': info['title'],
         'description': info['reviews'][0],
         'thumbnail_pic': f'https://nachen98.s3.us-west-1.amazonaws.com/{stem}.jpg',
-        'body': f'https://nachen98.s3.us-west-1.amazonaws.com/{name}',
+        'url': f'https://nachen98.s3.us-west-1.amazonaws.com/{name}',
         'user_id': channel2user_id[video_path.parent.name]
     }
     )

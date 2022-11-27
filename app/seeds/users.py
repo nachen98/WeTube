@@ -5,25 +5,25 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='marnie', email='marnie@aa.io', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='bobbie', email='bobbie@aa.io', password='password')
     nancy = User(
-        username='nancy', email='nancy@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='nancy', email='nancy@aa.io', password='password')
     leo = User(
-        username='leo', email='leo@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='leo', email='leo@aa.io', password='password')
     steven = User(
-        username='steven', email='steven@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='steven', email='steven@aa.io', password='password')
     peter = User(
-        username='peter', email='peter@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='peter', email='peter@aa.io', password='password')
     alex = User(
-        username='alex', email='alex@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='alex', email='alex@aa.io', password='password')
     rick = User(
-        username='rick', email='rick@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='rick', email='rick@aa.io', password='password')
     emily = User(
-        username='emily', email='emily@aa.io', password='password', created_at=datetime.now(), updated_at=datetime.now())
+        username='emily', email='emily@aa.io', password='password')
     
     db.session.add(demo)
     db.session.add(marnie)

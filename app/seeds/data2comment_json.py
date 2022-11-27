@@ -45,10 +45,10 @@ for comment_path in comment_paths:
     
     # to put user_id and content of review in a turple
     for n, review in zip(num_list, reviews):
-            res.append({
-                'content':[n, review],
-                'video_id': name2id[stem]
-            })
+        res.append({
+            'content':[n, review],
+            'video_id': name2id[stem]
+        })
   
 
 json.dump(res, open('comments.json', 'w'), indent=4)

@@ -9,7 +9,7 @@ import { EditDeleteDropDown } from "../EditDeleteCommentDropDown/EditDeleteDropD
 import { CreateCommentForm } from "../CreateComment/CreateComment";
 
 export function VideoComment({commentContent}){
-    console.log("content!!!!!!!!!!", commentContent)
+    // console.log("content!!!!!!!!!!", commentContent)
  
     const currUser = useSelector(state=>state.session.user)
     const [editable, setEditable] = useState(false)

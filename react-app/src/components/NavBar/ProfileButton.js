@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LogoutButton from "../auth/LogoutButton";
+import CreateVideoModal from "../CreateVideoModal";
 
 function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -26,7 +27,7 @@ function ProfileButton({ user }) {
   const firstLetter=user.username[0]
   return (
     <>
-      {/* <CreateVideoModal /> */}
+      <CreateVideoModal />
       <button onClick={openMenu} className={`profile-icon ${COLORS[colorInd]}-bg`}>
         {firstLetter}
       </button>

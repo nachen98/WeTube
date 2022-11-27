@@ -49,16 +49,14 @@ export const addComment = (videoId, content)=>async(dispatch)=>{
         body: JSON.stringify({"content": content})
     })
 
-    console.log("response*************", response)
+
     if(response.ok){
         const newComment = await response.json()
-        console.log("no error##############", newComment)
         dispatch(createComment(newComment))
-        console.log("no error##############222", newComment)
         return newComment
     }else{
         const result = await response.json();
-        console.log("error##############", result)
+       
         return result
     }
 }
@@ -98,7 +96,7 @@ const commentsReducer = (state=initialState, action) => {
     let newState = {...state}
     switch(action.type){
         case GET_ALL_COMMENTS_BY_VIDEO:
-            console.log("runs here!!!!!!!!!!!")
+           
             const allComments={}
             action.comments.Comments.forEach((comment)=>{
                 allComments[comment.id] = comment
@@ -107,7 +105,7 @@ const commentsReducer = (state=initialState, action) => {
             return newState
         
         case CREATE_ONE_COMMENT:
-            console.log(action, state, "####################")
+          
             newState={video:{...state.video}, user:{...state.user}}
             newState.video[action.comment.id] = action.comment
             return newState
