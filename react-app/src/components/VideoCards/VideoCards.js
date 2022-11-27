@@ -5,7 +5,7 @@ import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
 import { timeDifference } from "../../util/helper"
 
-export default function VideoCards({ video }) {
+export function VideoCards({ video }) {
     const playerRef = React.useRef(null)
 
     const formatedTime = timeDifference(video.updated_at)
