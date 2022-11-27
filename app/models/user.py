@@ -11,8 +11,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_pic = db.Column(db.String(255))
-    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.now)
-    updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.now, onupdate=datetime.now)
+    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     
     videos = db.relationship("Video", back_populates="user", cascade="all, delete-orphan")
     comments = db.relationship("Comment", back_populates= "user", cascade="all, delete-orphan")

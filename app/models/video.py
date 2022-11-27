@@ -9,8 +9,8 @@ class Video(db.Model):
     thumbnail_pic = db.Column(db.Text, nullable=True)
     url=db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.now)
-    updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.now, onupdate=datetime.now)
+    created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = db.relationship("User", back_populates="videos")
     comments = db.relationship("Comment", back_populates="video", cascade="all, delete-orphan")
