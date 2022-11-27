@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import { getAllVideos } from '../../store/video'
-import logo from "../Images/logo.png"
+import logo from "../Images/WeTube-logo.png"
 import "./LoginForm.css"
 
 const LoginForm = () => {

@@ -1,0 +1,6 @@
+#videoslist-container{
+    margin: 2% 8% 0 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px
+}
