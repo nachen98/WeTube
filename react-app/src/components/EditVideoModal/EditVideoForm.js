@@ -7,8 +7,7 @@ import { updateVideo } from '../../store/video';
 
 
 const EditVideoForm = ({setShowModal, videoId, old_title, old_description}) =>{
-    console.log("oldtitle!!!!!!!!!!!!!", old_title)
-    console.log("videoId!!!!!!!!!!!", videoId)
+    
     const dispatch = useDispatch();
     const history = useHistory()
 
@@ -58,7 +57,7 @@ const EditVideoForm = ({setShowModal, videoId, old_title, old_description}) =>{
         formData.append("thumbnail_pic", thumbnailPic)
         formData.append("content", video)
         
-        console.log('formData!!!!!!!!!', formData)
+        // console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
 
         dispatch(updateVideo(formData, videoId)).then(
@@ -111,7 +110,7 @@ const EditVideoForm = ({setShowModal, videoId, old_title, old_description}) =>{
                                     //value={video}
                                     accept="video/mp4, video/mkv"
                                     onChange={(e) => {
-                                        console.log("e!!!!!!!!!!", e)
+                                
                         
                                         setVideo(e.target.files[0])
                                     }}

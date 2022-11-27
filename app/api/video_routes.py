@@ -31,10 +31,10 @@ def get_video_by_id(video_id):
 @video_routes.route('/', methods=['POST'])
 @login_required
 def create_video():
-    import pdb;pdb.set_trace()
+    # import pdb;pdb.set_trace()
     form=VideoForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form, "##################")
+    # print(form, "##################")
     if form.validate_on_submit():
         video=Video()
         form.populate_obj(video)
@@ -52,8 +52,7 @@ def create_video():
 @video_routes.route('/upload-video', methods=["POST"])
 @login_required
 def add_video_to_s3():
-    pdb.set_trace()
-    
+
     #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
     if "content" not in request.files:
         return {"errors": "Video file is required."}, 400

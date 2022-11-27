@@ -42,24 +42,19 @@ const deleteOneVideo = (videoId) => {
 //thunk action creator
 export const getAllVideos = () => async(dispatch) => {
     const response = await fetch('/api/videos/')
-    .catch(res=>{
-        console.log("error", res)
-        return res
-    })
-    console.log("response!!!!!!!!!!!", response)
+    .catch(res=> res)
+    
     if(response.ok){
         const videos=await response.json()
-        console.log('videos!!!!!!!!!!!!!', videos)
+        
         dispatch(loadVideos(videos))
     }
 }
 
 export const getOneVideo = (videoId) => async(dispatch) => {
     const response = await fetch(`/api/videos/${videoId}`)
-    .catch(res=>{
-        console.log("errror", res)
-        return res
-    })
+    .catch(res=>res)
+
     if (response.ok){
         const oneVideo = await response.json()
         dispatch(loadOneVideo(oneVideo))
@@ -70,7 +65,7 @@ export const getOneVideo = (videoId) => async(dispatch) => {
 //If you leave the Content-Type field blank, the Content-Type will be generated and set correctly by your browser
 // (check it out in the network tab!). If you include Content-Type, your request will be missing information and your Flask backend will be unable to locate the attached files.
 export const uploadVideo = (video) => async(dispatch) => {
-    console.log(video, "video@@@@@@@@@@@@@@@@@")
+    
     const response = await fetch (`/api/videos/upload-video`, { 
         method: "POST",
         body: video
@@ -122,7 +117,7 @@ const videosReducer = (state=initialState, action) => {
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
-            console.log(action, "actionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+       
             newState[action.video.id]= action.video
             return newState;
         

@@ -55,7 +55,7 @@ const CreateVideoForm = ({setShowModal}) => {
         formData.append("thumbnail_pic", thumbnailPic)
         formData.append("content", video)
         
-        console.log("formData!!!!!!!!!!!", formData)
+        // console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
 
         dispatch(uploadVideo(formData)).then(

@@ -6,7 +6,7 @@ import "./VideosList.css"
 const VideosList = () => {
     const dispatch = useDispatch();
     const videosList = useSelector(state=> state.videosReducer)
-    console.log("videoList!!!!!!!!!!!!!", videosList)
+    // console.log("videoList!!!!!!!!!!!!!", videosList)
     const videos = Object.values(videosList)
 
     useEffect(()=>{
