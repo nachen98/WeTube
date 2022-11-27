@@ -66,6 +66,9 @@ export const getOneVideo = (videoId) => async(dispatch) => {
     }
 }
 
+// when uploading to aws, note that you must NOT set the Content-Type header on your request. 
+//If you leave the Content-Type field blank, the Content-Type will be generated and set correctly by your browser
+// (check it out in the network tab!). If you include Content-Type, your request will be missing information and your Flask backend will be unable to locate the attached files.
 export const uploadVideo = (video) => async(dispatch) => {
     console.log(video, "video@@@@@@@@@@@@@@@@@")
     const response = await fetch (`/api/videos/upload-video`, { 

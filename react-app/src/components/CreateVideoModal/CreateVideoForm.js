@@ -47,12 +47,15 @@ const CreateVideoForm = ({setShowModal}) => {
        
         if(errors.length>0) return;
 
+        //make sure that the name of the field you attach to your FormData object matches what you are looking for on the backend end (i.e. the name in formData.append("<some name>", image); 
+        //should match image = request.files["<some name>"]).
         const formData = new FormData()
         formData.append("title", title)
         formData.append("description", description)
         formData.append("thumbnail_pic", thumbnailPic)
         formData.append("content", video)
         
+        console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
 
         dispatch(uploadVideo(formData)).then(

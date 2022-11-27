@@ -3,7 +3,7 @@ import React from "react"
 import './SingleVideo.css';
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { deleteVideo, getOneVideo } from '../../store/video';
 import { getAllComments } from '../../store/comment';
 import ReactPlayer from "react-player"
@@ -11,12 +11,14 @@ import { getProfileIcon } from "../../util/helper"
 import { CreateCommentForm } from "../CreateComment/CreateComment";
 import {VideoComment} from "../VideoComment/VideoComment";
 import EditVideoModal from "../EditVideoModal";
-
+import DeleteVideoModal from "../DeleteVideoModal"
 
 export function SingleVideo(){
     const {videoId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory()
+
+    const [showVideoDeleteModal, setShowVideoDeleteModal] = useState(false)
 
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
@@ -38,11 +40,6 @@ export function SingleVideo(){
 
     let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video.user.id);
 
-    const deleteVideoButton = async (e) => {
-        e.preventDefault();
-        await dispatch(deleteVideo(videoId))
-        history.push('/')
-    }
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
     
     return (
@@ -60,10 +57,11 @@ export function SingleVideo(){
 
                
                 {!!currUserIsOwner && (
-                    <div>
-                        <button onClick = {deleteVideoButton} id="delete-spot-button">Delete Video</button>
+                    <>
                         <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description}/>
-                    </div>
+                        <button onClick = {()=> setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
+                        {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+                    </>
                 )}
                 </div>
                 <div>
