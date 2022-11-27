@@ -94,18 +94,20 @@ def add_video_to_s3():
 
     thumbnail_uploaded = upload_file_to_s3(picture)
 
+    print("thumbnail_uploaded!!!!!!!!!!!!!!!!!", thumbnail_uploaded)
 
     if "url" not in thumbnail_uploaded:
         return thumbnail_uploaded, 400
 
     thumbnail_url = thumbnail_uploaded["url"]
+    print("thumbnail_url@@@@@@@@@@@@@", thumbnail_url)
 
     #here we will form a video and save it to the db according to the keys defined in the model
     # thumbnailpicture and video url are obtained above, from request.files
     #while description and title are obtained from request.form
     #request.form returns a object similar format as request.files : {"title": xxx, "description": xxx}
+    print("current_user", current_user)
     uploaded_video = Video(
-
             description=request.form.get('description'),
             title=request.form.get('title'),
             thumbnail_pic=thumbnail_url,
