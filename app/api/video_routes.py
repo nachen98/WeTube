@@ -56,10 +56,10 @@ def add_video_to_s3():
     #request.files is in the a dictionary: in this case {thumbnail_pic: <filestorage: 'xxxx.jpg'>, content: <filestorage:'xxxx.mp4'>} xxxhere are the name you stored this file in our local folder
     if "content" not in request.files:
         return {"errors": "Video file is required."}, 400
-
+    print("request****************", request)
     #content is the <filestorage: 'xxxx.mp4'> binary form of the video
     content=request.files["content"]
-
+    
     #request.filename is the string of file name: 'xxx.mp4'
     if not allowed_file(content.filename):
         return {"errors": "This file does not meet the format requirement."}, 400
@@ -69,7 +69,7 @@ def add_video_to_s3():
 
     #videol_upload will return {"url": 'http//bucketname.s3.amazonaws.com/xxxx.mp4} xxx are the random letter and numbers filename
     video_uploaded = upload_file_to_s3(content)
-
+    print("video_uploaded!!!!!!!!!!!!!!!!!!!!!!!!!", video_uploaded)
     if "url" not in video_uploaded:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -85,7 +85,7 @@ def add_video_to_s3():
         return {"errors": "Image File is Required"}, 400
 
     picture = request.files["thumbnail_pic"]
-
+    print('picture@@@@@@@@@@@@@@@@', picture)
 
     if not allowed_file(picture.filename):
         return {"errors": "This file does not meet the format requirement."}, 400
@@ -112,7 +112,7 @@ def add_video_to_s3():
             url=video_url,
             user_id=current_user.id,
             )
-    
+    print('uploaded_video!!!!!!!!!!!!!!!!!', uploaded_video)
     #then add and commit to database, in this process the new video id and createdat, updated at will be generated
     db.session.add(uploaded_video)
     db.session.commit()
@@ -120,6 +120,7 @@ def add_video_to_s3():
     # since the id, created at and updated at are new info, refresh() function is needed to send those info to the frontend
     # so that it knows which page to turn to . and then to update the time accordingly
     db.session.refresh(uploaded_video)
+    print('uploaded_video.to_dict()', uploaded_video.to_dict())
     return  uploaded_video.to_dict()
 
 #edit a video
