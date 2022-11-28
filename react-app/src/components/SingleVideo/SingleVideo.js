@@ -45,57 +45,62 @@ export function SingleVideo() {
 
     return (
         <div id="single-video-page-outer-container">
+            <div id="video-comment-container">
+                <div id="player-container" className="player-wrapper">
+                    <ReactPlayer
+                        id="single-video-player"
+                        className="react-player"
+                        ref={playerRef}
+                        url={video.url}
+                        controls={true}
+                        width="95%"
+                        height="auto"
+                    />
+                    <div id="video-title">
+                        {video.title}
+                    </div>
+                    <div id="delete-edit-video-buttons">
 
 
-            <div className="player-wrapper">
-                <ReactPlayer
-                    className="react-player"
-                    ref={playerRef}
-                    url={video.url}
-                    controls={true}
-                />
-                <div id="video-title">
-                    {video.title}
-                </div>
-                <div id="delete-edit-video-buttons">
+                        {!!currUserIsOwner && (
+                            <>
+                                <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
+                                <button onClick={() => setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
+                                {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+                            </>
+                        )}
+                    </div>
+                    <div>
+                        {getProfileIcon(video.user)}
+                    </div>
+                    <div id="video-description">
+                        {video.description}
+                    </div>
+                    <div id="num-comments">
+                        {numComments} Comments
+                    </div>
 
 
-                    {!!currUserIsOwner && (
-                        <>
-                            <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
-                            <button onClick={() => setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
-                            {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
-                        </>
+
+                    {!!currUser && !currUserIsOwner && (
+                        <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment" />
                     )}
-                </div>
-                <div>
-                    {getProfileIcon(video.user)}
-                </div>
-                <div id="video-description">
-                    {video.description}
-                </div>
-                <div id="num-comments">
-                    {numComments} Comments
-                </div>
+
+                    <div id="comment-outer-container">
+                        {commentContents.map(commentContent => {
+                            return (<VideoComment key={commentContent.id} commentContent={commentContent} />)
+                        })}
+                    </div>
 
 
-
-                {!!currUser && !currUserIsOwner && (
-                    <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment" />
-                )}
-
-                <div id="comment-outer-container">
-                    {commentContents.map(commentContent => {
-                        return (<VideoComment key={commentContent.id} commentContent={commentContent} />)
-                    })}
                 </div>
-
-                
             </div>
+
+
             <div id="side-videos">
-                    <SideVideos />
+                <SideVideos />
             </div>
-        
+
         </div>
     )
 }

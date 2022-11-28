@@ -1,0 +1,37 @@
+#single-video-page-outer-container{
+    margin: 2% 8% 0 8%;
+    display: flex;
+    position: relative;
+}
+
+#video-comment-container{
+    width:100%;
+    margin-right: 20px;
+    position: relative
+
+}
+
+.player-wrapper {
+    position: relative;
+ 
+}
+  
+.react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+#side-videos{
+    width: 20%
+}
+
+#player-container{
+   position: absolute;
+   width: 100%
+}
+
+#single-video-player{
+    position: absolute;
+    width: 100%;
+}

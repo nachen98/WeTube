@@ -18,6 +18,7 @@ export function VideoCards({ video }) {
             <Link to={`/videos/${video.id}`}>
                 <div className="player-wrapper">
                     <ReactPlayer
+                        id="cards-player" 
                         className="react-player"
                         ref={playerRef}
                         url={video.url}
@@ -26,6 +27,7 @@ export function VideoCards({ video }) {
                         height="100%"
                         playIcon={<button>Play</button>}
                         controls={true}
+                     
                     />
                 </div>
                 <div>
