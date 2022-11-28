@@ -5,25 +5,25 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+        username='Demo', email='demo@aa.io', first_name= 'Demo', last_name= 'Lition', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='marnie', email='marnie@aa.io', first_name= 'marnie', last_name='philips', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='bobbie', email='bobbie@aa.io', first_name= 'bobbie', last_name='thompson', password='password')
     nancy = User(
-        username='nancy', email='nancy@aa.io', password='password')
+        username='nancy', email='nancy@aa.io', first_name= 'nancy', last_name='chan',password='password')
     leo = User(
-        username='leo', email='leo@aa.io', password='password')
+        username='leo', email='leo@aa.io', first_name= 'leo', last_name='lee', password='password')
     steven = User(
-        username='steven', email='steven@aa.io', password='password')
+        username='steven', email='steven@aa.io', first_name= 'steven', last_name='welch', password='password')
     peter = User(
-        username='peter', email='peter@aa.io', password='password')
+        username='peter', email='peter@aa.io', first_name= 'peter', last_name='roberts', password='password')
     alex = User(
-        username='alex', email='alex@aa.io', password='password')
+        username='alex', email='alex@aa.io', first_name= 'alex', last_name='ross', password='password')
     rick = User(
-        username='rick', email='rick@aa.io', password='password')
+        username='rick', email='rick@aa.io', first_name= 'rick', last_name='webster', password='password')
     emily = User(
-        username='emily', email='emily@aa.io', password='password')
+        username='emily', email='emily@aa.io', first_name= 'emily', last_name='biro', password='password')
     
     db.session.add(demo)
     db.session.add(marnie)
