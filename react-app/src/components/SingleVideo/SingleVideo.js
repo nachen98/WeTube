@@ -9,12 +9,13 @@ import { getAllComments } from '../../store/comment';
 import ReactPlayer from "react-player"
 import { getProfileIcon } from "../../util/helper"
 import { CreateCommentForm } from "../CreateComment/CreateComment";
-import {VideoComment} from "../VideoComment/VideoComment";
+import { VideoComment } from "../VideoComment/VideoComment";
 import EditVideoModal from "../EditVideoModal";
 import DeleteVideoModal from "../DeleteVideoModal"
+import { SideVideos } from "../SideVideos/SideVideos"
 
-export function SingleVideo(){
-    const {videoId} = useParams();
+export function SingleVideo() {
+    const { videoId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory()
 
@@ -22,18 +23,18 @@ export function SingleVideo(){
 
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
-    
-    
+
+
     const currUser = useSelector(state => state.session.user)
-    
+
     const comments = useSelector(state => state.commentsReducer)
 
-    
+
     const commentContents = Object.values(comments.video)
     const numComments = commentContents.length
     const playerRef = React.useRef(null)
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         dispatch(getOneVideo(videoId))
         dispatch(getAllComments(videoId))
     }, [videoId])
@@ -41,54 +42,65 @@ export function SingleVideo(){
     let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video.user.id);
 
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
-    
+
     return (
-        <div className="player-wrapper">
-            <ReactPlayer
-                className="react-player"
-                ref={playerRef}
-                url={video.url}
-                controls={true}
-            />
-                <div id="video-title">
-                    {video.title}
-                </div>
-                <div id="delete-edit-video-buttons">
+        <div id="single-video-page-outer-container">
+            <div id="video-comment-container">
+                <div id="player-container" className="player-wrapper">
+                    <ReactPlayer
+                        id="single-video-player"
+                        className="react-player"
+                        ref={playerRef}
+                        url={video.url}
+                        controls={true}
+                        width="95%"
+                        height="auto"
+                    />
+                    <div id="video-title">
+                        {video.title}
+                    </div>
+                    <div id="delete-edit-video-buttons">
 
-               
-                {!!currUserIsOwner && (
-                    <>
-                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description}/>
-                        <button onClick = {()=> setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
-                        {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
-                    </>
-                )}
-                </div>
-                <div>
-                    {getProfileIcon(video.user)}
-                </div>
-                <div id="video-description">
-                    {video.description}
-                </div>
-                <div id="num-comments">
-                    {numComments} Comments
-                </div>
 
-               
+                        {!!currUserIsOwner && (
+                            <>
+                                <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
+                                <button onClick={() => setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
+                                {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+                            </>
+                        )}
+                    </div>
+                    <div>
+                        {getProfileIcon(video.user)}
+                    </div>
+                    <div id="video-description">
+                        {video.description}
+                    </div>
+                    <div id="num-comments">
+                        {numComments} Comments
+                    </div>
 
-                {!!currUser && !currUserIsOwner &&(
-                    <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment"/>
-                )}
-                
-                <div id="comment-outer-container">
-                    {commentContents.map(commentContent=> {
-                        return (<VideoComment key={commentContent.id} commentContent={commentContent}/>)
-                    })}
+
+
+                    {!!currUser && !currUserIsOwner && (
+                        <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment" />
+                    )}
+
+                    <div id="comment-outer-container">
+                        {commentContents.map(commentContent => {
+                            return (<VideoComment key={commentContent.id} commentContent={commentContent} />)
+                        })}
+                    </div>
+
+
                 </div>
+            </div>
 
-                {/* <div id="side-videos"> 
-                    <SideVideos/>
-                </div>  */}
+
+            <div id="side-videos">
+                <SideVideos />
+            </div>
+
         </div>
     )
 }

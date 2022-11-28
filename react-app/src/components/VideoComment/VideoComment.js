@@ -21,10 +21,10 @@ export function VideoComment({commentContent}){
         <div id="comment-container">
             {!editable && (
                 <div id="individual-comment">
-                    <div id="profile-icon">
+                    
 
                         {getProfileIcon(commentContent.user)}
-                    </div>
+                 
 
                     <div id="comment-username">
                         {commentContent.user.username}

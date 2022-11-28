@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateVideoForm from './CreateVideoForm.js';
-import cameraicon1 from "../Images/camera1.png"
+import cameraicon1 from "../Images/pluscamera.png"
 function CreateVideoModal() {
   const [showModal, setShowModal] = useState(false);
 

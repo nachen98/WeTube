@@ -33,6 +33,11 @@
     align-items: center;
 }
 
+.profile-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 .gray-bg {
     background-color: #757e8a;
 }
@@ -53,6 +58,13 @@
     background-color: #3ba55c;
 }
 
+.blue-bg{
+    background-color: rgb(116, 116, 185);
+}
 .display-none{
     display: none
+}
+
+#home-log{
+    background-color: white;
 }

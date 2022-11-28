@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllVideos } from '../../store/video';
-import VideoCards from '../VideoCards/VideoCards';
+import { VideoCards } from '../VideoCards/VideoCards';
 import "./VideosList.css"
 const VideosList = () => {
     const dispatch = useDispatch();
