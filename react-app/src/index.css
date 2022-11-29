@@ -68,3 +68,15 @@
 #home-log{
     background-color: white;
 }
+
+.ctr-algn-text {
+    text-align: center;
+}
+
+.pos-rel{
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}

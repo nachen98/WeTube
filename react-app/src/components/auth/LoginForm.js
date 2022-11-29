@@ -16,7 +16,8 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    setEmail(email.trimEnd())
+    const data = await dispatch(login(email.trimEnd(), password));
     if (data) {
       const formatedErrors = data.map(err => {
         const errMsgArr = err.split(":");
@@ -27,7 +28,7 @@ const LoginForm = () => {
   };
 
   const updateEmail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.trimStart());
   };
 
   const updatePassword = (e) => {
@@ -50,15 +51,15 @@ const LoginForm = () => {
     <div id="login-container">
 
 
-      <div id="login-box">
+      <div id="login-box" className="flx-col-justify-align-ctr">
         <div id="inner-container">
 
 
-          <div className='flx-col-justify-algn-ctr'>
-            <img src={logo} id="home-logo" alt="logo" />
+          <div className='flx-col-justify-algn-ctr ctr-algn-text'>
+            <img src={logo} id="home-logo" className='flx-col-justify-algn-ctr' alt="logo" />
           </div>
-          <div id="sign-in" className='flx-col-justify-algn-ctr'>Sign in</div>
-          <div id="under-sign-in" className='flx-col-justify-algn-ctr'>to continue to WeTube</div>
+          <div id="sign-in" className='flx-col-justify-algn-ctr ctr-algn-text'>Sign in</div>
+          <div id="under-sign-in" className='flx-col-justify-algn-ctr ctr-algn-text'>to continue to WeTube</div>
           <form onSubmit={onLogin} className='flx-col'>
             <div id="error-messages">
               {errors.map((error, ind) => (
@@ -68,12 +69,12 @@ const LoginForm = () => {
             <div>
               <label className="custom-field">
                 <input className='login-input'
-                  type='text'
+                  type='email'
                   value={email}
                   onChange={updateEmail}
                   required
                 />
-                <span className="placeholder">Email</span>
+                <span className="placeholder">{!email.length? "Email": ""}</span>
               </label>
             </div>
             <div>
