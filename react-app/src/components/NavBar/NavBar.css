@@ -18,12 +18,7 @@
     width: auto
 }
 
-/* #nav-link{
-    font-size: 20px;
-    color: black;
 
-    text-decoration: none;
-} */
 
 #wetube-name{
     font-size: 20px;
@@ -31,3 +26,25 @@
     font-weight: bolder;
 }
 
+#mainpage-login-button{
+    border: 1px solid rgb(219,220,224); 
+    color: rgb(74,118,228);
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    cursor:pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.fa-regular.fa-user{
+    margin-right: 5px;
+}
+
+#mainpage-login-button:hover{
+    background-color: rgb(229,241,254);
+    border:none
+}

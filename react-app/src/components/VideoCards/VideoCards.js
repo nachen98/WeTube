@@ -25,7 +25,7 @@ export function VideoCards({ video }) {
                         light={thumbnail_pic}
                         width="100%"
                         height="100%"
-                        playIcon={<button>Play</button>}
+                        // playIcon={<button style={{backgrounColor: "none"}}>Play</button>}
                         controls={true}
                      
                     />
