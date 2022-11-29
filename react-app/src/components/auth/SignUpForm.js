@@ -21,7 +21,7 @@ const SignUpForm = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
-    if(!hasSubmitted) return;
+    if (!hasSubmitted) return;
 
     let validationErrors = [];
 
@@ -30,7 +30,7 @@ const SignUpForm = () => {
     }
 
     if (firstName.trim().length === 0) {
-        validationErrors.push("First name cannot be empty spaces.")
+      validationErrors.push("First name cannot be empty spaces.")
     }
 
     if (lastName.trim().length > 40) {
@@ -43,14 +43,14 @@ const SignUpForm = () => {
 
     if (username.length < 6) {
       validationErrors.push("Username must be at least 6 characters.")
-      
+
     }
-   
+
     if (username.length > 40) {
       validationErrors.push("Username is limit to 40 characters.")
     }
 
-    if(password.length < 6){
+    if (password.length < 6) {
       validationErrors.push("Password needs to be more than 6 characters.")
     }
 
@@ -65,7 +65,7 @@ const SignUpForm = () => {
     setErrors(validationErrors)
 
   }, [firstName, lastName, email, username, password, repeatPassword])
- 
+
 
   const onSignUp = async (e) => {
     if (!hasSubmitted) setHasSubmitted(true);
@@ -172,26 +172,26 @@ const SignUpForm = () => {
 
           <div className="justify-space-btw">
             <div>
-            <label className="custom-field">
-              <input id="first-name-input" className='signup-input'
-                type='text'
-                value={firstName}
-                onChange={updateFirstName}
-                required
-              />
-              <span className="placeholder">{!firstName.length ? "First name" : ""}</span>
-            </label>
+              <label className="custom-field">
+                <input id="first-name-input" className='signup-input'
+                  type='text'
+                  value={firstName}
+                  onChange={updateFirstName}
+                  required
+                />
+                <span className="placeholder">First name</span>
+              </label>
             </div>
             <div>
-            <label className="custom-field">
-              <input className='signup-input'
-                type='text'
-                value={lastName}
-                onChange={updateLastName}
-                required
-              />
-              <span className="placeholder">{!lastName.length ? "Last name" : ""}</span>
-            </label>
+              <label className="custom-field">
+                <input className='signup-input'
+                  type='text'
+                  value={lastName}
+                  onChange={updateLastName}
+                  required
+                />
+                <span className="placeholder">Last name</span>
+              </label>
             </div>
           </div>
           <div>
@@ -214,35 +214,39 @@ const SignUpForm = () => {
                 onChange={updateUsername}
                 required
               />
-              <span className="placeholder">{!username.length ? "Your username" : ""}</span>
+              <span className="placeholder">Your username</span>
             </label>
           </div>
           <div className="justify-space-btw">
-          <div>
-            <label className="custom-field">
-              <input className='signup-input'
-                type='text'
-                value={password}
-                onChange={updatePassword}
-                required
-              />
-              <span className="placeholder">{!password.length ? "Password" : ""}</span>
-            </label>
+            <div>
+              <label className="custom-field">
+                <input className='signup-input'
+                  type='text'
+                  value={password}
+                  onChange={updatePassword}
+                  required
+                />
+                <span className="placeholder">Password</span>
+              </label>
+            </div>
+            <div>
+              <label className="custom-field">
+                <input className='signup-input'
+                  type='text'
+                  value={repeatPassword}
+                  onChange={updateRepeatPassword}
+                  required
+                />
+                <span className="placeholder">Confirm</span>
+              </label>
+            </div>
           </div>
-          <div>
-            <label className="custom-field">
-              <input className='signup-input'
-                type='text'
-                value={repeatPassword}
-                onChange={updateRepeatPassword}
-                required
-              />
-              <span className="placeholder">{!password.length ? "Confirm" : ""}</span>
-            </label>
+          <div id="signup-page-buttons" className='justify-space-btw'>
+            <button id="login-link-button" type="button">
+              <Link to={"/login"} id="linktologin">Sign in instead</Link>
+            </button>
+            <button type='submit' id="signup-button">Sign Up</button>
           </div>
-        </div>
-          <Link to={"/login"} id="linktologin">Sign in instead</Link>
-          <button type='submit' id="signup-button">Sign Up</button>
         </form>
 
       </div>

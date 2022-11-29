@@ -74,7 +74,7 @@ const LoginForm = () => {
                   onChange={updateEmail}
                   required
                 />
-                <span className="placeholder">{!email.length ? "Email" : ""}</span>
+                <span className="placeholder">{!email.length ? "Your email address" : ""}</span>
               </label>
             </div>
             <div>
@@ -87,7 +87,7 @@ const LoginForm = () => {
                   onChange={updatePassword}
                   required
                 />
-                <span className="placeholder">{!password.length ? "Password" : ""}</span>
+                <span className="placeholder">Password</span>
               </label>
               <div id="create-account" className='justify-space-btw'>
 

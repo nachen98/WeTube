@@ -71,7 +71,7 @@
 
 }
 
-.custom-field .login-input + .placeholder{
+.custom-field .signup-input + .placeholder{
     padding: 0 5px;
 }
 .custom-field input:valid + .placeholder,
@@ -83,6 +83,47 @@
     
 }
 
-.login-input:focus{
+.signup-input:focus{
     border: 1px solid rgb(74,118,228);
+}
+
+
+#signup-page-buttons{
+    margin-top: 50px
+}
+
+#linktologin{
+    text-decoration: none;
+    color: rgb(74,118,228);
+}
+#login-link-button{
+    border: none;
+    color: rgb(74,118,228);
+    cursor: pointer;
+    background-color: white;
+    outline:none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 15px
+}
+
+#login-link-button:hover{
+    background-color: rgb(248, 250, 254); 
+}
+
+#signup-button{
+    outline: none;
+    border:none;
+    background-color: rgb(74,118,228);
+ 
+    color: white;
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px
+}
+
+#signup-button:hover{
+    background-color: rgb(67, 104, 198);
 }

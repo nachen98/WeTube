@@ -140,6 +140,9 @@
     padding: 10px
 }
 
+#login-button:hover{
+    background-color: rgb(67, 104, 198);
+}
 #or-message{
     font-size: 20px;
     margin-top: 10px;
@@ -159,4 +162,8 @@
     padding: 10px;
     margin-top: 15px;
     margin-left: 110px
+}
+
+#demo-user:hover{
+    background-color: rgb(67, 104, 198);
 }
