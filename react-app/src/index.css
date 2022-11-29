@@ -1,10 +1,13 @@
 /* TODO Add site wide styles */
 * {
     font-family: 'Roboto';
-    text-decoration: none;
-    color: black
 }
 
+a{
+    color:black;
+    text-decoration: none;
+
+}
 .flx-row-space-btw {
     display: flex;
     flex-direction: row;
@@ -79,4 +82,9 @@
 
 .pos-abs {
     position: absolute;
+}
+
+.justify-space-btw {
+    display: flex;
+    justify-content: space-between;
 }

@@ -32,7 +32,7 @@ function NavBar() {
         <nav>
           <NavLink exact to="/" id="navlink" className='flx-row-justify-align-ctr'>
             <img src={logo} id="home-logo" alt="logo" />
-            <h1>WeTube</h1>
+            <span id="wetube-name">WeTube</span>
           </NavLink>
         </nav>
         <div id="RightNav">

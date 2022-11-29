@@ -10,7 +10,7 @@
 #login-box{
    
     width: 450px;
-    height: 650px;
+    height: auto;
     border-radius: 5px;
     position: absolute;
     margin: 0;
@@ -38,10 +38,11 @@
     appearance:none;
     padding: 12px;
     border-radius: 3px;
-    width: 250px;
+    width: 380px;
     font-size: 16px;
     margin-bottom: 10px;
     border-color: rgb(219,220,224);
+    margin-bottom: 20px
     
 }
 
@@ -57,8 +58,9 @@
 }
 
 #error-messages{
-    color: rgb(243, 134, 136);
+    color: rgb(239, 66, 76);
     font-size: 12px;
+    margin-bottom: 20px
 }
 .custom-field{
     position: relative;
@@ -100,4 +102,61 @@
 
 .login-input:focus{
     border: 1px solid rgb(74,118,228);
+}
+
+#create-account{
+    margin-top: 60px
+}
+#linktosignup{
+   text-decoration: none;
+   color: rgb(74,118,228);
+}
+#signup-meessage-button{
+    border: none;
+    color: rgb(74,118,228);
+    cursor: pointer;
+    background-color: white;
+    outline:none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 15px
+    
+}
+#signup-meessage-button:hover{
+    background-color: rgb(248, 250, 254); 
+}
+
+
+#login-button{
+    outline: none;
+    border:none;
+    background-color: rgb(74,118,228);
+ 
+    color: white;
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px
+}
+
+#or-message{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px
+}
+
+#demo-user{
+    outline: none;
+    border:none;
+    background-color: rgb(74,118,228);
+ 
+    color: white;
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 110px
 }

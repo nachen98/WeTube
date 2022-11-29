@@ -74,29 +74,32 @@ const LoginForm = () => {
                   onChange={updateEmail}
                   required
                 />
-                <span className="placeholder">{!email.length? "Email": ""}</span>
+                <span className="placeholder">{!email.length ? "Email" : ""}</span>
               </label>
             </div>
             <div>
               <label className="custom-field">
                 <input className="login-input"
-                  
+
                   type='text'
                   value={password}
-  
+
                   onChange={updatePassword}
                   required
                 />
-                <span className="placeholder">Password</span>
+                <span className="placeholder">{!password.length ? "Password" : ""}</span>
               </label>
-              <div id="signup-meessage">
-              <Link to={"/sign-up"} id="linktosignup">
-                Create account
-              </Link>
+              <div id="create-account" className='justify-space-btw'>
+
+                <button id="signup-meessage-button" type="button">
+                  <Link to={"/sign-up"} id="linktosignup">
+                    Create account
+                  </Link>
+                </button>
+                <button type='submit' id="login-button">Log In</button>
               </div>
-              <button type='submit' id="login-button">Log In</button>
-              <div id="or-message">or</div>
-              <button type='submit' id="demo-user" onClick={demoUserLogin}>Log In As Demo User</button>
+              <div id="or-message" className='ctr-algn-text'>or</div>
+              <button type='submit' id="demo-user" className="ctr-algn-text" onClick={demoUserLogin}>Log In As Demo User</button>
             </div>
           </form>
         </div>
