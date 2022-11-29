@@ -1,15 +1,50 @@
-.login-input{
+#signup-container{
+    position:relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px
+
+}
+
+#signup-box{
+   
+    width: 550px;
+    height: auto;
+    border-radius: 5px;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: 1px solid rgb(219,220,224);
+    padding: 40px;
+
+}
+
+#create-an-account{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 25px
+}
+
+#signup-form{
+    width: 85%
+}
+.signup-input{
     outline:none;
     appearance:none;
     padding: 12px;
     border-radius: 3px;
-    width: 250px;
+    height: 15px;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-color: rgb(219,220,224);
     
 }
-
+.email-username-sign-up-input{
+    width: 94%
+}
 .custom-field{
     position: relative;
     font-size: 16px;

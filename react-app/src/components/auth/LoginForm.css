@@ -17,7 +17,7 @@
     top: 50%;
     transform: translate(0, -50%);
     border: 1px solid rgb(219,220,224);
-    padding: 10px
+    padding: 20px
 
 }
 
@@ -38,7 +38,7 @@
     appearance:none;
     padding: 12px;
     border-radius: 3px;
-    width: 380px;
+    width: 95%;
     font-size: 16px;
     margin-bottom: 10px;
     border-color: rgb(219,220,224);
