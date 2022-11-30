@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { uploadVideo } from "../../store/video";
 import "./CreateVideo.css"
 
-const CreateVideoForm = ({ setShowModal }) => {
+const FillVideoInfo = ({ setShowModal, videofile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -28,10 +28,6 @@ const CreateVideoForm = ({ setShowModal }) => {
             allErrors.push("The description must be less than 255 characters.")
         }
 
-        if (video?.type !== "video/mp4" && video?.type !== "video/mkv") {
-            allErrors.push("File format must be either .mp4 or .mkv")
-        }
-        if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
 
         if (thumbnailPic?.type !== "image/png" && thumbnailPic?.type !== "image/gif" && thumbnailPic?.type !== "image/jpg" && thumbnailPic?.type !== "image/jpeg") {
 
@@ -40,7 +36,7 @@ const CreateVideoForm = ({ setShowModal }) => {
 
         setErrors(allErrors)
 
-    }, [title, description, video, thumbnailPic])
+    }, [title, description, thumbnailPic])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,7 +49,7 @@ const CreateVideoForm = ({ setShowModal }) => {
         formData.append("title", title)
         formData.append("description", description)
         formData.append("thumbnail_pic", thumbnailPic)
-        formData.append("content", video)
+        formData.append("content", videofile)
 
         // console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
@@ -95,8 +91,8 @@ const CreateVideoForm = ({ setShowModal }) => {
                 <form onSubmit={handleSubmit}>
 
                     <div id="uploadvideo-inputfield-container">
-                        <div className="input-field" >
-                            <label> Title
+                        <div>
+                            <label className="custom-field">
                                 <input
                                     type="text"
                                    
@@ -105,28 +101,22 @@ const CreateVideoForm = ({ setShowModal }) => {
                                     onChange={(e) => setTitle(e.target.value)}
 
                                 />
+                                <spacn className="placeholder">Title</spacn>
                             </label>
-                            <label> Drop your file here
-                                <input
-                                    type="file"
-                                    placeholder="Drop your video file(.mp4 and .mkv format)"
-                                    //value={video}
-                                    accept="video/mp4, video/mkv"
-                                    onChange={(e) => setVideo(e.target.files[0])
-                                    }
-                                    required
-                                />
-                            </label>
-                            <label>
+                        </div>
+                        <div>
+                            <label className="custom-field">
                                 <input
                                     type="text"
-                                    placeholder="Description"
+                                    
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
+                                <spacn className="placeholder">Description</spacn>
                             </label>
 
-                            <label>
+                            <label for="images" className="drop-container">
+                                <span>Drop your thumbnail picture here</span>
                                 <input
                                     type="file"
                                     placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
@@ -154,4 +144,4 @@ const CreateVideoForm = ({ setShowModal }) => {
     )
 }
 
-export default CreateVideoForm;
+export default FillVideoInfo;

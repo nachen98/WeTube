@@ -14,7 +14,10 @@ a{
     justify-content: space-between;
     align-items:center
 }
-
+.flx-col {
+    display: flex;
+    flex-direction: column;
+}
 .pos-rel{
     position: relative;
 }
@@ -36,7 +39,12 @@ a{
     justify-content: center;
     align-items: center;
 }
-
+.flx-row-wrap{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: flex-start
+}
 .profile-icon{
     width: 35px;
     height: 35px;

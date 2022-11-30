@@ -1,0 +1,50 @@
+#comment-content{
+  border:none;
+  outline: none;
+  width: 62vw;
+  height: 28px;
+  /* border-bottom: 1px solid grey ; */
+}
+
+#comment-content:focus{
+  border-bottom: 2px solid black
+}
+
+#comment-maker-icon{
+    margin-right: 20px;
+}
+
+#comment-input-container{
+    margin-left: 3.5%;
+    margin-top: -45px;
+   
+    width: 62vw;
+    height: 30px;
+    border-bottom: 1px solid grey ;
+}
+
+.comment-buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: flex-end;
+    width: 64vw;
+}
+
+#cancel-button{
+    margin-right:20px;
+    border:none;
+    font-weight: 500;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:white;
+    cursor: pointer;
+}
+
+#cancel-button:hover{
+    background-color: rgb(229, 229, 229)
+}

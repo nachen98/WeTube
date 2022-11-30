@@ -4,7 +4,7 @@
     position: relative;
 }
 
-#video-comment-container{
+.video-comment-container{
     width:100%;
     margin-right: 20px;
     position: relative
@@ -34,4 +34,31 @@
 #single-video-player{
     position: absolute;
     width: 100%;
+}
+
+.video-description-component{
+    position:absolute;
+    width: 95%
+}
+
+#video-title{
+    font-weight: bold;
+    font-size: 20px
+}
+
+.video-uploader-info{
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+#video-description{
+    background-color:rgb(219,220,224);
+    border-radius: 20px;
+
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+#num-comments{
+    margin-bottom: 20px
 }

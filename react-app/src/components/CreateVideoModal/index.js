@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import UpLoadVideoForm from './UpLoadVideoForm';
+import FillVideoInfo from './FillVideoInfo';
 import CreateVideoForm from './CreateVideoForm.js';
 import cameraicon1 from "../Images/pluscamera.png"
+
 function CreateVideoModal() {
   const [showModal, setShowModal] = useState(false);
+  const [showUpLoadVideo, setShowUpLoadVideo] = useState(true)
 
   return (
     <>
@@ -12,7 +16,8 @@ function CreateVideoModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateVideoForm setShowModal={setShowModal}/>
+          {showUpLoadVideo && (<UpLoadVideoForm setShowModal={setShowModal} setShowUpLoadVideo={setShowUpLoadVideo}/>)}
+          {!showUpLoadVideo && (<FillVideoInfo /> )}
         </Modal>
       )}
     </>

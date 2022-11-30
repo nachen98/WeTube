@@ -45,7 +45,7 @@ export function SingleVideo() {
 
     return (
         <div id="single-video-page-outer-container">
-            <div id="video-comment-container">
+            <div className="video-comment-container">
                 <div id="player-container" className="player-wrapper">
                     <ReactPlayer
                         id="single-video-player"
@@ -56,43 +56,50 @@ export function SingleVideo() {
                         width="95%"
                         height="auto"
                     />
-                    <div id="video-title">
-                        {video.title}
-                    </div>
-                    <div id="delete-edit-video-buttons">
+                    <div className="video-description-component">
 
 
-                        {!!currUserIsOwner && (
-                            <>
-                                <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
-                                <button onClick={() => setShowVideoDeleteModal(true)} id="delete-spot-button">Delete Video</button>
-                                {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
-                            </>
+                        <div className="flx-row-space-btw">
+                            <div id="video-title">
+                                {video.title}
+                            </div>
+                            <div id="delete-edit-video-buttons">
+
+
+                                {!!currUserIsOwner && (
+                                    <>
+                                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
+                                        <button onClick={() => setShowVideoDeleteModal(true)} id="delete-video-button">Delete Video</button>
+                                        {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        <div className="video-uploader-info">
+                            {getProfileIcon(video.user)}
+                            {video.user.first_name} {video.user.last_name}
+                        </div>
+                        <div id="video-description">
+                            {video.description}
+                        </div>
+                        <div id="num-comments">
+                            {numComments} Comments
+                        </div>
+
+
+
+                        {!!currUser && !currUserIsOwner && (
+                            <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment" />
                         )}
+
+                        <div id="comment-outer-container">
+                            {commentContents.map(commentContent => {
+                                return (<VideoComment key={commentContent.id} commentContent={commentContent} />)
+                            })}
+                        </div>
+
+
                     </div>
-                    <div>
-                        {getProfileIcon(video.user)}
-                    </div>
-                    <div id="video-description">
-                        {video.description}
-                    </div>
-                    <div id="num-comments">
-                        {numComments} Comments
-                    </div>
-
-
-
-                    {!!currUser && !currUserIsOwner && (
-                        <CreateCommentForm videoId={videoId} commentId={0} content="" placeholder="Add a comment..." buttonName="Comment" />
-                    )}
-
-                    <div id="comment-outer-container">
-                        {commentContents.map(commentContent => {
-                            return (<VideoComment key={commentContent.id} commentContent={commentContent} />)
-                        })}
-                    </div>
-
-
                 </div>
             </div>
 

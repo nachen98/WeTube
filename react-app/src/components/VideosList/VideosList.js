@@ -8,6 +8,10 @@ const VideosList = () => {
     const videosList = useSelector(state=> state.videosReducer)
     // console.log("videoList!!!!!!!!!!!!!", videosList)
     const videos = Object.values(videosList)
+        .map((video) => ({video, "sort": Math.random()}))
+        .sort((a,b)=>a.sort - b.sort)
+        .map(({video}) => video)
+    
 
     useEffect(()=>{
         dispatch(getAllVideos())
