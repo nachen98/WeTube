@@ -6,7 +6,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 15px
+    margin-top: 15px;
+    position:sticky;
+    top:0;
+    background-color: white;
+    z-index: 10
    
 }
 
@@ -51,4 +55,32 @@
 #mainpage-login-button:hover{
     background-color: rgb(229,241,254);
     border:none
+}
+
+.div-profile-dropdown{
+    position: absolute;
+    border: 1px solid  rgb(219,220,224);
+    border-radius: 10px;
+    height: 100px;
+    width: 150px;
+    right: 10px;
+    top: calc(100% + .25rem);
+    box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
+    z-index: 10;
+    background-color: white;
+}
+
+.user-info{
+    padding: 7px 0 7px 30px;
+    font-family: Plus Jakarta Sans,Montserrat Alternates,Open Sans,Arimo,Roboto,sans-serif;
+}
+
+.logout-button{
+    cursor: pointer;
+    padding: 7px 0 7px 30px;
+}
+
+.logout-button:hover{
+    background-color: rgb(243, 242, 242);
+    background: stretch;
 }

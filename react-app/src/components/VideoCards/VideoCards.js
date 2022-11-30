@@ -18,7 +18,7 @@ export function VideoCards({ video }) {
             <Link to={`/videos/${video.id}`}>
                 <div className="player-wrapper">
                     <ReactPlayer
-                        id="cards-player" 
+                        id="cards-player"
                         className="react-player"
                         ref={playerRef}
                         url={video.url}
@@ -27,21 +27,24 @@ export function VideoCards({ video }) {
                         height="100%"
                         // playIcon={<button style={{backgrounColor: "none"}}>Play</button>}
                         controls={true}
-                     
+
                     />
                 </div>
-                <div>
-                    {getProfileIcon(video.user)}
+                <div className="flx-row">
+                    <div className="video-card-profile-icon">
+
+                        {getProfileIcon(video.user)}
+                    </div>
                     <div id="video-title">
                         {video.title}
                     </div>
-                    
-                    <div id = "posted-time">
+
+                    <div id="posted-time">
                         {formatedTime}
 
                     </div>
                 </div>
-            </Link>   
+            </Link>
 
         </div>
 

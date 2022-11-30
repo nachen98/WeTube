@@ -91,3 +91,14 @@ a{
     display: flex;
     justify-content: space-between;
 }
+
+.flx-row-space-evenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flx-row {
+    display: flex;
+    flex-direction: row;
+}
