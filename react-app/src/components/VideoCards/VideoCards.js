@@ -30,18 +30,21 @@ export function VideoCards({ video }) {
 
                     />
                 </div>
-                <div className="flx-row">
+                <div className="icon-title-time flx-row">
                     <div className="video-card-profile-icon">
 
                         {getProfileIcon(video.user)}
                     </div>
-                    <div id="video-title">
-                        {video.title}
-                    </div>
+                    <div className="video-time flx-col-start">
 
-                    <div id="posted-time">
-                        {formatedTime}
+                        <div className="video-title">
+                            {video.title}
+                        </div>
 
+                        <div className="posted-time">
+                            {formatedTime}
+
+                        </div>
                     </div>
                 </div>
             </Link>

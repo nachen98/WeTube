@@ -19,7 +19,7 @@ export const getProfileIcon=(user)=>{
     const colorInd = user===null? 0:user.id % COLORS.length
     const firstLetter=user===null? '?':user.username[0]
     return (
-       <i className={`profile-icon ${COLORS[colorInd]}-bg`}>{firstLetter}</i> 
+       <button className={`profile-icon ${COLORS[colorInd]}-bg`}>{firstLetter}</button> 
     )
 }
 
