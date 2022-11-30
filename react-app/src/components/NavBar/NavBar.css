@@ -11,7 +11,11 @@
 }
 
 #inner-nav-container{
-    width: 95%
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #home-logo{
     height: 40px;

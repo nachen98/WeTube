@@ -28,7 +28,7 @@ function NavBar() {
 
   return (
     <div id="nav-container">
-      <div id="inner-nav-container" className='flx-row-space-btw'>
+      <div id="inner-nav-container">
         <nav>
           <NavLink exact to="/" id="navlink" className='flx-row-justify-align-ctr'>
             <img src={logo} id="home-logo" alt="logo" />

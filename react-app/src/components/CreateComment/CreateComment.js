@@ -14,6 +14,8 @@ export function CreateCommentForm({videoId, commentId, content, placeholder, but
     const currUser = useSelector(state=> state.session.user)
     const [comment, setComment] = useState(content)
     const [disabled, setDisabled] = useState(true)
+    const [errors, setErrors] = useState([])
+
 
     const handleCancel=(e)=> {
         e.preventDefault()
@@ -23,6 +25,8 @@ export function CreateCommentForm({videoId, commentId, content, placeholder, but
     }
     const handleSubmit = (e)=> {
         e.preventDefault()
+
+        if (errors.length > 0) return
         document.getElementById(`buttons_${buttonName}`).className=hidden
         if(commentId>0){
             dispatch(editComment(commentId, comment))
@@ -51,17 +55,29 @@ export function CreateCommentForm({videoId, commentId, content, placeholder, but
 
     useEffect(()=> {
 
-        if(comment.trim().length >= 1){
+        if(comment.trim().length >= 1 && comment.length < 255){
             setDisabled(false)
         }
         else{
             setDisabled(true)
         }
+
     }, [comment])
 
-   
+
+    
+    useEffect(()=> {
+        let validationErrors = []
+        if(comment.length > 255) validationErrors.push("Comment is at most 255 characters")
+
+        setErrors(validationErrors)
+        
+    }, [comment])
+    
+
     return(
         <div id="form-container">
+            { errors.length ? <div className="error-messages">{errors}</div> : null }
             <div >
                     {getProfileIcon(currUser)}
             </div>

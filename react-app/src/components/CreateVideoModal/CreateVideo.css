@@ -1,7 +1,9 @@
 #upload-video{
     background-color: white;
     height: 40px;
-    width: auto
+    width: auto;
+    cursor: pointer;
+    
 }
 
 #upload-video-button{
