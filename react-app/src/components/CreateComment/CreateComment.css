@@ -24,27 +24,59 @@
 }
 
 .comment-buttons{
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     gap: 15px;
     justify-content: flex-end;
     width: 64vw;
+    margin-left: 7px
 }
 
 #cancel-button{
+    width: 70px;
+    height: 40px;
     margin-right:20px;
     border:none;
     font-weight: 500;
     border-radius: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color:white;
     cursor: pointer;
 }
 
 #cancel-button:hover{
     background-color: rgb(229, 229, 229)
+}
+
+#submit-button:disabled{
+    width: 80px;
+    height: 40px;
+    border:none;
+    font-weight: 500;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:rgb(242, 242, 242);
+
+}
+
+#submit-button:enabled{
+    background-color: rgb(6, 9, 212);
+    width: 80px;
+    height: 40px;
+    border:none;
+    font-weight: 500;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    cursor: pointer;
 }

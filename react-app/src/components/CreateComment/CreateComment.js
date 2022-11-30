@@ -99,7 +99,7 @@ export function CreateCommentForm({ videoId, commentId, content, placeholder, bu
                         <div className="comment-buttons">
                             <div id={`buttons_${buttonName}`} className={commentId === 0 ? "display-none" : ""}>
                                 <button type="submit" id="cancel-button" onClick={handleCancel}>Cancel</button>
-                                <button type="submit" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
+                                <button type="submit" id="submit-button" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
                             </div>
                         </div>
                     </form>
