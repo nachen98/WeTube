@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DeleteCommentModal from "../DeleteCommentModal";
 import { Modal } from '../../context/Modal';
-
+import "./EditDeleteDropDown.css"
 export function EditDeleteDropDown ({commentContent, setEditable}){
     
     const [showMenu, setShowMenu] = useState(false);

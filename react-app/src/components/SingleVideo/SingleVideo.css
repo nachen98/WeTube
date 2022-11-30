@@ -62,3 +62,8 @@
 #num-comments{
     margin-bottom: 20px
 }
+
+#comment-container{
+    width:fit-content;
+    height: 50px
+}

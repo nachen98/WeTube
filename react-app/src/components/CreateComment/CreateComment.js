@@ -77,8 +77,8 @@ export function CreateCommentForm({ videoId, commentId, content, placeholder, bu
 
     return (
         <div id="form-container">
-            {errors.length ? <div className="error-messages">{errors}</div> : null}
-            <div className="flx-row-wrap">
+            {errors.length ? <div id="comment-error-messages">{errors}</div> : null}
+            <div className="create-comment-container flx-row-wrap">
                 <div id="comment-maker-icon" >
                     {getProfileIcon(currUser)}
                 </div>
@@ -89,7 +89,7 @@ export function CreateCommentForm({ videoId, commentId, content, placeholder, bu
 
                             <input
                                 type="text"
-                                id="comment-content"
+                                id="comment-input"
                                 value={comment}
                                 onFocus={() => { document.getElementById(`buttons_${buttonName}`).className = "" }}
                                 placeholder={placeholder}

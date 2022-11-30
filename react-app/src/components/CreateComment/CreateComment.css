@@ -1,12 +1,12 @@
-#comment-content{
+#comment-input{
   border:none;
   outline: none;
   width: 62vw;
   height: 28px;
-  /* border-bottom: 1px solid grey ; */
+
 }
 
-#comment-content:focus{
+#comment-input:focus{
   border-bottom: 2px solid black
 }
 
@@ -79,4 +79,17 @@
     padding-right: 10px;
     color: white;
     cursor: pointer;
+}
+
+.create-comment-container{
+    margin-top: 30px
+}
+
+#comment-error-messages{
+    color: rgb(239, 66, 76);
+    font-size: 12px;
+}
+#form-container{
+    width: fit-content;
+    height: fit-content
 }
