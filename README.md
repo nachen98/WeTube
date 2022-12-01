@@ -73,12 +73,12 @@ In this page you can vatch the videos, uploaders info, description, comments and
 
 Users can create comment to videos.
 
-![image](frontend/src/Images/create-comment.png)
+![image](frontend/src/components/Images/create-comment.png)
 
 ### Edit/Delete a comment
 
 Users can edit or delete their comment.
-![image](frontend/src/Images/edit-delete-comment.png)
+![image](frontend/src/components/Images/edit-delete-comment.png)
 
 ## To-Do List:
 
