@@ -18,9 +18,9 @@ function NavBar() {
   } else {
     sessionLink = (
       <NavLink to={"/login"}>
-        <button id="login-button" >
+        <button id="mainpage-login-button" >
           <i class="fa-regular fa-user"></i>
-          SIGN IN
+          Sign in
         </button>
       </NavLink>
     )
@@ -28,14 +28,14 @@ function NavBar() {
 
   return (
     <div id="nav-container">
-      <div id="inner-nav-container" className='flx-row-space-btw'>
+      <div id="inner-nav-container">
         <nav>
           <NavLink exact to="/" id="navlink" className='flx-row-justify-align-ctr'>
             <img src={logo} id="home-logo" alt="logo" />
-            <h1>WeTube</h1>
+            <span id="wetube-name">WeTube</span>
           </NavLink>
         </nav>
-        <div id="RightNav">
+        <div id="right-nav">
           {sessionLink}
         </div>
 

@@ -18,30 +18,36 @@ export function VideoCards({ video }) {
             <Link to={`/videos/${video.id}`}>
                 <div className="player-wrapper">
                     <ReactPlayer
-                        id="cards-player" 
+                        id="cards-player"
                         className="react-player"
                         ref={playerRef}
                         url={video.url}
                         light={thumbnail_pic}
                         width="100%"
                         height="100%"
-                        playIcon={<button>Play</button>}
+                        // playIcon={<button style={{backgrounColor: "none"}}>Play</button>}
                         controls={true}
-                     
+
                     />
                 </div>
-                <div>
-                    {getProfileIcon(video.user)}
-                    <div id="video-title">
-                        {video.title}
-                    </div>
-                    
-                    <div id = "posted-time">
-                        {formatedTime}
+                <div className="icon-title-time flx-row">
+                    <div className="video-card-profile-icon">
 
+                        {getProfileIcon(video.user)}
+                    </div>
+                    <div className="video-time flx-col-start">
+
+                        <div className="video-title">
+                            {video.title}
+                        </div>
+
+                        <div className="posted-time">
+                            {formatedTime}
+
+                        </div>
                     </div>
                 </div>
-            </Link>   
+            </Link>
 
         </div>
 

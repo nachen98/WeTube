@@ -1,15 +1,16 @@
-#login-container{
+#signup-container{
     position:relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 15px
 
 }
 
-#login-box{
+#signup-box{
    
-    width: 450px;
+    width: 550px;
     height: auto;
     border-radius: 5px;
     position: absolute;
@@ -17,50 +18,32 @@
     top: 50%;
     transform: translate(0, -50%);
     border: 1px solid rgb(219,220,224);
-    padding: 20px
+    padding: 40px;
 
 }
 
-#inner-container{
-    width: 400px;
-    height: 600px
+#create-an-account{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 25px
 }
-#welcome{
-    font-size: 20px;
-    font-weight:bolder;
-    color: var(--off-white-text);
-    margin-top:20px;
-    margin-bottom: 10px
 
+#signup-form{
+    width: 85%
 }
-.login-input{
+.signup-input{
     outline:none;
     appearance:none;
     padding: 12px;
     border-radius: 3px;
-    width: 95%;
+    height: 15px;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-color: rgb(219,220,224);
-    margin-bottom: 20px
     
 }
-
-#sign-in{
-    margin: 15px;
-    font-size: 30px
-}
-
-#under-sign-in{
-    font-size: 20px;
-    margin-bottom: 50px;
-
-}
-
-#error-messages{
-    color: rgb(239, 66, 76);
-    font-size: 12px;
-    margin-bottom: 20px
+.email-username-sign-up-input{
+    width: 94%
 }
 .custom-field{
     position: relative;
@@ -88,7 +71,7 @@
 
 }
 
-.custom-field .login-input + .placeholder{
+.custom-field .signup-input + .placeholder{
     padding: 0 5px;
 }
 .custom-field input:valid + .placeholder,
@@ -100,18 +83,20 @@
     
 }
 
-.login-input:focus{
+.signup-input:focus{
     border: 1px solid rgb(74,118,228);
 }
 
-#create-account{
-    margin-top: 60px
+
+#signup-page-buttons{
+    margin-top: 50px
 }
-#linktosignup{
-   text-decoration: none;
-   color: rgb(74,118,228);
+
+#linktologin{
+    text-decoration: none;
+    color: rgb(74,118,228);
 }
-#signup-meessage-button{
+#login-link-button{
     border: none;
     color: rgb(74,118,228);
     cursor: pointer;
@@ -120,14 +105,13 @@
     font-weight: 500;
     font-size: 18px;
     padding: 15px
-    
 }
-#signup-meessage-button:hover{
+
+#login-link-button:hover{
     background-color: rgb(248, 250, 254); 
 }
 
-
-#login-button{
+#signup-button{
     outline: none;
     border:none;
     background-color: rgb(74,118,228);
@@ -140,30 +124,6 @@
     padding: 10px
 }
 
-#login-button:hover{
-    background-color: rgb(67, 104, 198);
-}
-#or-message{
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 15px
-}
-
-#demo-user{
-    outline: none;
-    border:none;
-    background-color: rgb(74,118,228);
- 
-    color: white;
-    cursor:pointer;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 15px;
-    margin-left: 110px
-}
-
-#demo-user:hover{
+#signup-button:hover{
     background-color: rgb(67, 104, 198);
 }

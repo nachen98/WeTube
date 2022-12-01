@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { uploadVideo } from "../../store/video";
 import "./CreateVideo.css"
 
-const CreateVideoForm = ({setShowModal}) => {
+const CreateVideoForm = ({ setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -21,7 +21,7 @@ const CreateVideoForm = ({setShowModal}) => {
     useEffect(() => {
         const allErrors = []
 
-        if (title.length > 255 ) {
+        if (title.length > 255) {
             allErrors.push("The title must be less than 255 characters")
         }
         if (description?.length > 255) {
@@ -29,23 +29,23 @@ const CreateVideoForm = ({setShowModal}) => {
         }
 
         if (video?.type !== "video/mp4" && video?.type !== "video/mkv") {
-            allErrors.push("File format must be either .mp4 or .mpk")
-        }  
+            allErrors.push("File format must be either .mp4 or .mkv")
+        }
         if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
-        
+
         if (thumbnailPic?.type !== "image/png" && thumbnailPic?.type !== "image/gif" && thumbnailPic?.type !== "image/jpg" && thumbnailPic?.type !== "image/jpeg") {
 
             allErrors.push("The accepted extentions for thumbnail pictures are .png, .gif, .jpg, .jpeg.")
         }
-       
+
         setErrors(allErrors)
 
     }, [title, description, video, thumbnailPic])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-       
-        if(errors.length>0) return;
+
+        if (errors.length > 0) return;
 
         //make sure that the name of the field you attach to your FormData object matches what you are looking for on the backend end (i.e. the name in formData.append("<some name>", image); 
         //should match image = request.files["<some name>"]).
@@ -54,17 +54,17 @@ const CreateVideoForm = ({setShowModal}) => {
         formData.append("description", description)
         formData.append("thumbnail_pic", thumbnailPic)
         formData.append("content", video)
-        
+
         // console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
 
         dispatch(uploadVideo(formData)).then(
             async (res) => {
-                
+
                 let newVideo = res
-                if (res && res.errors?.length>0) {
+                if (res && res.errors?.length > 0) {
                     setErrors(res.errors)
-                    
+
                     setIsLoading(false)
                 } else {
                     setShowModal(false)
@@ -79,7 +79,10 @@ const CreateVideoForm = ({setShowModal}) => {
     return (
         <div id="form-container">
             <div id="form-header">
-                Upload a Video:
+                Upload a Video
+            </div>
+            <div>
+
                 <ul>
                     {errors.map(error => (
                         <li>{error}</li>
@@ -87,43 +90,54 @@ const CreateVideoForm = ({setShowModal}) => {
                 </ul>
             </div>
 
-            <div id="form-body">
+
+            <div id="form-body" className="flx-col-justify-align-ctr">
                 <form onSubmit={handleSubmit}>
 
                     <div id="uploadvideo-inputfield-container">
-                        <div className="input-field">
-                            <label>
-                                <input
+                        <div className="input-field" >
+                    
+                            <label className="custom-field">
+                                <input className="title-description-input"
                                     type="text"
-                                    placeholder="Title"
+                                   
                                     required
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
 
                                 />
+                                <span className="placeholder">Title</span>
                             </label>
-                            <label> Drop your file here
-                                <input
+                        </div>
+
+                        <div>
+                            <label className="custom-field">
+                                <input className="title-description-input"
+                                    type="text"
+                                    required
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                />
+                                <span className="placeholder">Description</span>
+                            </label>
+                        </div>
+                        <div className="file-container">
+                            <label> Choose your video file here
+                                <input id="video-file-input-area"
                                     type="file"
                                     placeholder="Drop your video file(.mp4 and .mkv format)"
                                     //value={video}
                                     accept="video/mp4, video/mkv"
                                     onChange={(e) => setVideo(e.target.files[0])
-                                }
+                                    }
                                     required
                                 />
                             </label>
-                            <label>
-                                <input
-                                    type="text"
-                                    placeholder="Description"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                />
-                            </label>
 
-                            <label>
-                                <input
+                        </div >
+                        <div className="file-container">
+                            <label> Choose thumbnail picture
+                                <input id="picture-file-input-area"
                                     type="file"
                                     placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
                                     //value={thumbnailPic}
@@ -132,10 +146,10 @@ const CreateVideoForm = ({setShowModal}) => {
 
                                 />
                             </label>
-
+                        
                         </div>
-                        <div className="submit-button">
-                            <button
+                        <div >
+                            <button className="submit-button"
                                 type="submit"
                                 disabled={!hasSubmitted && errors.length > 0}>
                                 Submit

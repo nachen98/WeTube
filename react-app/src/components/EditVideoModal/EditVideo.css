@@ -1,0 +1,29 @@
+#edit-video-button{
+    outline: none;
+    border:none;
+    background-color: rgb(74,118,228);
+ 
+    color: white;
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom:20px
+}
+
+#delete-video-button{
+    outline: none;
+    border:none;
+    background-color: rgb(74,118,228);
+ 
+    color: white;
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+   
+  
+}

@@ -1,16 +1,23 @@
 /* TODO Add site wide styles */
 * {
     font-family: 'Roboto';
-    text-decoration: none;
-    color: black
 }
 
+a{
+    color:black;
+    text-decoration: none;
+
+}
 .flx-row-space-btw {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items:center
 }
-
+.flx-col {
+    display: flex;
+    flex-direction: column;
+}
 .pos-rel{
     position: relative;
 }
@@ -32,11 +39,18 @@
     justify-content: center;
     align-items: center;
 }
-
+.flx-row-wrap{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: flex-start
+}
 .profile-icon{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    border:none;
+    cursor:pointer
 }
 .gray-bg {
     background-color: #757e8a;
@@ -67,4 +81,44 @@
 
 #home-log{
     background-color: white;
+}
+
+.ctr-algn-text {
+    text-align: center;
+}
+
+.pos-rel{
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+.justify-space-btw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flx-row-space-evenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flx-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flx-col-start{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.flx-row-end{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }

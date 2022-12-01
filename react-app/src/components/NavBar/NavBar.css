@@ -6,19 +6,81 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 15px;
+    position:sticky;
+    top:0;
+    background-color: white;
+    z-index: 10
+   
 }
 
 #inner-nav-container{
-    width: 95%
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #home-logo{
     height: 40px;
     width: auto
 }
 
-#nav-link>h1{
+
+
+#wetube-name{
     font-size: 20px;
     color: black;
     font-weight: bolder;
 }
 
+#mainpage-login-button{
+    border: 1px solid rgb(219,220,224); 
+    color: rgb(74,118,228);
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    cursor:pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.fa-regular.fa-user{
+    margin-right: 5px;
+}
+
+#mainpage-login-button:hover{
+    background-color: rgb(229,241,254);
+    border:none
+}
+
+.div-profile-dropdown{
+    position: absolute;
+    border: 1px solid  rgb(219,220,224);
+    border-radius: 10px;
+    height: 100px;
+    width: 150px;
+    right: 10px;
+    top: calc(100% + .25rem);
+    box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
+    z-index: 10;
+    background-color: white;
+}
+
+.user-info{
+    padding: 7px 0 7px 30px;
+    font-family: Plus Jakarta Sans,Montserrat Alternates,Open Sans,Arimo,Roboto,sans-serif;
+}
+
+.logout-button{
+    cursor: pointer;
+    padding: 7px 0 7px 30px;
+}
+
+.logout-button:hover{
+    background-color: rgb(243, 242, 242);
+    background: stretch;
+}

@@ -1,0 +1,50 @@
+.delete-modal-container{
+    background-color: white;
+    border-radius: 10px;
+    width: 280px;
+    height: 120px;
+    padding: 20px
+}
+
+.delete-header{
+    margin-bottom: 20px
+}
+
+.delete-messages{
+    color: rgb(105, 105, 105);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.cancel-delete-comment-and-video{
+    border: none;
+    color: rgb(26, 108, 215);
+    background-color: white;
+    font-weight: 500;
+    margin-right: 20px;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.confirm-delete-comment-and-video{
+    border: none;
+    background-color: white;
+    color: rgb(26, 108, 215);
+    font-weight: 500;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.cancel-delete-comment-and-video:hover{
+    background-color: rgb(222, 241, 255);
+}
+
+.confirm-delete-comment-and-video:hover{
+    background-color: rgb(222, 241, 255);
+}

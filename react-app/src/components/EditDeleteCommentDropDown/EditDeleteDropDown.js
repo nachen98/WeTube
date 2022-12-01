@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DeleteCommentModal from "../DeleteCommentModal";
 import { Modal } from '../../context/Modal';
-
+import "./EditDeleteDropDown.css"
 export function EditDeleteDropDown ({commentContent, setEditable}){
     
     const [showMenu, setShowMenu] = useState(false);
@@ -32,7 +32,7 @@ export function EditDeleteDropDown ({commentContent, setEditable}){
             </button>
 
             {showMenu && (
-              <div id="edit-delete-dropdown" className="edit-delete-ele">
+              <div id="edit-delete-dropdown" className="edit-delete-ele flx-col-justify-align-ctr">
                 <div id="edit-comment-button" className="edit-delete-ele">
                   <button className="edit-delete-ele" onClick={()=>setEditable(true)}>
                     <i className="edit-delete-ele fa-solid fa-pencil"></i>

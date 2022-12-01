@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LogoutButton from "../auth/LogoutButton";
 import CreateVideoModal from "../CreateVideoModal";
-
+import "./NavBar.css"
 function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -24,20 +24,22 @@ function ProfileButton({ user }) {
 
   const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
   const colorInd = user.id % COLORS.length
-  const firstLetter=user.username[0]
+  const firstLetter = user.username[0]
   return (
     <>
-      <CreateVideoModal />
-      <button onClick={openMenu} className={`profile-icon ${COLORS[colorInd]}-bg`}>
-        {firstLetter}
-      </button>
+      <div className="flx-row-space-btw">
+        <CreateVideoModal />
+        <button onClick={openMenu} className={`profile-icon ${COLORS[colorInd]}-bg pos-rel`}>
+          {firstLetter}
+        </button>
+      </div>
       {showMenu && (
         <div className="div-profile-dropdown">
-            <div className="user-info">{user.username}</div>
-            <div className="user-info">{user.email}</div>
-            <div id="logout-button">
-              {LogoutButton()}
-            </div>
+          <div className="user-info">{user.username}</div>
+          <div className="user-info">{user.email}</div>
+          <div className="logout-button">
+            {LogoutButton()}
+          </div>
         </div>
 
       )}
