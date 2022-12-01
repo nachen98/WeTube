@@ -26,10 +26,12 @@
 
 .video-title{
   font-size: 15px;
-  font-weight:500
+  font-weight:500;
+  word-break:break-all;
 }
 
 .posted-time{
   font-size: 12px;
   color: gray
 }
+

@@ -9,7 +9,8 @@
     font-size: 18px;
     border-radius: 5px;
     padding: 10px;
-    margin-right: 10px
+    margin-right: 10px;
+    margin-bottom:20px
 }
 
 #delete-video-button{
@@ -23,5 +24,6 @@
     font-size: 18px;
     border-radius: 5px;
     padding: 10px;
+   
   
 }

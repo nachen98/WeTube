@@ -93,7 +93,7 @@ const FillVideoInfo = ({ setShowModal, videofile }) => {
                     <div id="uploadvideo-inputfield-container">
                         <div>
                             <label className="custom-field">
-                                <input
+                                <input className="title-description-input"
                                     type="text"
                                    
                                     required
@@ -106,7 +106,7 @@ const FillVideoInfo = ({ setShowModal, videofile }) => {
                         </div>
                         <div>
                             <label className="custom-field">
-                                <input
+                                <input className="title-description-input"
                                     type="text"
                                     
                                     value={description}

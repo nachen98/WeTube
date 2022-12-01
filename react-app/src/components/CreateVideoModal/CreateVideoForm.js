@@ -91,13 +91,14 @@ const CreateVideoForm = ({ setShowModal }) => {
             </div>
 
 
-            <div id="form-body">
+            <div id="form-body" className="flx-col-justify-align-ctr">
                 <form onSubmit={handleSubmit}>
 
                     <div id="uploadvideo-inputfield-container">
                         <div className="input-field" >
-                            <label> Title
-                                <input
+                    
+                            <label className="custom-field">
+                                <input className="title-description-input"
                                     type="text"
                                    
                                     required
@@ -105,9 +106,24 @@ const CreateVideoForm = ({ setShowModal }) => {
                                     onChange={(e) => setTitle(e.target.value)}
 
                                 />
+                                <span className="placeholder">Title</span>
                             </label>
-                            <label> Drop your file here
-                                <input
+                        </div>
+
+                        <div>
+                            <label className="custom-field">
+                                <input className="title-description-input"
+                                    type="text"
+                                    required
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                />
+                                <span className="placeholder">Description</span>
+                            </label>
+                        </div>
+                        <div className="file-container">
+                            <label> Choose your video file here
+                                <input id="video-file-input-area"
                                     type="file"
                                     placeholder="Drop your video file(.mp4 and .mkv format)"
                                     //value={video}
@@ -117,17 +133,11 @@ const CreateVideoForm = ({ setShowModal }) => {
                                     required
                                 />
                             </label>
-                            <label>
-                                <input
-                                    type="text"
-                                    placeholder="Description"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                />
-                            </label>
 
-                            <label>
-                                <input
+                        </div >
+                        <div className="file-container">
+                            <label> Choose thumbnail picture
+                                <input id="picture-file-input-area"
                                     type="file"
                                     placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
                                     //value={thumbnailPic}
@@ -136,10 +146,10 @@ const CreateVideoForm = ({ setShowModal }) => {
 
                                 />
                             </label>
-
+                        
                         </div>
-                        <div className="submit-button">
-                            <button
+                        <div >
+                            <button className="submit-button"
                                 type="submit"
                                 disabled={!hasSubmitted && errors.length > 0}>
                                 Submit
