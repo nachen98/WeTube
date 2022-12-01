@@ -4,60 +4,45 @@ import { useHistory } from "react-router-dom";
 import { uploadVideo } from "../../store/video";
 import "./CreateVideo.css"
 
-const UpLoadVideoForm = ({ setShowModal, setShowUpLoadVideo, videofile=null}) => {
+const UpLoadVideoForm = ({setShowUpLoadVideo, setVideoFile, videoFile}) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(false);
-    const [video, setVideo] = useState(null);
-    
 
+    //const dropContainer = document.getElementById("dropContainer")
+    const fileInput = document.getElementById("fileInput")
     useEffect(() => {
-        const allErrors = []
-
-        if (video?.type !== "video/mp4" && video?.type !== "video/mkv") {
-            allErrors.push("File format must be either .mp4 or .mkv")
-        }
-        if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
-
-        setErrors(allErrors)
-
-    }, [video])
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (errors.length > 0) setIsLoading(false) 
-
-        //make sure that the name of the field you attach to your FormData object matches what you are looking for on the backend end (i.e. the name in formData.append("<some name>", image); 
-        //should match image = request.files["<some name>"]).
-        // const formData = new FormData()
-        // formData.append("content", video)
-
-        else{
-            setIsLoading(true)
-            setVideo(videofile)  
-        } 
-
-        // dispatch(uploadVideo(formData)).then(
-        //     async (res) => {
-        //         if (res && res.errors?.length > 0) {
-        //             setErrors(res.errors)
-
-        //             setIsLoading(false)
-        //         } else {
-        //             setShowUpLoadVideo(false)
-        //             setIsLoading(false)
-        //         }
-        //     }
-        // )
-
+        const drop = document.getElementById("dropContainer");
+        if(drop!==null){
+            drop.addEventListener("dragover", function (ev) {
+                ev.preventDefault();
+            }, false);
+            
+            drop.addEventListener("drop", function (ev) {
+                ev.preventDefault();//取消事件的默认动作。
+                const new_errors = [];
+                console.log("xxxxxxxxxx errors=", errors)
+                const file=ev.dataTransfer.files[0]
+                if (file?.type !== "video/mp4" && file?.type !== "video/mkv") new_errors.push("File format must be either .mp4 or .mkv")
+                if (file?.size > 50000000) new_errors.push("Video size is limited to 50MB.")
+                setErrors(new_errors)
+                if(new_errors.length === 0 ) {
+                    setVideoFile(file)
+                    setShowUpLoadVideo(false)
+                    console.log("looks good @@@@@@@@@@@@@")
+                }else{
+                    console.log(new_errors, "looks bad##############")
+                }
     
+            }, false);
+        }
+        
 
-    }
-
+    }, [])
+        
     return (
         <div id="form-container">
             <div id="form-header">
@@ -74,30 +59,30 @@ const UpLoadVideoForm = ({ setShowModal, setShowUpLoadVideo, videofile=null}) =>
 
 
             <div id="form-body">
-                <form onSubmit={handleSubmit}>
 
                     <div id="uploadvideo-inputfield-container">
                         <div className="input-field" >
                             
-                            <label for="videos" className="drop-container">
-                                <span>Drop your video file here</span>
-                              
-                                <input
-                                    type="file"
-                                    placeholder="Drop your video file(.mp4 and .mkv format)"
-                                    //value={video}
-                                    accept="video/mp4, video/mkv"
-                                    onChange={(e) => setVideo(e.target.files[0])
-                                    }
-                                    required
-                                />
-                            </label>
+                            <div id="dropContainer">
+                                Drop your video file here
+                            </div>
+                            <input
+                                type="file"
+                                id="fileInput"
+                                placeholder="Drop your video file(.mp4 and .mkv format)"
+                                //value={videoFile?.name}
+                                accept="video/mp4, video/mkv"
+                                
+                                required
+                            />
+                            
 
                         </div>
                         <div className="submit-button">
                             <button
                                 type="submit"
-                                disabled={!hasSubmitted && errors.length > 0}>
+                                disabled={!hasSubmitted && errors.length > 0}
+                                onClick={()=>setShowUpLoadVideo(true)}>
                                Next
                             </button>
                             {isLoading && <p>Loading...</p>}
@@ -105,7 +90,6 @@ const UpLoadVideoForm = ({ setShowModal, setShowUpLoadVideo, videofile=null}) =>
                      
                     
                     </div>
-                </form>
             </div>
 
         </div>

@@ -3,7 +3,6 @@
     height: 40px;
     width: auto;
     cursor: pointer;
-    
 }
 
 #upload-video-button{
@@ -42,7 +41,7 @@ li{
     padding: 20px
 }
 
-.drop-container {
+#dropContainer {
     position: relative;
     display: flex;
     gap: 10px;
@@ -53,18 +52,20 @@ li{
     padding: 20px;
     border-radius: 10px;
     border: 2px dashed #555;
-    color: #444;
+    color: rgb(222, 64, 64);
     cursor: pointer;
-    transition: background .2s ease-in-out, border .2s ease-in-out;
+    background: #fff;
   }
   
-  .drop-container:hover {
-    background: #eee;
+  #dropContainer:hover {
+    background: #fff;
     border-color: #111;
   }
   
-  .drop-container:hover .drop-title {
+  #dropContainer:hover .drop-title {
     color: #222;
+    background: #fff;
+
   }
   
   .drop-title {

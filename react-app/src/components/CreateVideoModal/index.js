@@ -8,6 +8,7 @@ import cameraicon1 from "../Images/pluscamera.png"
 function CreateVideoModal() {
   const [showModal, setShowModal] = useState(false);
   const [showUpLoadVideo, setShowUpLoadVideo] = useState(true)
+  const [videoFile, setVideoFile] = useState(null)
 
   return (
     <>
@@ -16,8 +17,8 @@ function CreateVideoModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {showUpLoadVideo && (<UpLoadVideoForm setShowModal={setShowModal} setShowUpLoadVideo={setShowUpLoadVideo}/>)}
-          {!showUpLoadVideo && (<FillVideoInfo /> )}
+          {showUpLoadVideo && (<UpLoadVideoForm setShowUpLoadVideo={setShowUpLoadVideo} setVideoFile={setVideoFile} videoFile={videoFile}/>)}
+          {!showUpLoadVideo && (<FillVideoInfo setShowModal={setShowModal} videofile={videoFile}/> )}
         </Modal>
       )}
     </>
