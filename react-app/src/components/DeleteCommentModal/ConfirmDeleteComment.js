@@ -32,8 +32,8 @@ function ConfirmDeleteComment({ commentContent, setShowCommentDeleteModal }) {
                 Delete your comment permanently?
             </div>
             <div className="confirm-delete-comments-buttons flx-row-end">
-                <button id="cancel-delete-comment" onClick={cancelDeleteButton}>Cancel</button>
-                <button id="confirm-delete-comment" onClick={deleteCommentButton}>Delete</button>
+                <button className="cancel-delete-comment-and-video" onClick={cancelDeleteButton}>Cancel</button>
+                <button className="confirm-delete-comment-and-video" onClick={deleteCommentButton}>Delete</button>
             </div>
 
         </div>

@@ -16,7 +16,7 @@
     margin-bottom: 20px;
 }
 
-#cancel-delete-comment{
+.cancel-delete-comment-and-video{
     border: none;
     color: rgb(26, 108, 215);
     background-color: white;
@@ -29,7 +29,7 @@
     border-radius: 20px;
 }
 
-#confirm-delete-comment{
+.confirm-delete-comment-and-video{
     border: none;
     background-color: white;
     color: rgb(26, 108, 215);
@@ -41,10 +41,10 @@
     border-radius: 20px;
 }
 
-#cancel-delete-comment:hover{
+.cancel-delete-comment-and-video:hover{
     background-color: rgb(222, 241, 255);
 }
 
-#confirm-delete-comment:hover{
+.confirm-delete-comment-and-video:hover{
     background-color: rgb(222, 241, 255);
 }
