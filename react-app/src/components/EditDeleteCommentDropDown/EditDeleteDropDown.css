@@ -2,4 +2,50 @@
     background-color: white;
     border: none;
     outline: none;
+    cursor: pointer;
+    position:relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
+#three-dots-icon:active{
+    background-color: rgb(229, 229, 229);
+
+}
+
+#edit-delete-dropdown{
+    position: absolute;
+    border: 1px solid  rgb(219,220,224);
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    right: 10px;
+    top: 450px;
+    box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
+    z-index: 1000;
+    background-color: white;
+    padding: 10px;
+    
+}
+
+.edit-delete-ele{
+    background-color: white;
+    border:none;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    
+
+}
+.edit-delete-ele.fa-solid.fa-pencil{
+    margin-right: 5px
+}
+
+.edit-delete-ele.fa-regular.fa-trash-can{
+    margin-right: 5px
+}
+
+/* .edit-delete-ele:hover{
+    background-color: rgb(229, 229, 229);
+} */

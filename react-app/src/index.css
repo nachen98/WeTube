@@ -116,3 +116,9 @@ a{
     flex-direction: column;
     justify-content: flex-start;
 }
+
+.flx-row-end{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
