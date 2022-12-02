@@ -6,7 +6,7 @@ import { updateVideo } from '../../store/video';
 
 
 
-const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) => {
+const EditVideoForm = ({ setShowModal, videoId, old_title, old_description, old_videourl, old_imgurl}) => {
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -23,39 +23,43 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
 
     useEffect(() => {
         const allErrors = []
-
+    
         if (title?.length > 255) {
             allErrors.push("The title must be less than 255 characters")
         }
+ 
         if (description?.length > 255) {
             allErrors.push("The description must be less than 255 characters.")
         }
 
-        if (video?.type !== "video/mp4" && video?.type !== "video/mkv") {
-            allErrors.push("File format must be either .mp4 or .mpk")
+        if(video!==null){
+            if (video?.type !== "video/mp4" && video?.type !== "video/mkv") allErrors.push("File format must be either .mp4 or .mkv")
+            if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
         }
-        if (video?.size > 50000000) allErrors.push("Video size is limited to 50MB.")
 
-        if (thumbnailPic?.type !== "image/png" && thumbnailPic?.type !== "image/gif" && thumbnailPic?.type !== "image/jpg" && thumbnailPic?.type !== "image/jpeg") {
-
+        if (thumbnailPic!==null && thumbnailPic?.type !== "image/png" && thumbnailPic?.type !== "image/gif" && thumbnailPic?.type !== "image/jpg" && thumbnailPic?.type !== "image/jpeg")
             allErrors.push("The accepted extentions for thumbnail pictures are .png, .gif, .jpg, .jpeg.")
-        }
 
         setErrors(allErrors)
+
 
     }, [title, description, video, thumbnailPic])
 
 
     const handleSubmit = async (e) => {
+  
         e.preventDefault();
-
+ 
         if (errors.length > 0) return;
-
+     
         const formData = new FormData()
         formData.append("title", title)
         formData.append("description", description)
-        formData.append("thumbnail_pic", thumbnailPic)
-        formData.append("content", video)
+     
+        if(thumbnailPic!==null)
+            formData.append("thumbnail_pic", thumbnailPic)
+        if(video!==null)
+            formData.append("content", video)
 
         // console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
@@ -96,8 +100,6 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                             <label className="custom-field">
                                 <input className="title-description-input"
                                     type="text"
-
-                                    required
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
 
@@ -110,7 +112,6 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                             <label className="custom-field">
                                 <input className="title-description-input"
                                     type="text"
-                                    required
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
@@ -123,8 +124,6 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                             <label> Choose your video file here
                                 <input id="video-file-input-area"
                                     type="file"
-                                    placeholder="Drop your video file(.mp4 and .mkv format)"
-                                    value={video}
                                     accept="video/mp4, video/mkv"
                                     onChange={(e) => setVideo(e.target.files[0])
                                     }
@@ -132,13 +131,11 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                                 />
                             </label>
 
-                        </div >
+                        </div>
                         <div className="file-container">
                             <label> Choose thumbnail picture
                                 <input id="picture-file-input-area"
                                     type="file"
-                                    placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
-                                    value={thumbnailPic}
                                     accept="image/jpeg, image/jpg, image/png, image/gif"
                                     onChange={(e) => setThumbNailPic(e.target.files[0])}
 
@@ -147,11 +144,7 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                         
                         </div>
                     <div >
-                        <button className="submit-button"
-                            type="submit"
-                            disabled={!hasSubmitted && errors.length > 0}>
-                            Submit
-                        </button>
+                        <input className="submit-button" type="submit" value="Submit" />
                         {isLoading && <p>Loading...</p>}
                     </div>
                 </form>

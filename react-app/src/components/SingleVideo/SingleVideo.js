@@ -68,7 +68,7 @@ export function SingleVideo() {
 
                                 {!!currUserIsOwner && (
                                     <>
-                                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} />
+                                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} old_videourl={video.url} old_imgurl={video.thumbnail_pic} />
                                         <button onClick={() => setShowVideoDeleteModal(true)} id="delete-video-button">Delete Video</button>
                                         {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
                                     </>
