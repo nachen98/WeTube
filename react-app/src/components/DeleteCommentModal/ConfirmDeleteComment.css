@@ -3,7 +3,8 @@
     border-radius: 10px;
     width: 280px;
     height: 120px;
-    padding: 20px
+    padding: 20px;
+    z-index: 100
 }
 
 .delete-header{

@@ -1,4 +1,6 @@
-
+footer{
+    position: fixed;
+}
 .footer-container{
     position: fixed;
     min-width: 1024px;
@@ -27,4 +29,7 @@
 
 #linkedin-link{
     margin-right: 10px
+}
+.wetube-designer{
+    margin-left: 10px
 }

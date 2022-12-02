@@ -3,7 +3,7 @@ import "./Footer.css";
 function Footer() {
 
     return (
-        <>
+        <footer>
 
             <div className="footer-container flx-row-space-btw">
 
@@ -35,7 +35,7 @@ function Footer() {
 
                 </div>
             </div>
-        </>
+        </footer>
     )
 }
 

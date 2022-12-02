@@ -124,11 +124,11 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                                 <input id="video-file-input-area"
                                     type="file"
                                     placeholder="Drop your video file(.mp4 and .mkv format)"
-                                    //value={video}
+                                    value={video}
                                     accept="video/mp4, video/mkv"
                                     onChange={(e) => setVideo(e.target.files[0])
                                     }
-                                    required
+                                    
                                 />
                             </label>
 
@@ -138,7 +138,7 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description }) =>
                                 <input id="picture-file-input-area"
                                     type="file"
                                     placeholder="Thumbnail picture(.jpg, jpeg, png, gif)"
-                                    //value={thumbnailPic}
+                                    value={thumbnailPic}
                                     accept="image/jpeg, image/jpg, image/png, image/gif"
                                     onChange={(e) => setThumbNailPic(e.target.files[0])}
 
