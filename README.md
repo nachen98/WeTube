@@ -49,49 +49,49 @@ Hosting:
 
 All videos are displayed to users. Clicking each video will direct user to the video detailed page.
 
-![image](react-app/src/Images/splash-page.png)
+![image](react-app/src/components/Images/splash-page.png)
 
 ### Sign-up Form
 
 To comment and upload videos, you can sign up easily by filling out this modern sign-up form modal. 
 
-![image](react-app/src/Images/signup-page.png)
+![image](react-app/src/components/Images/signup-page.png)
 
 ### Log-in Form
 
 Once signed-up, user will login by filling out this form. It also alow to log in as a demo user.
 
-![image](react-app/src/Images/login-page.png)
+![image](react-app/src/components/Images/login-page.png)
 
 ### Dropdown Menu
 
 The dropdown menu displays current user's info and the log-out tab.
 
-![image](react-app/src/Images/logout-page.png)
+![image](react-app/src/components/Images/logout-page.png)
 
 ### Upload a Video Form
 
 Filling out this uploading video form will have your videos go public!
 
-![image](react-app/src/Images/upload-video.png)
+![image](react-app/src/components/Images/upload-video.png)
 
 ### Video Details Page
 
 In this page you can vatch the videos, uploaders info, description, comments and list of recommended videos on the side. If you created this video, you can delete and edit it here too. 
 
-![image](react-app/src/Images/single-video.png)
-![image](react-app/src/Images/comments.png)
+![image](react-app/src/components/Images/single-video.png)
+![image](react-app/src/components/Images/comments.png)
 
 ### Create a comment
 
 Users can create comment to videos.
 
-![image](react-app/src/Images/create-comment.png)
+![image](react-app/src/components/Images/create-comment.png)
 
 ### Edit/Delete a comment
 
 Users can edit or delete their comment.
-![image](react-app/src/Images/edit-delete-comment.png)
+![image](react-app/src/components/Images/edit-delete-comment.png)
 
 ## To-Do List:
 
