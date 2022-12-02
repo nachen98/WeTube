@@ -221,7 +221,7 @@ const SignUpForm = () => {
             <div>
               <label className="custom-field">
                 <input className='signup-input'
-                  type='text'
+                  type='password'
                   value={password}
                   onChange={updatePassword}
                   required
@@ -232,7 +232,7 @@ const SignUpForm = () => {
             <div>
               <label className="custom-field">
                 <input className='signup-input'
-                  type='text'
+                  type='password'
                   value={repeatPassword}
                   onChange={updateRepeatPassword}
                   required

@@ -130,7 +130,7 @@ def add_video_to_s3():
 @login_required
 def edit_video(video_id):
     video=Video.query(video_id=video_id).get()
-    #import pdb;pdb.set_trace()
+    import pdb;pdb.set_trace()
     if video is not None:
         form=VideoForm(request.form, obj=video)
         form['csrf_token'].data = request.cookies['csrf_token']
@@ -150,8 +150,82 @@ def edit_video(video_id):
 def update_video_on_s3(video_id):
     video=Video.query.get(video_id)
 
+    # pdb.set_trace()
     #delete the original video and its picture on aws    
+    if "content" not in request.files and "thumbnail_pic" not in request.files:
+        video_url = video.url
+        thumbnail_url=video.thumbnail_pic
 
+        video.description=request.form.get('description')
+        video.title=request.form.get('title')
+        video.thumbnail_pic=thumbnail_url
+        video.url=video_url
+    
+ 
+        db.session.commit()
+        db.session.refresh(video)
+        return  video.to_dict()
+
+    if "content" not in request.files and "thumbnail_pic" in request.files:
+        video_url = video.url
+        picture = request.files["thumbnail_pic"]
+
+
+        if not allowed_file(picture.filename):
+            return {"errors": "This file does not meet the format requirement."}, 400
+
+        picture.filename = get_unique_filename(picture.filename)
+
+        thumbnail_uploaded = upload_file_to_s3(picture)
+
+
+        if "url" not in thumbnail_uploaded:
+            return thumbnail_uploaded, 400
+
+        thumbnail_url = thumbnail_uploaded["url"]
+
+    
+
+        video.description=request.form.get('description')
+        video.title=request.form.get('title')
+        video.thumbnail_pic=thumbnail_url
+        video.url=video_url
+        
+    
+        db.session.commit()
+        db.session.refresh(video)
+        return  video.to_dict()
+
+    if "content" in request.files and "thumbnail_pic" not in request.files:
+        thumbnail_url=video.thumbnail_pic
+        content=request.files["content"]
+
+        if not allowed_file(content.filename):
+            return {"errors": "This file does not meet the format requirement."}, 400
+
+        content.filename=get_unique_filename(content.filename)
+
+        video_uploaded = upload_file_to_s3(content)
+
+        if "url" not in video_uploaded:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return video_uploaded, 400
+
+        video_url=video_uploaded["url"]
+        # flask_login allows us to get the current user from the request
+        video.description=request.form.get('description')
+        video.title=request.form.get('title')
+        video.thumbnail_pic=thumbnail_url
+        video.url=video_url
+    
+ 
+        db.session.commit()
+        db.session.refresh(video)
+        return  video.to_dict()
+    
+    
     if video is not None and len(video.url) > 0:
 
         url=video.url
@@ -164,10 +238,14 @@ def update_video_on_s3(video_id):
         delete_file_from_s3(thumbNail_filename)
 
     #commit the requested video and its picture 
-    if "content" not in request.files:
-        return {"errors": "Video file is required."}, 400
+    # if "content" not in request.files:
+    #     return {"errors": "Video file is required."}, 400
+
+    
+
+
     content=request.files["content"]
-    #pdb.set_trace()
+
     if not allowed_file(content.filename):
         return {"errors": "This file does not meet the format requirement."}, 400
 
@@ -185,8 +263,11 @@ def update_video_on_s3(video_id):
     # flask_login allows us to get the current user from the request
 
     #do the same for thumbnail picture
-    if "thumbnail_pic" not in request.files:
-        return {"errors": "Image File is Required"}, 400
+    # if "thumbnail_pic" not in request.files:
+    #     return {"errors": "Image File is Required"}, 400
+
+  
+
 
     picture = request.files["thumbnail_pic"]
 

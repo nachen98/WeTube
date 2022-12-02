@@ -3,6 +3,10 @@
     font-family: 'Roboto';
 }
 
+body{
+    margin: 0px;
+    padding-bottom: 40px
+}
 a{
     color:black;
     text-decoration: none;
