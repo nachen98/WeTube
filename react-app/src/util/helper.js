@@ -1,6 +1,20 @@
 import logo from '../components/Images/logo.png';
 import defaultLogo from '../components/Images/default-logo.png';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
+export default function ScrollToTop(){
+     const { pathname } = useLocation();
+
+     useEffect(()=>{
+          document.documentElement.scrollTo({
+               top: 0,
+               left: 0,
+               behavior: "instant",
+          })
+     }, [pathname])
+     return null
+}
 export const onLoadImg = (e) => {
     e.target.className = e.target.className + ' loading-img';
     e.target.src = logo;

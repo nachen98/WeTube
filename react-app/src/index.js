@@ -5,7 +5,8 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import configureStore from './store';
-import { ModalProvider } from "./context/Modal"
+import { ModalProvider } from "./context/Modal";
+
 const store = configureStore();
 
 function Root() {
@@ -13,7 +14,8 @@ function Root() {
     <Provider store={store}>
       <ModalProvider>
         <BrowserRouter>
-          <App />
+       
+            <App />
         </BrowserRouter>
       </ModalProvider>
     </Provider>
@@ -21,7 +23,7 @@ function Root() {
 }
 ReactDOM.render(
   <React.StrictMode>
-        <Root />
+    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
