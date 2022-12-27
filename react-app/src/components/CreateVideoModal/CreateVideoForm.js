@@ -60,8 +60,6 @@ const CreateVideoForm = ({ setShowModal }) => {
 
         dispatch(uploadVideo(formData)).then(
             async (res) => {
-
-                let newVideo = res
                 if (res && res.errors?.length > 0) {
                     setErrors(res.errors)
 
@@ -69,7 +67,7 @@ const CreateVideoForm = ({ setShowModal }) => {
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/videos/${newVideo.id}`)
+                    history.push(`/channel/${userId}`)
                 }
             }
         )
