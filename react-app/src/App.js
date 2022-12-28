@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import VideosList from './components/VideosList/VideosList';
 import { SingleVideo } from './components/SingleVideo/SingleVideo';
+import  ChannelPage from './components/ChannelPage/ChannelPage'
 import Footer from "./components/Footer";
 import ScrollToTop from './util/helper';
 

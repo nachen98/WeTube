@@ -44,7 +44,7 @@ function ProfileButton({ user }) {
             </div>
             <div className="user-name-container flx-col-start">
 
-              <span>{user.first_name}{user.last_name}</span>
+              <span>{user.first_name} {user.last_name}</span>
               <div>@{user.username}</div>
             </div>
           </div>
