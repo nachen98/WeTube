@@ -8,6 +8,7 @@ const CreateVideoForm = ({ setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const currUser = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -67,7 +68,7 @@ const CreateVideoForm = ({ setShowModal }) => {
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/channel/${userId}`)
+                    history.push(`/channel/${currUser.username}`)
                 }
             }
         )

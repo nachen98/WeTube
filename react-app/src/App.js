@@ -59,7 +59,7 @@ function App() {
           <NavBar />
           <ChannelPage />
         </ProtectedRoute>
-        <ProtectedRoute exact path='/channel/@:username/home'>
+        {/* <ProtectedRoute exact path='/channel/@:username/home'>
           <NavBar />
           <ChannelHome />
         </ProtectedRoute>
@@ -74,7 +74,7 @@ function App() {
         <ProtectedRoute exact path='/channel/@:username/about'>
           <NavBar />
           <ChannelAbout />
-        </ProtectedRoute>
+        </ProtectedRoute>  */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>

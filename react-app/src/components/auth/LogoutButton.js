@@ -10,7 +10,7 @@ const LogoutButton = () => {
     await dispatch(logout()).then(() =>history.push('/'))
   };
 
-  return <button id="logout-inner-button" onClick={onLogout}>Logout</button>
+  return <button id="logout-inner-button" onClick={onLogout}>Sign out</button>
 };
 
 export default LogoutButton;

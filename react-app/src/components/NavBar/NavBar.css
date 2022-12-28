@@ -61,26 +61,71 @@
     position: absolute;
     border: 1px solid  rgb(219,220,224);
     border-radius: 10px;
-    height: 100px;
-    width: 150px;
-    right: 10px;
+    height: auto;
+    width: 250px;
+    right: 30px;
     top: calc(100% + .25rem);
     box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
     z-index: 10;
     background-color: white;
 }
 
+.channel-logout-container{
+     width: 250px;
+}
 .user-info{
     padding: 7px 0 7px 30px;
     font-family: Plus Jakarta Sans,Montserrat Alternates,Open Sans,Arimo,Roboto,sans-serif;
 }
 
 .logout-button{
+    margin-top: 15px;
     cursor: pointer;
-    padding: 7px 0 7px 30px;
+    padding: 7px 0 7px 26px;
+    margin-bottom: 15px
 }
 
 .logout-button:hover{
     background-color: rgb(243, 242, 242);
     background: stretch;
+}
+
+.user-info-container{
+    padding: 20px;
+    border-bottom: 1px solid rgb(229, 229, 229)
+
+}
+
+.dropdown-profile-icon{
+    margin-right: 20px
+}
+
+.channel-button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: none;
+   
+    position: relative;
+
+    cursor: pointer;
+
+ 
+
+    margin-top: 15px;
+ 
+    padding: 7px 0 7px 28px;
+  
+}
+
+.channel-button:hover{
+    background-color: rgb(243, 242, 242);
+    background: stretch;
+}
+
+.fa-regular.fa-user.fa-lg{
+    margin-right: 18px
+}
+.fa-solid.fa-arrow-right-from-bracket.fa-lg{
+    margin-right: 10px
 }
