@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_pic = db.Column(db.String(255))
+    about=db.Column(db.String(255))
     created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     
@@ -37,6 +38,7 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email, 
             'profile_pic': self.profile_pic,
+            'about': self.about,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
