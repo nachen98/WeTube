@@ -5,13 +5,34 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', first_name= 'Demo', last_name= 'Lition', password='password')
+        username='Demo',
+        email='demo@aa.io',
+        first_name= 'Demo',
+        last_name= 'Lition', 
+        password='password',
+        about='My channel includes videos from National Geographic.\n Fungal ecologist and National Geographic Explorer Korena Mafune meets up with chef Melissa King in an old-growth forest to search for one of the chef’s favorite ingredients: mushrooms. Paid Content for Mazda.')
     marnie = User(
-        username='marnie', email='marnie@aa.io', first_name= 'marnie', last_name='philips', password='password')
+        username='marnie', 
+        email='marnie@aa.io', 
+        first_name= 'marnie', 
+        last_name='philips', 
+        password='password',
+        about='In my channel, you get to enjoy videos about various places, \n including UK, Maldives, Palawan, IceLand, Bermuda, VietNam, Patagonia, The Alps...')
+
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', first_name= 'bobbie', last_name='thompson', password='password')
+        username='bobbie', 
+        email='bobbie@aa.io', 
+        first_name= 'bobbie', 
+        last_name='thompson', 
+        password='password',
+        about='Come and listen to the hot 50 pop musics of each week. \n The singers are Ed Sheeran, Adele, Marron, Rihana, Bile Eilish...')
     nancy = User(
-        username='nancy', email='nancy@aa.io', first_name= 'nancy', last_name='chan',password='password')
+        username='nancy',
+        email='nancy@aa.io', 
+        first_name= 'nancy', 
+        last_name='chan',
+        password='password',
+        about='My channel has all you need to know about the univers.')
     leo = User(
         username='leo', email='leo@aa.io', first_name= 'leo', last_name='lee', password='password')
     steven = User(

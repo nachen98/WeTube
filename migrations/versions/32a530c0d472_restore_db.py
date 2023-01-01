@@ -1,8 +1,8 @@
 """restore db
 
-Revision ID: fe0c20c218db
+Revision ID: 32a530c0d472
 Revises: 
-Create Date: 2022-11-28 11:23:56.511610
+Create Date: 2022-12-31 17:04:10.573857
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fe0c20c218db'
+revision = '32a530c0d472'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,6 +26,7 @@ def upgrade():
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('profile_pic', sa.String(length=255), nullable=True),
+    sa.Column('about', sa.String(length=255), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(), nullable=False),
     sa.Column('updated_at', sa.TIMESTAMP(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
