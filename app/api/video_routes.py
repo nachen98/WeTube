@@ -25,6 +25,7 @@ def get_video_by_id(video_id):
     print(f"{video_id=}")
     #import pdb;pdb.set_trace()
     video = Video.query.get(video_id)
+    video.view_counts = video.view_counts + 1
     return video.to_dict(), 200
 
 #creat a video

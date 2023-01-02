@@ -1,8 +1,8 @@
 """restore db
 
-Revision ID: 32a530c0d472
+Revision ID: 6892bfe180fa
 Revises: 
-Create Date: 2022-12-31 17:04:10.573857
+Create Date: 2023-01-01 15:54:05.543660
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '32a530c0d472'
+revision = '6892bfe180fa'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,6 +40,7 @@ def upgrade():
     sa.Column('thumbnail_pic', sa.Text(), nullable=True),
     sa.Column('url', sa.Text(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('view_counts', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.TIMESTAMP(), nullable=False),
     sa.Column('updated_at', sa.TIMESTAMP(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),

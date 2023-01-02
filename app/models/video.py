@@ -9,6 +9,7 @@ class Video(db.Model):
     thumbnail_pic = db.Column(db.Text, nullable=True)
     url=db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    view_counts=db.Column(db.Integer, nullable=False, default=0)
     created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -24,6 +25,7 @@ class Video(db.Model):
             'thumbnail_pic': self.thumbnail_pic,
             'url':self.url,
             'user': self.user.to_dict(),
+            'view_counts': self.view_counts,
             'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,
             'updated_at': self.updated_at
