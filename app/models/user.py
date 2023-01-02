@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     
     videos = db.relationship("Video", back_populates="user", cascade="all, delete-orphan")
     comments = db.relationship("Comment", back_populates= "user", cascade="all, delete-orphan")
-    videolikes = db.relationship("VideoLikes", back_populates="user", cascade="all, delete-orphan")
+    video_likes = db.relationship("VideoLikes", back_populates="user", cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -41,6 +41,7 @@ class User(db.Model, UserMixin):
             'email': self.email, 
             'profile_pic': self.profile_pic,
             'about': self.about,
+            'likes': [video_like.video_id for video_like in self.video_likes],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

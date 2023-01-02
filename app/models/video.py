@@ -15,7 +15,7 @@ class Video(db.Model):
 
     user = db.relationship("User", back_populates="videos")
     comments = db.relationship("Comment", back_populates="video", cascade="all, delete-orphan")
-    videolikes = db.relationship("VideoLikes", back_populates="video", cascade="all, delete-orphan")
+    video_likes = db.relationship("VideoLikes", back_populates="video", cascade="all, delete-orphan")
     
     def to_dict(self):
         return {
@@ -26,21 +26,11 @@ class Video(db.Model):
             'url':self.url,
             'user': self.user.to_dict(),
             'view_counts': self.view_counts,
+            'likes': len(self.video_likes),
             'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
-
-    # def to_dict_without_description(self):
-    #     return {
-    #         'id': self.id,
-    #         'title': self.title,
-    #         'thumbnail_pic': self.thumbnail_pic,
-    #         'user': self.user.to_dict(),
-    #         'created_at': self.created_at,
-    #         'updated_at': self.updated_at
-    #     }
-    
 
     def __repr__(self):
         return f'<Video, id={self.id}, title={self.title}, description={self.description}>'

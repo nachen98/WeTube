@@ -9,8 +9,8 @@ class VideoLikes(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     video_id = db.Column(db.Integer, db.ForeignKey("videos.id"), nullable=False)
 
-    user = db.relationship("User", back_populates="videolikes")
-    video = db.relationship("Video", back_populates="videolikes")
+    user = db.relationship("User", back_populates="video_likes")
+    video = db.relationship("Video", back_populates="video_likes")
 
     def to_dict(self):
         return {
