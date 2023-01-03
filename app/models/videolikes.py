@@ -21,4 +21,4 @@ class VideoLikes(db.Model):
         }
 
     def __repr__(self):
-        return f'<VideoLikes, id={self.id}, is_like={self.is_like}>'
+        return f'<VideoLikes, id={self.id}, is_like={self.is_like}, video_id={self.video_id},>'

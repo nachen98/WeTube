@@ -41,10 +41,10 @@ class User(db.Model, UserMixin):
             'email': self.email, 
             'profile_pic': self.profile_pic,
             'about': self.about,
-            'likes': [video_like.video_id for video_like in self.video_likes],
+            'likes': [video_like.to_dict() for video_like in self.video_likes],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
 
     def __repr__(self):
-        return f'<User, id={self.id}, username={self.username}>'
+        return f'<User, id={self.id}, username={self.username}, likes={[video_like.to_dict() for video_like in self.video_likes]}>'
