@@ -10,8 +10,10 @@ class Comment(db.Model):
     video_id = db.Column(db.Integer, db.ForeignKey("videos.id"), nullable=False)
     created_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
     user = db.relationship("User", back_populates="comments")
     video = db.relationship("Video", back_populates="comments")
+    comment_likes = db.relationship("CommentLikes", back_populates="comment", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
@@ -20,6 +22,7 @@ class Comment(db.Model):
             "user_id": self.user_id,
             "video_id": self.video_id,
             "user": self.user.to_dict(),
+            'likes': len(self.comment_likes),
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }

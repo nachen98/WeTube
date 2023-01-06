@@ -18,6 +18,10 @@ class Video(db.Model):
     video_likes = db.relationship("VideoLikes", back_populates="video", cascade="all, delete-orphan")
     
     def to_dict(self):
+        
+        self.videolike = len([x for x in self.video_likes if x.is_like])
+        self.videodislike = len(self.video_likes) - self.videolike
+
         return {
             'id': self.id,
             'title': self.title,
@@ -26,11 +30,12 @@ class Video(db.Model):
             'url':self.url,
             'user': self.user.to_dict(),
             'view_counts': self.view_counts,
-            'likes': len(self.video_likes),
+            'video_likes': self.videolike,
+            'video_dislikes': self.videodislike,
             'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
 
     def __repr__(self):
-        return f'<Video, id={self.id}, title={self.title}, description={self.description}>'
+        return f'<Video, id={self.id}, title={self.title}, description={self.description}, video_likes={self.videolike}, video_dislikes={self.videodislike} >'

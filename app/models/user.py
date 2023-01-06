@@ -20,7 +20,8 @@ class User(db.Model, UserMixin):
     videos = db.relationship("Video", back_populates="user", cascade="all, delete-orphan")
     comments = db.relationship("Comment", back_populates= "user", cascade="all, delete-orphan")
     video_likes = db.relationship("VideoLikes", back_populates="user", cascade="all, delete-orphan")
-
+    comment_likes = db.relationship("CommentLikes", back_populates="user", cascade="all, delete-orphan")
+    
     @property
     def password(self):
         return self.hashed_password

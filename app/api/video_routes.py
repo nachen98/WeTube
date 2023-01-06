@@ -23,9 +23,12 @@ def get_all_videos():
 @video_routes.route('/<int:video_id>')
 def get_video_by_id(video_id):
     print(f"{video_id=}")
-    #import pdb;pdb.set_trace()
+    
     video = Video.query.get(video_id)
+    # import pdb;pdb.set_trace()
+
     video.view_counts = video.view_counts + 1
+
     return video.to_dict(), 200
 
 #creat a video
