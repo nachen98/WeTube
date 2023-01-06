@@ -38,4 +38,6 @@ class Video(db.Model):
         }
 
     def __repr__(self):
+        self.videolike = len([x for x in self.video_likes if x.is_like])
+        self.videodislike = len(self.video_likes) - self.videolike
         return f'<Video, id={self.id}, title={self.title}, description={self.description}, video_likes={self.videolike}, video_dislikes={self.videodislike} >'

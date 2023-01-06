@@ -26,7 +26,7 @@ def get_video_by_id(video_id):
     
     video = Video.query.get(video_id)
     # import pdb;pdb.set_trace()
-
+   
     video.view_counts = video.view_counts + 1
 
     return video.to_dict(), 200
@@ -325,6 +325,7 @@ def delete_video(video_id):
 #get all the comments
 @video_routes.route('/<int:video_id>/comments')
 def get_all_comments(video_id):
+
     comments = Comment.query.filter( Comment.video_id == video_id ).all()
     print('comments$$$$$$$$$$$$', comments)
     data = [comment.to_dict() for comment in comments]
