@@ -63,6 +63,32 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def video_like(self, video_id):
+        if not self.is_liking(video_id):
+            self.video_likes.append(video_id)
+            return self
+    
+    def unlike(self, video_id):
+        if self.is_likinging(video_id):
+            self.video_likes.remove(video_id)
+            return self
+    
+    def is_liking(self, video_id):
+        return self.video_likes.video_id == video_id
+
+    # def comment_like(self, comment_id):
+    #     if not self.is_liking(comment_id):
+    #         self.comment_likes.append(comment_id)
+    #         return self
+    
+    # def unlike(self, comment_id):
+    #     if self.is_likinging(comment_id):
+    #         self.comment_likes.remove(comment_id)
+    #         return self
+    
+    # def is_liking(self, comment_id):
+    #     return self.comment_likes.comment_id == comment_id
+    
     def subscribe(self, user):
         if not self.is_subscribing(user):
             self.subscriptions.append(user)
