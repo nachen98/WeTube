@@ -1,8 +1,8 @@
 """restore db
 
-Revision ID: 103fc707f2fe
+Revision ID: 6d9033dcfced
 Revises: 
-Create Date: 2023-01-05 22:38:10.252789
+Create Date: 2023-01-07 16:55:06.295465
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '103fc707f2fe'
+revision = '6d9033dcfced'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,6 +32,13 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
+    )
+    op.create_table('subscription',
+    sa.Column('subscriber_id', sa.Integer(), nullable=False),
+    sa.Column('subscribed_to_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['subscribed_to_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['subscriber_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('subscriber_id', 'subscribed_to_id')
     )
     op.create_table('videos',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -84,5 +91,6 @@ def downgrade():
     op.drop_table('videolikes')
     op.drop_table('comments')
     op.drop_table('videos')
+    op.drop_table('subscription')
     op.drop_table('users')
     # ### end Alembic commands ###
