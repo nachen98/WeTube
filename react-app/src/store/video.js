@@ -40,6 +40,8 @@ const deleteOneVideo = (videoId) => {
 }
 
 //thunk action creator
+//In the reducer, the videos from action.videos is what's coming back from the response.json() aka videos.
+
 export const getAllVideos = () => async(dispatch) => {
     const response = await fetch('/api/videos/')
     .catch(res=> res)
@@ -113,7 +115,11 @@ const videosReducer = (state=initialState, action) => {
     let newState= {...state}
     switch(action.type){
         case GET_ALL_VIDEOS:
+            //see above thunk creator for explaination of this part, Videos is from the video route {"Videos": data} this way
+            //action.videos.Videos is all the information of the videos. 
+            // console.log("action.videos!!!!!!!!!!!!!!!!!!", action.videos)
             action.videos.Videos.forEach((video)=>newState[video.id] = video)
+            // console.log("newState!!!!!!!!!!!!!!!!!!", newState)
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
