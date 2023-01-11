@@ -79,12 +79,12 @@ const videoLikesReducer = (state=initialState, action) => {
                 ...action.likes
             };
 
-        case CREATE_ONE_VIDEO:
+        case CREATE_VIDEO_LIKE:
             newState[action.like.id] = action.like
             return newState;
     
         
-        case DELETE_ONE_VIDEO:
+        case REMOVE_VIDEO_LIKE:
             delete newState[action.likeId]
             return newState
         

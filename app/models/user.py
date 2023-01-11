@@ -73,8 +73,8 @@ class User(db.Model, UserMixin):
             self.video_likes.remove(video_id)
             return self
     
-    def is_liking(self, video_id):
-        return self.video_likes.video_id == video_id
+    def is_liking(self, user, video):
+        return self.video_likes.filter(video_likes.c.video_id == video.id )& self.video_likes.is_like == True
 
     # def comment_like(self, comment_id):
     #     if not self.is_liking(comment_id):

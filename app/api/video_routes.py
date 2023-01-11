@@ -3,8 +3,9 @@ from flask_login import login_required, current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms.videos_form import VideoForm
 from app.forms.comments_form import CommentForm
-from app.models import User, Video, Comment, db
+from app.models import User, Video, Comment, VideoLikes, db
 from datetime import datetime
+from app.helper import doesnot_exist_error
 from app.api.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3
 )
@@ -26,10 +27,13 @@ def get_video_by_id(video_id):
     
     video = Video.query.get(video_id)
     # import pdb;pdb.set_trace()
-   
-    video.view_counts = video.view_counts + 1
 
-    return video.to_dict(), 200
+    if video is not None:
+        video.view_counts = video.view_counts + 1
+        return video.to_dict(), 200
+    else: 
+        return {'errors': "video not found"}, 400
+
 
 #creat a video
 @video_routes.route('/', methods=['POST'])
@@ -153,7 +157,9 @@ def edit_video(video_id):
 
 def update_video_on_s3(video_id):
     video=Video.query.get(video_id)
-
+    
+    if video is None:
+        return doesnot_exist_error("video")
     # pdb.set_trace()
     #delete the original video and its picture on aws    
     if "content" not in request.files and "thumbnail_pic" not in request.files:
@@ -308,7 +314,7 @@ def update_video_on_s3(video_id):
 def delete_video(video_id):
     video=Video.query.get(video_id)
     # import pdb; pdb.set_trace()
-
+    
     #delete video on aws and db
     if video is not None:
         if(len(video.url) > 0):
@@ -325,9 +331,8 @@ def delete_video(video_id):
 #get all the comments
 @video_routes.route('/<int:video_id>/comments')
 def get_all_comments(video_id):
-
+   
     comments = Comment.query.filter( Comment.video_id == video_id ).all()
-    print('comments$$$$$$$$$$$$', comments)
     data = [comment.to_dict() for comment in comments]
     print('comment data!!!!!', data)
     return {"Comments": data}, 200
@@ -382,3 +387,33 @@ def delete_comment(comment_id):
         return {"message": "comment successfully deleted"}, 200
     else:
         return {"errors": "comment not found"}, 404
+
+
+#get the likes of a particular video
+@video_routes.route('/<int:video_id>/likes')
+@login_required
+def get_all_videolikes(video_id):
+    video_likes = VideoLikes.query.filter(VideoLikes.video_id == video_id).all()
+    if video_likes is not None:
+        data = [video_like.to_dict() for video_like in video_likes]
+        return {"VideoLikes": data}, 200
+    else:
+        return {"errors": "video not found"}, 404
+
+#create a like
+@video_routes.route('/<int:video_id>/likes', methods=["POST"])
+@login_required
+def create_video_like(video_id):
+    
+    #this takes the incoming json object and convert it to python data structure
+    #e.g. arrays to list, object to dictionaries
+    
+    data = request.get_json()
+    
+    result = VideoLikes.add(
+            is_like = data['is_like'],
+            user_id = current_user.id,
+            video_id= video_id
+        )
+    
+    return result  
