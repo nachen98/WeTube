@@ -34,7 +34,7 @@
 #dislike-button{
     width: 30%;
     height: 100%;
-    padding-left:12px;
+    padding-left:15px;
     display:flex;
     flex-direction:row;
     align-items: center;
