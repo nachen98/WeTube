@@ -10,7 +10,7 @@ def seed_users():
         first_name= 'Demo',
         last_name= 'Lition', 
         password='password',
-        about='My channel includes videos from National Geographic.\n Fungal ecologist and National Geographic Explorer Korena Mafune meets up with chef Melissa King in an old-growth forest to search for one of the chef’s favorite ingredients: mushrooms. Paid Content for Mazda.',
+        about='My channel includes videos from National Geographic.\n Fungal ecologist and National Geographic Explorer Korena Mafune meets up with chef Melissa King in an old-growth forest to search for one of their favorite ingredients: mushrooms.',
        )
     marnie = User(
         username='marnie', 
