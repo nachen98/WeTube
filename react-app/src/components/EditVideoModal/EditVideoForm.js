@@ -64,7 +64,7 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description, old_
         // console.log('formData!!!!!!!!!', formData)
         setIsLoading(true)
 
-        dispatch(updateVideo(formData, videoId)).then(
+        await dispatch(updateVideo(formData, videoId)).then(
             async (res) => {
 
                 if (res && res.errors?.length > 0) {

@@ -54,7 +54,7 @@ const FillVideoInfo = ({ setShowModal, videofile }) => {
         // console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
 
-        dispatch(uploadVideo(formData)).then(
+        await dispatch(uploadVideo(formData)).then(
             async (res) => {
 
                 let newVideo = res

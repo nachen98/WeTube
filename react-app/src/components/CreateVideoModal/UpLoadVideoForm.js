@@ -24,7 +24,7 @@ const UpLoadVideoForm = ({setShowUpLoadVideo, setVideoFile, videoFile}) => {
             drop.addEventListener("drop", function (ev) {
                 ev.preventDefault();//取消事件的默认动作。
                 const new_errors = [];
-                console.log("xxxxxxxxxx errors=", errors)
+                //console.log("xxxxxxxxxx errors=", errors)
                 const file=ev.dataTransfer.files[0]
                 if (file?.type !== "video/mp4" && file?.type !== "video/mkv") new_errors.push("File format must be either .mp4 or .mkv")
                 if (file?.size > 50000000) new_errors.push("Video size is limited to 50MB.")
@@ -32,9 +32,9 @@ const UpLoadVideoForm = ({setShowUpLoadVideo, setVideoFile, videoFile}) => {
                 if(new_errors.length === 0 ) {
                     setVideoFile(file)
                     setShowUpLoadVideo(false)
-                    console.log("looks good @@@@@@@@@@@@@")
+                    //console.log("looks good @@@@@@@@@@@@@")
                 }else{
-                    console.log(new_errors, "looks bad##############")
+                    //console.log(new_errors, "looks bad##############")
                 }
     
             }, false);

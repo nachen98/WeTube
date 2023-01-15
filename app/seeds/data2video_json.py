@@ -1,5 +1,6 @@
 from pathlib import Path
 import pdb, json
+import random
 # pdb.set_trace()
 video_paths= [x for x in Path('/mnt/d/Dropbox/Archive/projects/youtube_crawler/data/').glob('**/*.*') if x.suffix != '.jpg' and x.suffix != '.json']
 
@@ -24,7 +25,8 @@ for video_path in video_paths:
         'description': info['reviews'][0],
         'thumbnail_pic': f'https://nachen98.s3.us-west-1.amazonaws.com/{stem}.jpg',
         'url': f'https://nachen98.s3.us-west-1.amazonaws.com/{name}',
-        'user_id': channel2user_id[video_path.parent.name]
+        'user_id': channel2user_id[video_path.parent.name],
+        'view_counts': random.randint(10, 30)
     }
     )
     ids.add(res[-1]['user_id'])

@@ -8,6 +8,7 @@ const CreateVideoForm = ({ setShowModal }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const currUser = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -58,10 +59,8 @@ const CreateVideoForm = ({ setShowModal }) => {
         // console.log("formData!!!!!!!!!!!", formData)
         setIsLoading(true)
 
-        dispatch(uploadVideo(formData)).then(
+        await dispatch(uploadVideo(formData)).then(
             async (res) => {
-
-                let newVideo = res
                 if (res && res.errors?.length > 0) {
                     setErrors(res.errors)
 
@@ -69,7 +68,7 @@ const CreateVideoForm = ({ setShowModal }) => {
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/videos/${newVideo.id}`)
+                    history.push(`/channel/${currUser.username}`)
                 }
             }
         )

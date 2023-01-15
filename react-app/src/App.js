@@ -10,13 +10,17 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import VideosList from './components/VideosList/VideosList';
 import { SingleVideo } from './components/SingleVideo/SingleVideo';
-import Footer from "./components/Footer"
+import  ChannelPage from './components/ChannelPage/ChannelPage'
+import Footer from "./components/Footer";
+import ScrollToTop from './util/helper';
+
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -28,7 +32,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -36,20 +40,42 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route exact path="/">
+        <Route exact path='/'>
           <NavBar />
-          <VideosList/>
+          <VideosList />
         </Route>
-        <Route exact path="/videos/:videoId">
+
+        <Route exact path='/videos/:videoId'>
           <NavBar />
+          <ScrollToTop />
           <SingleVideo />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute exact path='/channel/@:username'>
+          <NavBar />
+          <ChannelPage />
+        </ProtectedRoute>
+        {/* <ProtectedRoute exact path='/channel/@:username/home'>
+          <NavBar />
+          <ChannelHome />
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/channel/@:username/uploads'>
+          <NavBar />
+          <ChannelUploads />
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/channel/@:username/liked'>
+          <NavBar />
+          <ChannelLikes />
+        </ProtectedRoute>
+        <ProtectedRoute exact path='/channel/@:username/about'>
+          <NavBar />
+          <ChannelAbout />
+        </ProtectedRoute>  */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>

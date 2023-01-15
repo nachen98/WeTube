@@ -1,0 +1,22 @@
+.channelpage-container{
+    margin: 2% 8% 0 8%
+}
+
+.channel-profile-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border:none;
+    cursor:pointer;
+    font-size: 30px;
+    margin-right: 20px
+}
+
+.channel-user-name{
+    font-size: 25px
+}
+
+.channel-username{
+    color: rgb(96, 96, 101);
+    font-size: 15px
+}

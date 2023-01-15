@@ -23,18 +23,18 @@ export function CreateCommentForm({ videoId, commentId, content, placeholder, bu
         if (setEditable !== undefined) setEditable(false)
         document.getElementById(`buttons_${buttonName}`).className = hidden
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         if (errors.length > 0) return
         document.getElementById(`buttons_${buttonName}`).className = hidden
         if (commentId > 0) {
-            dispatch(editComment(commentId, comment))
+            await dispatch(editComment(commentId, comment))
                 .then(() => dispatch(getOneVideo(videoId)))
                 .then(() => setEditable(false))
 
         } else {
-            dispatch(addComment(videoId, comment))
+            await dispatch(addComment(videoId, comment))
                 .then(() => dispatch(getOneVideo(videoId)))
                 .then(() => setComment(""))
         }

@@ -40,6 +40,8 @@ const deleteOneVideo = (videoId) => {
 }
 
 //thunk action creator
+//In the reducer, the videos from action.videos is what's coming back from the response.json() aka videos.
+
 export const getAllVideos = () => async(dispatch) => {
     const response = await fetch('/api/videos/')
     .catch(res=> res)
@@ -47,7 +49,8 @@ export const getAllVideos = () => async(dispatch) => {
     if(response.ok){
         const videos=await response.json()
         
-        dispatch(loadVideos(videos))
+        await dispatch(loadVideos(videos))
+        return videos
     }
 }
 
@@ -57,7 +60,7 @@ export const getOneVideo = (videoId) => async(dispatch) => {
 
     if (response.ok){
         const oneVideo = await response.json()
-        dispatch(loadOneVideo(oneVideo))
+        await dispatch(loadOneVideo(oneVideo))
     }
 }
 
@@ -73,7 +76,7 @@ export const uploadVideo = (video) => async(dispatch) => {
     }).catch(res=>res)
     if(response.ok){
         const newVideo = await response.json()
-        dispatch(createOneVideo(newVideo))
+        await dispatch(createOneVideo(newVideo))
         return newVideo
     }else {
         const result = await response.json()
@@ -90,7 +93,7 @@ export const updateVideo = (videoBody, videoId) => async(dispatch)=> {
 
     if(response.ok){
         const updatedVideo = await response.json()
-        dispatch(updateOneVideo(updatedVideo))
+        await dispatch(updateOneVideo(updatedVideo))
         return updatedVideo
     }else{
         const result = await response.json()
@@ -103,7 +106,7 @@ export const deleteVideo = (videoId) => async(dispatch)=>{
         method: 'DELETE'
     });
     if(response.ok){
-        dispatch(deleteOneVideo(videoId))
+        await dispatch(deleteOneVideo(videoId))
     }
 }
 
@@ -113,7 +116,12 @@ const videosReducer = (state=initialState, action) => {
     let newState= {...state}
     switch(action.type){
         case GET_ALL_VIDEOS:
+            //see above thunk creator for explaination of this part, Videos is from the video route {"Videos": data} this way
+            //action.videos.Videos is all the information of the videos. 
+            console.log("action.videos!!!!!!!!!!!!!!!!!!", action.videos)
             action.videos.Videos.forEach((video)=>newState[video.id] = video)
+            console.log("##########")
+            console.log("newState!!!!!!!!!!!!!!!!!!", newState)
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:
