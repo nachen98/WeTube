@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-import LogoutButton from "../auth/LogoutButton";
+import { useDispatch } from 'react-redux';
+// import LogoutButton from "../auth/LogoutButton";
 import CreateVideoModal from "../CreateVideoModal";
 import { getProfileIcon } from "../../util/helper"
+import { useHistory } from 'react-router-dom';
+import { logout } from '../../store/session';
 import "./NavBar.css"
+
+
 function ProfileButton({ user }) {
+  const dispatch = useDispatch()
+  const history = useHistory();
+  const onLogout = async (e) => {
+    await dispatch(logout()).then(() =>history.push('/'))
+  };
+
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -57,9 +68,10 @@ function ProfileButton({ user }) {
               </Link>
             </div>
 
-            <div className="logout-button">
+            <div className="logout-button"  onClick={onLogout}>
               <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
-              {LogoutButton()}
+              {/* {LogoutButton()} */}
+              <button id="logout-inner-button">Sign out</button>
             </div>
           </div>
         </div>

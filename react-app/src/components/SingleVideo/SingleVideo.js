@@ -13,7 +13,7 @@ import { VideoComment } from "../VideoComment/VideoComment";
 import EditVideoModal from "../EditVideoModal";
 import DeleteVideoModal from "../DeleteVideoModal"
 import { SideVideos } from "../SideVideos/SideVideos"
-
+import { VideoLikeDislike } from "../VideoLikeDislike/VideoLikeDislike";
 export function SingleVideo() {
     const { videoId } = useParams();
     const dispatch = useDispatch();
@@ -34,9 +34,9 @@ export function SingleVideo() {
     const numComments = commentContents.length
     const playerRef = React.useRef(null)
 
-    useEffect(() => {
-        dispatch(getOneVideo(videoId))
-        dispatch(getAllComments(videoId))
+    useEffect(async () => {
+        await dispatch(getOneVideo(videoId))
+        await dispatch(getAllComments(videoId))
     }, [videoId])
 
     let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video.user.id);
@@ -75,10 +75,18 @@ export function SingleVideo() {
                                 )}
                             </div>
                         </div>
-                        <div className="video-uploader-info">
-                            {getProfileIcon(video.user)}
-                            {video.user.first_name} {video.user.last_name}
+                        <div className='video-user-like flx-row-space-btw'>
+                            <div className="video-uploader-info">
+                                {getProfileIcon(video.user)}
+                                {video.user.first_name} {video.user.last_name}
+                            </div>
+
+                            <div className="video-like-dislike-section flx-row-space-btw">
+                                <VideoLikeDislike videoId={videoId} />
+
+                            </div>
                         </div>
+
                         <div id="video-description">
                             {video.description}
                         </div>

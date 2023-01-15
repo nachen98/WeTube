@@ -129,3 +129,15 @@
 .fa-solid.fa-arrow-right-from-bracket.fa-lg{
     margin-right: 10px
 }
+
+#logout-inner-button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: none;
+    
+    text-align: left;
+    position: relative;
+    right: 3px;
+    cursor: pointer;
+}

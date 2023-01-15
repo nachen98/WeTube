@@ -35,15 +35,15 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const demoUserLogin = (e) => {
+  const demoUserLogin = async (e) => {
     e.preventDefault();
-    dispatch(login('demo@aa.io', 'password'))
+    await dispatch(login('demo@aa.io', 'password'))
   }
 
   if (user) {
-    (async () => {
-      await dispatch(getAllVideos())
-    })();
+    // (async () => {
+    //    await dispatch(getAllVideos())
+    // })();
     return <Redirect to='/' />;
   }
 

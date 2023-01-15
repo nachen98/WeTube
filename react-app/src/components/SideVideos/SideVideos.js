@@ -11,16 +11,16 @@ export function SideVideos() {
 
     const [hasLoaded, setHasLoaded] = useState(false)
     const videosList = useSelector(state => state.videosReducer)
-    console.log('videoList@@@@@@@@@@@@', videosList)
+    //console.log('videoList@@@@@@@@@@@@', videosList)
     const allVideos = Object.values(videosList)
-    console.log("allVideos!!!!!!!!!!!!!!", allVideos)
+    //console.log("allVideos!!!!!!!!!!!!!!", allVideos)
     const displayedVideos = allVideos.filter((video) => video.id !== Number(videoId))
         .map((video) => ({video, "sort": Math.random()}))
         .sort((a,b)=>a.sort - b.sort)
         .map(({video}) => video)
     
-    useEffect(() => {
-        dispatch(getAllVideos())
+    useEffect(async () => {
+        await dispatch(getAllVideos())
             .then(() => setHasLoaded(true))
     }, [dispatch])
 

@@ -19,7 +19,7 @@ class Video(db.Model):
     
     def to_dict(self):
         
-        self.videolike = len([x for x in self.video_likes if x.is_like])
+        self.videolike = len([x for x in self.video_likes if x.is_like ==1])
         self.videodislike = len(self.video_likes) - self.videolike
 
         return {

@@ -391,11 +391,12 @@ def delete_comment(comment_id):
 
 #get the likes of a particular video
 @video_routes.route('/<int:video_id>/likes')
-@login_required
+#@login_required
 def get_all_videolikes(video_id):
     video_likes = VideoLikes.query.filter(VideoLikes.video_id == video_id).all()
     if video_likes is not None:
         data = [video_like.to_dict() for video_like in video_likes]
+        print('#######################', data)
         return {"VideoLikes": data}, 200
     else:
         return {"errors": "video not found"}, 404
@@ -404,16 +405,11 @@ def get_all_videolikes(video_id):
 @video_routes.route('/<int:video_id>/likes', methods=["POST"])
 @login_required
 def create_video_like(video_id):
-    
+
     #this takes the incoming json object and convert it to python data structure
     #e.g. arrays to list, object to dictionaries
-    
-    data = request.get_json()
-    
-    result = VideoLikes.add(
-            is_like = data['is_like'],
-            user_id = current_user.id,
-            video_id= video_id
-        )
-    
-    return result  
+        print("333333333333", request, request.get_json())
+        data = request.get_json()
+        print(f"{data['is_like']=}")
+        result = VideoLikes.add(is_like = data['is_like'], user_id = current_user.id, video_id= video_id)
+        return result, 200  

@@ -29,32 +29,40 @@ export const getAllLikes = (videoId) => async(dispatch) => {
     const response = await fetch(`/api/videos/${videoId}/likes`)
 
     if(response.ok){
-        const likes = await response.json()
-        dispatch(loadVideoLikes(likes))
-        return null;
+        const result = await response.json()
+        let allLikes = {}
+        // console.log("$$$$$$$$$$$$$$$$$$, likes", result)
+        //the reason we do the normalize here is to return the state and use it in the VideoLikes component.
+        //and then it would be easy to key into there, without using for loop. 
+        result.VideoLikes.forEach((videoLike) => {
+            console.log("@@@@@@@@@@@@@@@@@@@@@ individual videoLike", videoLike)
+            allLikes[`${videoLike.video_id}-${videoLike.user_id}`] = videoLike
+        })
+        await dispatch(loadVideoLikes(allLikes))
+        return allLikes;
     } else{
-        return response
+        throw response
     }
 }
 
 
 export const postVideoLike = (videoId, newLike) => async(dispatch) => {
-    
+    console.log("xxxxxxxxxxxxxxxxx", newLike)
     const response = await fetch (`/api/videos/${videoId}/likes`, { 
         method: "POST",
         headers:{
             'Content-Type':'application/json'
         },
-        body: JSON.stringify(newLike)
+        body: JSON.stringify({'is_like': newLike})
 
     })
-    if(response.ok){
-        const newLike = await response.json()
-        dispatch(createVideoLike(newLike))
-        return newLike
-    }else {
-        const result = await response.json()
-        return result
+    if (response.ok){
+        const _newLike = await response.json()
+        console.log("ttttttttttttttttt _newLike", _newLike)
+        await dispatch(createVideoLike(_newLike))
+        return _newLike
+    }else{
+        return response
     }
 }
 
@@ -64,7 +72,7 @@ export const deleteVideoLike = (videoId, likeId) => async(dispatch)=>{
         method: 'DELETE'
     });
     if(response.ok){
-        dispatch(deleteOneLike(likeId))
+        await dispatch(deleteOneLike(likeId))
     }
 }
 
@@ -74,13 +82,14 @@ const videoLikesReducer = (state=initialState, action) => {
     let newState= {...state}
     switch(action.type){
         case GET_ALL_VIDEO_LIKES:
-            return {
-                newState, 
-                ...action.likes
-            };
+            //likes in the line below is the same as allLikes in the thunk, it is what returned from the database and then normalized.
+            console.log('action.likes!!!!!!!!!!!!!!!!!', action.likes)
+            newState = {...action.likes}
+            return newState
 
         case CREATE_VIDEO_LIKE:
-            newState[action.like.id] = action.like
+            // newState[action.like.id] = action.like
+            newState[`${action.like.video_id}-${action.like.user_id}`]=action.like
             return newState;
     
         

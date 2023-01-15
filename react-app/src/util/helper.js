@@ -38,12 +38,12 @@ export const getProfileIcon=(user)=>{
 }
 
 export function timeDifference(previous) {
-    console.log("previous", previous)
+    //console.log("previous", previous)
     previous = new Date(previous.slice(0, -4))
     let current = new Date(Date.now()+(new Date().getTimezoneOffset()*60000)).getTime();
 
     let elapsed = current - previous;
-    console.log("current", current, "previous", previous, "current", current.toLocaleString(), "previous", previous.toLocaleString(), "elapsed", elapsed)
+    //console.log("current", current, "previous", previous, "current", current.toLocaleString(), "previous", previous.toLocaleString(), "elapsed", elapsed)
     
     let msPerMinute = 60 * 1000;
     let msPerHour = msPerMinute * 60;

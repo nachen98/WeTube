@@ -35,7 +35,7 @@ export const getAllComments =(videoId) => async(dispatch) =>{
     const response = await fetch(`/api/videos/${videoId}/comments`);
     if(response.ok){
         const comments = await response.json()
-        dispatch(getCommentsByVideo(comments))
+        await dispatch(getCommentsByVideo(comments))
     }
 }
 
@@ -52,7 +52,7 @@ export const addComment = (videoId, content)=>async(dispatch)=>{
 
     if(response.ok){
         const newComment = await response.json()
-        dispatch(createComment(newComment))
+        await dispatch(createComment(newComment))
         return newComment
     }else{
         const result = await response.json();
@@ -73,7 +73,7 @@ export const editComment = (commentId, commentBody) => async(dispatch)=> {
 
     if(response.ok){
         const updatedComment = await response.json()
-        dispatch(updateComment(updatedComment))
+        await dispatch(updateComment(updatedComment))
         return updatedComment
     }else{
         const result = await response.json();
@@ -86,7 +86,7 @@ export const removeComment = (commentId) => async(dispatch)=>{
         method: 'DELETE'
     })
     if(response.ok){
-        dispatch(deleteComment(commentId))
+        await dispatch(deleteComment(commentId))
     }
 }
 

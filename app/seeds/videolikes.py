@@ -5,10 +5,10 @@ from app.models import db, VideoLikes
 def seed_videolikes():
     
     [db.session.add(x) for x in [
-        VideoLikes(is_like= True, user_id= 1, video_id= 30),
-        VideoLikes(is_like= True, user_id= 1, video_id= 50),
-        VideoLikes(is_like= False,user_id= 1, video_id= 28),
-        VideoLikes(is_like= False,user_id= 1, video_id= 48)
+        VideoLikes(is_like= 1, user_id= 1, video_id= 30),
+        VideoLikes(is_like= 1, user_id= 1, video_id= 50),
+        VideoLikes(is_like= -1,user_id= 1, video_id= 28),
+        VideoLikes(is_like= -1,user_id= 1, video_id= 48)
         ]
     ]
     db.session.commit()
