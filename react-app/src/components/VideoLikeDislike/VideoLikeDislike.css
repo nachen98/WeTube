@@ -1,0 +1,48 @@
+#likes-dislikes-spacer{
+    height: 80%;
+    width: 1px;
+    
+}
+
+#like-button{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#like-button:hover{
+    background-color: rgb(229, 229, 229);
+}
+#likes-dislikes-spacer{
+    width: 1px;
+    background-color: rgb(217,217,217);
+    
+}
+
+#likes-count{
+    max-width: 20px;
+    padding-right:5px
+}
+
+#dislike-button{
+    width: 30%;
+    height: 100%;
+    padding-left:12px;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+
+}
+
+#dislike-button:hover{
+    background-color: rgb(217,217,217);
+}

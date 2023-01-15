@@ -72,6 +72,8 @@
 
 .video-like-dislike-section{
     width: 130px;
-    height: 100%;
-    background-color: rgb(242,242,242);
+    height: 40px;
+    background-color: rgb(242,242,242);    
+    border-radius: 30px;
+    cursor: pointer;
 }
