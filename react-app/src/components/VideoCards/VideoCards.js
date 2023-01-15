@@ -26,7 +26,7 @@ export function VideoCards({ video }) {
                         width="100%"
                         height="100%"
                         // playIcon={<button style={{backgrounColor: "none"}}>Play</button>}
-                        controls={true}
+                        controls={false}
 
                     />
                 </div>
