@@ -62,32 +62,6 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
-
-    def video_like(self, video_id):
-        if not self.is_liking(video_id):
-            self.video_likes.append(video_id)
-            return self
-    
-    def unlike(self, video_id):
-        if self.is_likinging(video_id):
-            self.video_likes.remove(video_id)
-            return self
-    
-    def is_liking(self, user, video):
-        return self.video_likes.filter(video_likes.c.video_id == video.id )& self.video_likes.is_like == True
-
-    # def comment_like(self, comment_id):
-    #     if not self.is_liking(comment_id):
-    #         self.comment_likes.append(comment_id)
-    #         return self
-    
-    # def unlike(self, comment_id):
-    #     if self.is_likinging(comment_id):
-    #         self.comment_likes.remove(comment_id)
-    #         return self
-    
-    # def is_liking(self, comment_id):
-    #     return self.comment_likes.comment_id == comment_id
     
     def subscribe(self, user):
         if not self.is_subscribing(user):
@@ -100,7 +74,10 @@ class User(db.Model, UserMixin):
             return self
     
     def is_subscribing(self, user):
-        return self.subscriptions.filter(subscription.c.subscriber.id==user.id).count() >0
+        return db.session.query(subscription).filter(
+            subscription.c.subscriber_id==self.id,
+            subscription.c.subscribed_to_id == user.id
+        ).count()>0
 
 
     def to_dict(self):
@@ -115,6 +92,7 @@ class User(db.Model, UserMixin):
             'profile_pic': self.profile_pic,
             'about': self.about,
             'likes': [video_like.to_dict() for video_like in self.video_likes],
+            'subscriptions': [subscription.to_dict() for subscription in self.subscriptions],
             'subscribing':len(self.subscriptions),
             'subscribed_by':self.subscribers.count(),
             'created_at': self.created_at,
