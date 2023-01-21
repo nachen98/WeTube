@@ -22,7 +22,7 @@ def user(id):
 
 
 #subscribe to another user
-@user_routes.route('/<int:user_id>/subscribing')
+@user_routes.route('/<int:user_id>/subscribing', methods=['POST'])
 @login_required
 def subscribe_user_by_id(user_id):
     if user_id == current_user.id:
@@ -41,7 +41,7 @@ def subscribe_user_by_id(user_id):
     return current_user.to_dict()
 
 #unsubscribe to another user
-@user_routes.route('/<int:user_id>/subscribing')
+@user_routes.route('/<int:user_id>/subscribing', methods=['DELETE'])
 @login_required
 def subscribe_user_by_id(user_id):
     if user_id == current_user.id:

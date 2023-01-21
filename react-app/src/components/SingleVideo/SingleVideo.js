@@ -14,6 +14,7 @@ import EditVideoModal from "../EditVideoModal";
 import DeleteVideoModal from "../DeleteVideoModal"
 import { SideVideos } from "../SideVideos/SideVideos"
 import { VideoLikeDislike } from "../VideoLikeDislike/VideoLikeDislike";
+import {Subscription} from "../Subscription/Subscription";
 export function SingleVideo() {
     const { videoId } = useParams();
     const dispatch = useDispatch();
@@ -81,6 +82,9 @@ export function SingleVideo() {
                                 {video.user.first_name} {video.user.last_name}
                             </div>
 
+                            <div className="subscription-section">
+                                <Subscription videoId={videoId} currUser={currUser} />
+                            </div>
                             <div className="video-like-dislike-section flx-row-space-btw">
                                 <VideoLikeDislike videoId={videoId} />
 
