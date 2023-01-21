@@ -14,7 +14,9 @@ import EditVideoModal from "../EditVideoModal";
 import DeleteVideoModal from "../DeleteVideoModal"
 import { SideVideos } from "../SideVideos/SideVideos"
 import { VideoLikeDislike } from "../VideoLikeDislike/VideoLikeDislike";
-import {Subscription} from "../Subscription/Subscription";
+
+
+
 export function SingleVideo() {
     const { videoId } = useParams();
     const dispatch = useDispatch();
@@ -25,8 +27,10 @@ export function SingleVideo() {
     const videos = useSelector(state => state.videosReducer)
     const video = videos[videoId]
 
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!! video', video)
 
     const currUser = useSelector(state => state.session.user)
+   
 
     const comments = useSelector(state => state.commentsReducer)
 
@@ -81,10 +85,12 @@ export function SingleVideo() {
                                 {getProfileIcon(video.user)}
                                 {video.user.first_name} {video.user.last_name}
                             </div>
+                            
+                            <div className="number-of-subscribers">
 
-                            <div className="subscription-section">
-                                <Subscription videoId={videoId} currUser={currUser} />
+
                             </div>
+                        
                             <div className="video-like-dislike-section flx-row-space-btw">
                                 <VideoLikeDislike videoId={videoId} />
 

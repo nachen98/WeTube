@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 from app.models import User
-from helper import doesnot_exist_error
+from app.helper import doesnot_exist_error
 
 user_routes = Blueprint('users', __name__)
 
@@ -43,7 +43,7 @@ def subscribe_user_by_id(user_id):
 #unsubscribe to another user
 @user_routes.route('/<int:user_id>/subscribing', methods=['DELETE'])
 @login_required
-def subscribe_user_by_id(user_id):
+def unsubscribe_user_by_id(user_id):
     if user_id == current_user.id:
         return {
             "message": "Cannot subscribe to yourself",

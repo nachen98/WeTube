@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 import { postVideoLike } from "../../store/videolike";
 import { getAllLikes } from "../../store/videolike";
-import { getOneVideo } from "../../store/video";
 
 export function VideoLikeDislike({ videoId }) {
     const dispatch = useDispatch();
