@@ -2,10 +2,10 @@ const GET_CURRENT_USER_SUBSCRIPTION='subscriptions/GET_CURRENT_USER_SUBSCRIPTION
 const SUBSCRIBE_USER = 'subscription/SUBSCRIBE_USER';
 const UNSUBSCRIBE_USER= 'subscription/UNSUBSCRIBE_USER';
 
-const getCurrentUserSubscription = (subscription)=>{
+const getCurrentUserSubscription = (subscriptions)=>{
     return {
         type: GET_CURRENT_USER_SUBSCRIPTION,
-        subscription
+        subscriptions
     }
 }
 
@@ -29,15 +29,17 @@ export const getCurrUserSubscription = (userId) => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}`)
     .catch(res=>res)
 
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~response', response)
     if(response.ok){
         const subscriptions = await response.json()
-        await dispatch(getCurrentUserSubscription(subscriptions))
-        return subscriptions
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~ subscriptions', subscriptions)
+        await dispatch(getCurrentUserSubscription(subscriptions.subscriptions))
+        return subscriptions.subscriptions
     }
 }
 
 export const subscribeToUser = (userId)=> async (dispatch)=>{
-    const response = await fetch(`/api/users/${userId}/subscribing`, {
+    const response = await fetch(`/api/users/current/subscribing/${userId}`, {
         method: 'POST'
     })
     if(response.ok){
@@ -46,7 +48,7 @@ export const subscribeToUser = (userId)=> async (dispatch)=>{
 }
 
 export const unsubscribeToUser = (userId) => async (dispatch) =>{
-    const response = await fetch(`/api/users/${userId}/subscribing`, {
+    const response = await fetch(`/api/users/current/subscribing/${userId}`, {
         method: 'DELETE'
     })
     if(response.ok){
@@ -60,14 +62,19 @@ const subscriptionReducer = (state = initialState, action) => {
     let newState = {...state}
     switch(action.type){
         case GET_CURRENT_USER_SUBSCRIPTION:
-            newState = {...action.subscriptions}
+            console.log("action.subscriptions!!!!!!!!!!!!!!!!!!", action.subscriptions)
+            newState.subscriptions = [...action.subscriptions]
+            return newState
+            
+        case SUBSCRIBE_USER:
+            console.log("action.userId@@@@@@@@@@@@@@@@@", action.userId)
+            newState.subscriptions=[...state.subscriptions, action.userId]
             return newState
 
-        case SUBSCRIBE_USER:
-            newState[action.userId.id] = action.userId
-
         case UNSUBSCRIBE_USER:
-            delete newState[action.userId.id]
+            console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
+            newState.subscriptions = state.subscriptions.filter(val=>val!==action.userId)
+            console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
             return newState
         default:
             return state

@@ -14,37 +14,56 @@ import EditVideoModal from "../EditVideoModal";
 import DeleteVideoModal from "../DeleteVideoModal"
 import { SideVideos } from "../SideVideos/SideVideos"
 import { VideoLikeDislike } from "../VideoLikeDislike/VideoLikeDislike";
+import { getCurrUserSubscription, subscribeToUser, unsubscribeToUser } from "../../store/subscription";
 
 
 
 export function SingleVideo() {
     const { videoId } = useParams();
     const dispatch = useDispatch();
-    const history = useHistory()
+
 
     const [showVideoDeleteModal, setShowVideoDeleteModal] = useState(false)
 
-    const videos = useSelector(state => state.videosReducer)
-    const video = videos[videoId]
+    const [video, setVideoData] = useState({})
+    const [currUserSubscriptions, setCurrUserSubscriptions] = useState([])
+    const [uploaderId, setUploaderId] = useState(0)
 
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!! video', video)
+    const [numSubscribers, setNumSubscribers] = useState(0)
 
     const currUser = useSelector(state => state.session.user)
-   
 
     const comments = useSelector(state => state.commentsReducer)
 
+    // const currUserSubscriptions = useSelector(state => state.subscriptionReducer.subscriptions)
+    console.log('$$$$$$$$$$$$$$$currUserSubscrptions', currUserSubscriptions)
 
     const commentContents = Object.values(comments.video)
+
     const numComments = commentContents.length
+
     const playerRef = React.useRef(null)
 
-    useEffect(async () => {
-        await dispatch(getOneVideo(videoId))
-        await dispatch(getAllComments(videoId))
-    }, [videoId])
 
-    let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video.user.id);
+    useEffect(() => {
+
+        dispatch(getOneVideo(videoId)).then(
+            (res) => {
+                setVideoData(res);
+
+                setNumSubscribers(res.user.subscribed_by)
+                setUploaderId(res.user.id)
+            })
+        dispatch(getAllComments(videoId))
+        if(!!currUser){
+
+            dispatch(getCurrUserSubscription(currUser.id)).then(
+                (res)=> setCurrUserSubscriptions(res)
+            )
+        }
+    }, [videoId, numSubscribers])
+
+    let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video?.user?.id);
 
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
 
@@ -85,12 +104,39 @@ export function SingleVideo() {
                                 {getProfileIcon(video.user)}
                                 {video.user.first_name} {video.user.last_name}
                             </div>
-                            
-                            <div className="number-of-subscribers">
 
+                            <div className="number-of-subscribers">
+                                {numSubscribers} {numSubscribers==1? 'subscriber': 'subscribers'}
 
                             </div>
-                        
+                            {!!currUser && (
+                                <>
+                                {currUserSubscriptions.includes(uploaderId) ?
+                                    <button className="unsubscribe-button"
+                                        onClick={() => {
+                                            dispatch(unsubscribeToUser(uploaderId))
+                                            setNumSubscribers(numSubscribers-1)
+                                            }
+                                        }
+                                    >
+                                        Unsubscribe
+                                    </button>
+                                    :
+                                    <button className="subscribe-button"
+                                        onClick={() => {dispatch(subscribeToUser(uploaderId))
+                                            setNumSubscribers(numSubscribers+1)
+                                            }
+                                        }
+                                    >
+                                        Subscribe
+                                    </button>
+                                }
+                                </>
+                            )}
+
+                            
+
+
                             <div className="video-like-dislike-section flx-row-space-btw">
                                 <VideoLikeDislike videoId={videoId} />
 

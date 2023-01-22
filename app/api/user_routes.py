@@ -18,11 +18,11 @@ def users():
 def user(id):
     user = User.query.get(id)
     print("############################", user)
-    return user.to_dict()
+    return user.get_subscriptions()
 
 
 #subscribe to another user
-@user_routes.route('/<int:user_id>/subscribing', methods=['POST'])
+@user_routes.route('/current/subscribing/<int:user_id>', methods=['POST'])
 @login_required
 def subscribe_user_by_id(user_id):
     if user_id == current_user.id:
@@ -38,15 +38,16 @@ def subscribe_user_by_id(user_id):
     
     current_user.subscribe(subscribee)
 
-    return current_user.to_dict()
+    return current_user.get_subscriptions()
 
 #unsubscribe to another user
-@user_routes.route('/<int:user_id>/subscribing', methods=['DELETE'])
+@user_routes.route('/current/subscribing/<int:user_id>', methods=['DELETE'])
 @login_required
 def unsubscribe_user_by_id(user_id):
+  
     if user_id == current_user.id:
         return {
-            "message": "Cannot subscribe to yourself",
+            "message": "Cannot unsubscribe to yourself",
             "statusCode": 403
         }, 403
     
@@ -57,5 +58,5 @@ def unsubscribe_user_by_id(user_id):
     
     current_user.unsubscribe(subscribee)
 
-    return current_user.to_dict()
+    return current_user.get_subscriptions()
 

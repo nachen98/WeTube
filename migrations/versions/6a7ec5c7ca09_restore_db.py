@@ -1,8 +1,8 @@
 """restore db
 
-Revision ID: d76ef1982df0
+Revision ID: 6a7ec5c7ca09
 Revises: 
-Create Date: 2023-01-21 09:25:35.470340
+Create Date: 2023-01-22 10:44:42.368189
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd76ef1982df0'
+revision = '6a7ec5c7ca09'
 down_revision = None
 branch_labels = None
 depends_on = None

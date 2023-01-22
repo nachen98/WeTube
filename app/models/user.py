@@ -69,14 +69,19 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
     
+    def get_subscriptions(self):
+        return {"subscriptions": [x.id for x in self.subscriptions]}
+    
     def subscribe(self, user):
         if not self.is_subscribing(user):
             self.subscriptions.append(user)
+            db.session.commit()
             return self
     
     def unsubscribe(self, user):
         if self.is_subscribing(user):
             self.subscriptions.remove(user)
+            db.session.commit()
             return self
     
     def is_subscribing(self, user):
@@ -98,7 +103,6 @@ class User(db.Model, UserMixin):
             'profile_pic': self.profile_pic,
             'about': self.about,
             'likes': [video_like.to_dict() for video_like in self.video_likes],
-            'subscriptions': [x.id for x in self.subscriptions],
             'subscribing':len(self.subscriptions),
             'subscribed_by':self.subscribers.count(),
             'created_at': self.created_at,
