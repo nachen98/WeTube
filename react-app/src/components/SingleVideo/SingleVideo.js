@@ -36,7 +36,7 @@ export function SingleVideo() {
     const comments = useSelector(state => state.commentsReducer)
 
     // const currUserSubscriptions = useSelector(state => state.subscriptionReducer.subscriptions)
-    console.log('$$$$$$$$$$$$$$$currUserSubscrptions', currUserSubscriptions)
+    //console.log('$$$$$$$$$$$$$$$currUserSubscrptions', currUserSubscriptions)
 
     const commentContents = Object.values(comments.video)
 
@@ -63,6 +63,7 @@ export function SingleVideo() {
         }
     }, [videoId, numSubscribers])
 
+    
     let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video?.user?.id);
 
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
@@ -109,7 +110,7 @@ export function SingleVideo() {
                                 {numSubscribers} {numSubscribers==1? 'subscriber': 'subscribers'}
 
                             </div>
-                            {!!currUser && (
+                            {!!currUser && !currUserIsOwner && (
                                 <>
                                 {currUserSubscriptions.includes(uploaderId) ?
                                     <button className="unsubscribe-button"
