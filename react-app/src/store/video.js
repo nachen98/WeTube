@@ -61,7 +61,9 @@ export const getOneVideo = (videoId) => async(dispatch) => {
     if (response.ok){
         const oneVideo = await response.json()
         await dispatch(loadOneVideo(oneVideo))
+        return oneVideo
     }
+    return undefined
 }
 
 // when uploading to aws, note that you must NOT set the Content-Type header on your request. 
@@ -121,7 +123,7 @@ const videosReducer = (state=initialState, action) => {
             console.log("action.videos!!!!!!!!!!!!!!!!!!", action.videos)
             action.videos.Videos.forEach((video)=>newState[video.id] = video)
             console.log("##########")
-            console.log("newState!!!!!!!!!!!!!!!!!!", newState)
+            //console.log("newState!!!!!!!!!!!!!!!!!!", newState)
             return newState;
         
         case GET_ONE_VIDEO_BY_ID:

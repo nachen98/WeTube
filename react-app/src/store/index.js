@@ -4,11 +4,13 @@ import session from './session';
 import videosReducer from './video';
 import commentsReducer from './comment';
 import videoLikesReducer from './videolike';
+import subscriptionReducer from './subscription';
 const rootReducer = combineReducers({
   session,
   videosReducer,
   commentsReducer,
-  videoLikesReducer
+  videoLikesReducer,
+  subscriptionReducer,
 });
 
 

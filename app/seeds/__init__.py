@@ -3,7 +3,7 @@ from .users import seed_users, undo_users
 from .videos import seed_videos, undo_videos
 from .comments import seed_comments, undo_comments
 from .videolikes import seed_videolikes, undo_videolikes
-from .commentlikes import seed_commentlikes, undo_commentlikes
+# from .commentlikes import seed_commentlikes, undo_commentlikes
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
@@ -17,7 +17,7 @@ def seed():
     seed_videos()
     seed_comments()
     seed_videolikes()
-    seed_commentlikes()
+    # seed_commentlikes()
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -27,4 +27,4 @@ def undo():
     undo_videos()
     undo_comments()
     undo_videolikes()
-    undo_commentlikes()
+    # undo_commentlikes()

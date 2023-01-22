@@ -53,7 +53,8 @@ def seed_users():
 
     demo.subscriptions = [marnie, bobbie, nancy]
     marnie.subscriptions = [demo, bobbie]
-    
+    bobbie.subscriptions=[demo, marnie, nancy]
+    nancy.subscriptions=[demo, marnie, bobbie]
 
     db.session.add_all([demo, marnie, bobbie, nancy, leo, steven, peter, alex, rick, emily])
 

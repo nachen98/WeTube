@@ -13,7 +13,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch()
   const history = useHistory();
   const onLogout = async (e) => {
-    await dispatch(logout()).then(() =>history.push('/'))
+    await dispatch(logout()).then(() => history.push('/'))
   };
 
   const [showMenu, setShowMenu] = useState(false);
@@ -60,15 +60,15 @@ function ProfileButton({ user }) {
             </div>
           </div>
           <div className="channel-logout-container flx-col-start">
-            <div className="channel-button">
 
-              <Link to={`/channel/@${user.username}`}>
-                <i class="fa-regular fa-user fa-lg"></i>
-                <span>Your channel</span>
-              </Link>
-            </div>
 
-            <div className="logout-button"  onClick={onLogout}>
+            <Link to={`/channel/@${user.username}`} className="channel-button">
+              <i class="fa-regular fa-user fa-lg"></i>
+              <span>Your channel</span>
+            </Link>
+
+
+            <div className="logout-button" onClick={onLogout}>
               <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
               {/* {LogoutButton()} */}
               <button id="logout-inner-button">Sign out</button>

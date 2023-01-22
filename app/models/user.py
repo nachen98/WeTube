@@ -5,7 +5,13 @@ from datetime import datetime
 
 # self-referential relationship, below is association table which indicates the which user in the table is the subscriber,
 # which user is to be subscribed. 
-subscription = db.Table('subscription',
+# don't forget the db.Model.metadata in subscription table. It's important all of our tables and models inherit from
+# db.Model. because our migration tools will look for everything that inherit from db.models so it can find our models.
+# metadata describes the structure of the database, Database Metadata servers us in generating SQL queries and
+# Object relational mapping. It helps us in generating a schema -- the relationship between tables
+subscription = db.Table(
+    'subscription',
+    db.Model.metadata,
     db.Column('subscriber_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
     db.Column('subscribed_to_id', db.Integer, db.ForeignKey('users.id'), primary_key=True)
 )
@@ -27,7 +33,7 @@ class User(db.Model, UserMixin):
     videos = db.relationship("Video", back_populates="user", cascade="all, delete-orphan")
     comments = db.relationship("Comment", back_populates= "user", cascade="all, delete-orphan")
     video_likes = db.relationship("VideoLikes", back_populates="user", cascade="all, delete-orphan")
-    comment_likes = db.relationship("CommentLikes", back_populates="user", cascade="all, delete-orphan")
+    #comment_likes = db.relationship("CommentLikes", back_populates="user", cascade="all, delete-orphan")
     
     #https://stackoverflow.com/questions/20642497/sqlalchemy-query-to-return-only-n-results
     # In a many to many relationship, the primaryjoin expression describes the join between the left table and the junction table,
@@ -62,50 +68,32 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
-
-    def video_like(self, video_id):
-        if not self.is_liking(video_id):
-            self.video_likes.append(video_id)
-            return self
     
-    def unlike(self, video_id):
-        if self.is_likinging(video_id):
-            self.video_likes.remove(video_id)
-            return self
-    
-    def is_liking(self, user, video):
-        return self.video_likes.filter(video_likes.c.video_id == video.id )& self.video_likes.is_like == True
-
-    # def comment_like(self, comment_id):
-    #     if not self.is_liking(comment_id):
-    #         self.comment_likes.append(comment_id)
-    #         return self
-    
-    # def unlike(self, comment_id):
-    #     if self.is_likinging(comment_id):
-    #         self.comment_likes.remove(comment_id)
-    #         return self
-    
-    # def is_liking(self, comment_id):
-    #     return self.comment_likes.comment_id == comment_id
+    def get_subscriptions(self):
+        return {"subscriptions": [x.id for x in self.subscriptions]}
     
     def subscribe(self, user):
         if not self.is_subscribing(user):
             self.subscriptions.append(user)
+            db.session.commit()
             return self
     
     def unsubscribe(self, user):
         if self.is_subscribing(user):
             self.subscriptions.remove(user)
+            db.session.commit()
             return self
     
     def is_subscribing(self, user):
-        return self.subscriptions.filter(subscription.c.subscriber.id==user.id).count() >0
+        return db.session.query(subscription).filter(
+            subscription.c.subscriber_id==self.id,
+            subscription.c.subscribed_to_id == user.id
+        ).count()>0
 
 
     def to_dict(self):
     
-
+        # import pdb;pdb.set_trace()
         return {
             'id': self.id,
             'first_name': self.first_name,
