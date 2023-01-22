@@ -55,15 +55,15 @@ export function SingleVideo() {
                 setUploaderId(res.user.id)
             })
         dispatch(getAllComments(videoId))
-        if(!!currUser){
+        if (!!currUser) {
 
             dispatch(getCurrUserSubscription(currUser.id)).then(
-                (res)=> setCurrUserSubscriptions(res)
+                (res) => setCurrUserSubscriptions(res)
             )
         }
     }, [videoId, numSubscribers])
 
-    
+
     let currUserIsOwner = (video && currUser && "id" in currUser && currUser.id === video?.user?.id);
 
     if (!video || Object.keys(video).length === 0) return <div>waiting...</div>
@@ -101,41 +101,51 @@ export function SingleVideo() {
                             </div>
                         </div>
                         <div className='video-user-like flx-row-space-btw'>
-                            <div className="video-uploader-info">
-                                {getProfileIcon(video.user)}
-                                {video.user.first_name} {video.user.last_name}
+                            <div className="uploader-subscription flx-row-space-around">
+                                <div className="video-uploader-info flx-row-space-btw">
+                                    {getProfileIcon(video.user)}
+                                    <div className="video-uploader-name-subscribers">
+                                        <div className="video-uploader-name">
+
+                                            {video.user.first_name} {video.user.last_name}
+                                        </div>
+                                        <div className="number-of-subscribers">
+                                            {numSubscribers} {numSubscribers == 1 ? 'subscriber' : 'subscribers'}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="subscribe-unsubscribe-buttons">
+                                    {!!currUser && !currUserIsOwner && (
+                                        <>
+                                            {currUserSubscriptions.includes(uploaderId) ?
+                                                <button className="unsubscribe-button"
+                                                    onClick={() => {
+                                                        dispatch(unsubscribeToUser(uploaderId))
+                                                        setNumSubscribers(numSubscribers - 1)
+                                                    }
+                                                    }
+                                                >
+                                                    Unsubscribe
+                                                </button>
+                                                :
+                                                <button className="subscribe-button"
+                                                    onClick={() => {
+                                                        dispatch(subscribeToUser(uploaderId))
+                                                        setNumSubscribers(numSubscribers + 1)
+                                                    }
+                                                    }
+                                                >
+                                                    Subscribe
+                                                </button>
+                                            }
+                                        </>
+                                    )}
+                                </div>
                             </div>
 
-                            <div className="number-of-subscribers">
-                                {numSubscribers} {numSubscribers==1? 'subscriber': 'subscribers'}
 
-                            </div>
-                            {!!currUser && !currUserIsOwner && (
-                                <>
-                                {currUserSubscriptions.includes(uploaderId) ?
-                                    <button className="unsubscribe-button"
-                                        onClick={() => {
-                                            dispatch(unsubscribeToUser(uploaderId))
-                                            setNumSubscribers(numSubscribers-1)
-                                            }
-                                        }
-                                    >
-                                        Unsubscribe
-                                    </button>
-                                    :
-                                    <button className="subscribe-button"
-                                        onClick={() => {dispatch(subscribeToUser(uploaderId))
-                                            setNumSubscribers(numSubscribers+1)
-                                            }
-                                        }
-                                    >
-                                        Subscribe
-                                    </button>
-                                }
-                                </>
-                            )}
 
-                            
 
 
                             <div className="video-like-dislike-section flx-row-space-btw">

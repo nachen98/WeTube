@@ -110,6 +110,12 @@ a{
     justify-content: space-evenly;
 }
 
+.flx-row-space-around{ 
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
 .flx-row {
     display: flex;
     flex-direction: row;

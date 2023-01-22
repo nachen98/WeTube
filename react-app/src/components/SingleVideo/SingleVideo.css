@@ -77,3 +77,48 @@
     border-radius: 30px;
     cursor: pointer;
 }
+
+.video-uploader-name-subscribers{
+    margin-left: 10px
+}
+
+.video-uploader-name{
+    font-size: 20px;
+    font-weight: 400
+}
+.number-of-subscribers{
+    color:grey;
+    font-size:13px;
+}
+
+.subscribe-unsubscribe-buttons{
+    margin-left: 30px
+}
+
+.subscribe-button{
+    width: 95px;
+    height: 40px;
+    outline: none;
+    border:none;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor:pointer;
+    padding: 10px 15px;
+}
+
+.unsubscribe-button{
+    width: 110px;
+    height: 40px;
+    outline: none;
+    border:none;
+    background-color: rgba(236,236,236);
+    border-radius: 20px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    cursor:pointer;
+    padding: 10px 15px;
+}
