@@ -48,4 +48,3 @@ def delete_file_from_s3(filename):
     except Exception as e:
         return {"errors": str(e)}
 
-#
