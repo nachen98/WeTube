@@ -63,7 +63,7 @@
     border-radius: 10px;
     height: auto;
     width: 250px;
-    right: 30px;
+    right:0;
     top: calc(100% + .25rem);
     box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
     z-index: 10;
@@ -140,4 +140,8 @@
     position: relative;
     right: 3px;
     cursor: pointer;
+}
+
+.right-nav{
+    position: relative
 }
