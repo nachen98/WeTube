@@ -40,16 +40,23 @@ const ChannelPage = () => {
                         </div>
                     </div>
 
-                    <div className='channel-tabs-container'>
+                    <div className='channel-tabs-container '>
 
                         <button className='single-tab'
-                            onClick={() => setTab(0)}
+                         
+                            onClick={() => 
+                                setTab(0)}
+                                style={{borderBottom: tab===0? "3px solid grey": "none"}}
+                            
                         >
                             Uploads
                         </button>
 
                         <button className='single-tab'
                             onClick={() => setTab(2)}
+                            style={{
+                                borderBottom: tab===2? "3px solid grey": "none",
+                            }}
                         >
                             About
                         </button>

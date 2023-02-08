@@ -22,7 +22,33 @@
 }
 
 .upload-section{
+ 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
-    gap: 100px
+    grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+    gap: 50px;
+    width: 100%;
+    height: 100%
 }
+
+.channel-tabs-container{
+    height: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(229,229,229)
+}
+
+.single-tab{
+    outline: none;
+    border:none;
+    background-color: white;
+    width: 100px;
+    color: rgb(96,96,96);
+    cursor:pointer;
+    font-weight: 500;
+    font-size: 18px;
+
+    padding: 10px;
+    margin-right: 50px;
+    margin-bottom:20px
+}
+

@@ -1,6 +1,36 @@
-.video-title-channel{
-    width: 25%
-}
-.player-wrapper-channel{
-    width: 25%
-}
+.video-pic {
+     width: 200px;
+     height: 100px;
+   }
+   
+   .video-title-channel {
+     font-size: 12px;
+     overflow: hidden;
+     width: 200px;
+     word-break: break-word;
+     /* text-align: flex-start; */
+   }
+   
+   .link-for-video-channel {
+     display: flex;
+     align-items: center;  /* Change this to center */
+     position: relative;  
+   }
+   
+   .three-dots-icon-channel {
+     position: absolute;  
+     right: 130px;
+     top: 20px;
+     background-color: white;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;           
+   }
+
+   .three-dots-icon-channel:active{
+     background-color: rgb(229, 229, 229);
+ 
+ }
