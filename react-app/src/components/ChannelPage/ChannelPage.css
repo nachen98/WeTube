@@ -20,3 +20,9 @@
     color: rgb(96, 96, 101);
     font-size: 15px
 }
+
+.upload-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+    gap: 100px
+}

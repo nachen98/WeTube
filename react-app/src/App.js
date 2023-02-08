@@ -10,9 +10,11 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import VideosList from './components/VideosList/VideosList';
 import { SingleVideo } from './components/SingleVideo/SingleVideo';
-import  ChannelPage from './components/ChannelPage/ChannelPage'
+import ChannelPage from './components/ChannelPage/ChannelPage';
+import { UserUpLoads } from './components/UserUpLoads/UserUpLoads';
 import Footer from "./components/Footer";
 import ScrollToTop from './util/helper';
+import { getAllVideos } from './store/video';
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      await dispatch(getAllVideos())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -63,19 +66,20 @@ function App() {
         {/* <ProtectedRoute exact path='/channel/@:username/home'>
           <NavBar />
           <ChannelHome />
-        </ProtectedRoute>
-        <ProtectedRoute exact path='/channel/@:username/uploads'>
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute exact path='/channel/@:username/uploads'>
           <NavBar />
-          <ChannelUploads />
-        </ProtectedRoute>
-        <ProtectedRoute exact path='/channel/@:username/liked'>
+          <ChannelPage />
+          <UserUpLoads />
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute exact path='/channel/@:username/liked'>
           <NavBar />
           <ChannelLikes />
         </ProtectedRoute>
         <ProtectedRoute exact path='/channel/@:username/about'>
           <NavBar />
           <ChannelAbout />
-        </ProtectedRoute>  */}
+        </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
