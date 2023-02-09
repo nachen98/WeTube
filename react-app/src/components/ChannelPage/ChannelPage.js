@@ -12,9 +12,8 @@ const ChannelPage = () => {
     const [tab, setTab] = useState(0)
     const videos = useSelector(state => state.videosReducer)
     const videoArr = Object.values(videos)
-    console.log("videos in channel@@@@@@@", videoArr)
     const userUploads = videoArr.filter(video => video.user.id == selectedUser.id)
-    console.log("uploads##########", userUploads)
+    const [numSubscribers, setNumSubscribers] = useState(selectedUser.subscribed_by)
     
     const channelProfileIcon = (user) => {
         const COLORS = ['red', 'green', 'purple', 'blue', 'yellow', 'gray']
@@ -37,6 +36,10 @@ const ChannelPage = () => {
                         <div className='user-name-container flx-col-start'>
                             <span className='channel-user-name'>{selectedUser.first_name} {selectedUser.last_name}</span>
                             <div className='channel-username'>@{selectedUser.username}</div>
+                            <div className="number-of-subscribers">
+                                            {numSubscribers} {numSubscribers <= 1 ? 'subscriber' : 'subscribers'}
+
+                                        </div>
                         </div>
                     </div>
 

@@ -13,12 +13,14 @@
 }
 
 .channel-user-name{
-    font-size: 25px
+    font-size: 25px;
+    margin-bottom: 8px
 }
 
 .channel-username{
     color: rgb(96, 96, 101);
-    font-size: 15px
+    font-size: 15px;
+    margin-bottom: 8px
 }
 
 .upload-section{
