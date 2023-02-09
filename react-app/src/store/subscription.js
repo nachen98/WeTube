@@ -29,10 +29,10 @@ export const getCurrUserSubscription = (userId) => async(dispatch) => {
     const response = await fetch(`/api/users/${userId}`)
     .catch(res=>res)
 
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~response', response)
+    //console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~response', response)
     if(response.ok){
         const subscriptions = await response.json()
-        console.log('~~~~~~~~~~~~~~~~~~~~~~~ subscriptions', subscriptions)
+        //console.log('~~~~~~~~~~~~~~~~~~~~~~~ subscriptions', subscriptions)
         await dispatch(getCurrentUserSubscription(subscriptions.subscriptions))
         return subscriptions.subscriptions
     }
@@ -62,19 +62,19 @@ const subscriptionReducer = (state = initialState, action) => {
     let newState = {...state}
     switch(action.type){
         case GET_CURRENT_USER_SUBSCRIPTION:
-            console.log("action.subscriptions!!!!!!!!!!!!!!!!!!", action.subscriptions)
+            //console.log("action.subscriptions!!!!!!!!!!!!!!!!!!", action.subscriptions)
             newState.subscriptions = [...action.subscriptions]
             return newState
             
         case SUBSCRIBE_USER:
-            console.log("action.userId@@@@@@@@@@@@@@@@@", action.userId)
+            //console.log("action.userId@@@@@@@@@@@@@@@@@", action.userId)
             newState.subscriptions=[...state.subscriptions, action.userId]
             return newState
 
         case UNSUBSCRIBE_USER:
-            console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
+            //console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
             newState.subscriptions = state.subscriptions.filter(val=>val!==action.userId)
-            console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
+            //console.log("%%%%%%%%%%%%%%%%, newState.subscriptions", newState.subscriptions)
             return newState
         default:
             return state

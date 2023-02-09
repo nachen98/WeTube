@@ -34,7 +34,7 @@ export function SideVideos() {
     useEffect(async()=>{
         await dispatch(getAllVideos())
         .then((videosList)=>{
-            console.log("#################################### videoList", videosList)
+            //console.log("#################################### videoList", videosList)
             const displayedVideos = videosList.Videos.filter((video)=>video.id !== Number(videoId))
             const tmp = displayedVideos.map((video) =>
             ({video, "sort": Math.random()}))

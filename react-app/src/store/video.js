@@ -120,9 +120,9 @@ const videosReducer = (state=initialState, action) => {
         case GET_ALL_VIDEOS:
             //see above thunk creator for explaination of this part, Videos is from the video route {"Videos": data} this way
             //action.videos.Videos is all the information of the videos. 
-            console.log("action.videos!!!!!!!!!!!!!!!!!!", action.videos)
+            //console.log("action.videos!!!!!!!!!!!!!!!!!!", action.videos)
             action.videos.Videos.forEach((video)=>newState[video.id] = video)
-            console.log("##########")
+            //console.log("##########")
             //console.log("newState!!!!!!!!!!!!!!!!!!", newState)
             return newState;
         
