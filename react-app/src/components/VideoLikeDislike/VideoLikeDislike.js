@@ -19,7 +19,7 @@ export function VideoLikeDislike({ videoId }) {
     const [thumbDownClick, setThumbDownClick] = useState('fa-regular fa-thumbs-down fa-xl')
 
 
-    console.log("############################# like", like)
+    //console.log("############################# like", like)
 
 
     //the useEffect below is to 初始化一些值， 在页面on mount的时候，拿到数据库里面已有的is_like的值，一开始如果没有like or dislike,
@@ -44,7 +44,7 @@ export function VideoLikeDislike({ videoId }) {
 
 
     const update = async (like_) => {
-        console.log("$$$$$$$$$$$$$ like use effect", like_)
+        //console.log("$$$$$$$$$$$$$ like use effect", like_)
         await dispatch(postVideoLike(videoId, like_))
         setThumbUpClick(like_ === 1 ? 'fa-solid fa-thumbs-up fa-xl' : 'fa-regular fa-thumbs-up fa-xl')
         setThumbDownClick(like_ === -1 ? 'fa-solid fa-thumbs-down fa-xl' : 'fa-regular fa-thumbs-down fa-xl')
@@ -54,7 +54,7 @@ export function VideoLikeDislike({ videoId }) {
     //below is the button onClick functions. if the video is already liked (meaning if like === 1), we'd set Like to 0,
     //then call the update function which triger dispatch to post the new like, 
     const likeButton = async () => {
-        console.log("--------------------- like", like)
+        //console.log("--------------------- like", like)
         if (!currUser)
             alert('Like this video? Please sign in to make your opinion count.')
         else if (like === 1) {

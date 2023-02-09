@@ -1,0 +1,75 @@
+.video-pic {
+     width: 300px;
+     height: 150px;
+   }
+   
+   .video-title-channel {
+     font-size: 12px;
+     overflow: hidden;
+     width: 200px;
+     word-break: break-word;
+     /* text-align: flex-start; */
+   }
+   
+   .link-for-video-channel {
+     display: flex;
+     align-items: center;  /* Change this to center */
+     position: relative;  
+   }
+   
+   .three-dots-icon-channel {
+     position: absolute;  
+     right:0;
+     top: 0px;
+     background-color: white;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;           
+   }
+
+   .three-dots-icon-channel:active{
+     background-color: rgb(229, 229, 229);
+ 
+ }
+
+ #edit-delete-dropdown-channelpage{
+     position: absolute;
+     border: 1px solid  rgb(219,220,224);
+     border-radius: 10px;
+     height: 100px;
+     width: 130px;
+    right: 30px;
+     top: 30px;
+     box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
+     z-index: 10;
+     background-color: white;
+ 
+     
+ }
+
+ .edit-delete-dropdown-channel{
+     background-color: white;
+     border:none;
+     font-size: 15px;
+     margin-bottom: 10px;
+     margin-top: 10px;
+     cursor: pointer;
+     
+ 
+ }
+ button.edit-delete-dropdown-channel{
+  width: 100%
+ }
+
+ .edit-delete-dropdown-channel:hover{
+  background-color: rgb(229, 229, 229);
+}
+
+.inner-container{
+  display: flex;
+  align-items: center;  /* Change this to center */
+  position: relative;  
+}

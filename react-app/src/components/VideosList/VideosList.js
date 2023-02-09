@@ -11,7 +11,7 @@ const VideosList = () => {
     useEffect(async ()=>{
         await dispatch(getAllVideos())
         .then((videosList)=>{
-            console.log("eeeeeeeeeeeeeeeeeeeeeee", videosList)
+            //console.log("eeeeeeeeeeeeeeeeeeeeeee", videosList)
             const tmp = videosList.Videos.map((video) =>
                 ({video, "sort": Math.random()}))
             .sort((a,b)=>a.sort - b.sort)

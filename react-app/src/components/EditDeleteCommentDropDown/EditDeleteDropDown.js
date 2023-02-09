@@ -33,12 +33,12 @@ export function EditDeleteDropDown ({commentContent, setEditable}){
 
             {showMenu && (
               <div id="edit-delete-dropdown" className="edit-delete-ele flx-col-justify-align-ctr">
-                {/* <div id="edit-comment-button" className="edit-delete-ele"> */}
+            
                   <button className="edit-delete-ele" onClick={()=>setEditable(true)}>
                     <i className="edit-delete-ele fa-solid fa-pencil"></i>
                       Edit
                   </button>
-                {/* </div> */}
+
                 
                 {showMenu && (
                   <>

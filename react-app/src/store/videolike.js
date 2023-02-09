@@ -35,7 +35,7 @@ export const getAllLikes = (videoId) => async(dispatch) => {
         //the reason we do the normalize here is to return the state and use it in the VideoLikes component.
         //and then it would be easy to key into there, without using for loop. 
         result.VideoLikes.forEach((videoLike) => {
-            console.log("@@@@@@@@@@@@@@@@@@@@@ individual videoLike", videoLike)
+            //console.log("@@@@@@@@@@@@@@@@@@@@@ individual videoLike", videoLike)
             allLikes[`${videoLike.video_id}-${videoLike.user_id}`] = videoLike
         })
         await dispatch(loadVideoLikes(allLikes))
@@ -47,7 +47,7 @@ export const getAllLikes = (videoId) => async(dispatch) => {
 
 
 export const postVideoLike = (videoId, newLike) => async(dispatch) => {
-    console.log("xxxxxxxxxxxxxxxxx", newLike)
+    //console.log("xxxxxxxxxxxxxxxxx", newLike)
     const response = await fetch (`/api/videos/${videoId}/likes`, { 
         method: "POST",
         headers:{
@@ -58,7 +58,7 @@ export const postVideoLike = (videoId, newLike) => async(dispatch) => {
     })
     if (response.ok){
         const _newLike = await response.json()
-        console.log("ttttttttttttttttt _newLike", _newLike)
+        //console.log("ttttttttttttttttt _newLike", _newLike)
         await dispatch(createVideoLike(_newLike))
         return _newLike
     }else{
@@ -83,7 +83,7 @@ const videoLikesReducer = (state=initialState, action) => {
     switch(action.type){
         case GET_ALL_VIDEO_LIKES:
             //likes in the line below is the same as allLikes in the thunk, it is what returned from the database and then normalized.
-            console.log('action.likes!!!!!!!!!!!!!!!!!', action.likes)
+            //console.log('action.likes!!!!!!!!!!!!!!!!!', action.likes)
             newState = {...action.likes}
             return newState
 
