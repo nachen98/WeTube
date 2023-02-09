@@ -88,17 +88,7 @@ export function SingleVideo() {
                             <div id="video-title">
                                 {video.title}
                             </div>
-                            <div id="delete-edit-video-buttons">
-
-
-                                {!!currUserIsOwner && (
-                                    <>
-                                        <EditVideoModal videoId={videoId} old_title={video.title} old_description={video.description} old_videourl={video.url} old_imgurl={video.thumbnail_pic} />
-                                        <button onClick={() => setShowVideoDeleteModal(true)} id="delete-video-button">Delete Video</button>
-                                        {showVideoDeleteModal && <DeleteVideoModal videoId={videoId} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
-                                    </>
-                                )}
-                            </div>
+        
                         </div>
                         <div className='video-user-like flx-row-space-btw'>
                             <div className="uploader-subscription flx-row-space-around">

@@ -19,7 +19,7 @@
     border-radius: 10px;
     height: 100px;
     width: 130px;
-    left: 0px;
+   right: 12px;
     top: 30px;
     box-shadow: 2px 2px 2px 0 hsl(0deg 0% 76% / 60%);
     z-index: 10;
