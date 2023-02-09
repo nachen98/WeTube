@@ -60,19 +60,6 @@ const ChannelPage = () => {
                         >
                             About
                         </button>
-                        {/* <NavLink
-                            to={`/channel/@${selectedUser.username}/uploads`}
-                            className="channel-single-tab"
-                            activeClassName="active"
-                        >Uploads
-                        </NavLink> */}
-
-                        {/* <NavLink
-                            to={`/channel/@${selectedUser.username}/about`}
-                            className="channel-single-tab"
-                            activeClassName="active"
-                            >About 
-                        </NavLink> */}
                     </div>
                     <div className='upload-section'>
 

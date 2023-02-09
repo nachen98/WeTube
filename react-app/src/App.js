@@ -63,23 +63,6 @@ function App() {
           <NavBar />
           <ChannelPage />
         </ProtectedRoute>
-        {/* <ProtectedRoute exact path='/channel/@:username/home'>
-          <NavBar />
-          <ChannelHome />
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute exact path='/channel/@:username/uploads'>
-          <NavBar />
-          <ChannelPage />
-          <UserUpLoads />
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute exact path='/channel/@:username/liked'>
-          <NavBar />
-          <ChannelLikes />
-        </ProtectedRoute>
-        <ProtectedRoute exact path='/channel/@:username/about'>
-          <NavBar />
-          <ChannelAbout />
-        </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
