@@ -6,7 +6,7 @@ import { updateVideo } from '../../store/video';
 
 
 
-const EditVideoForm = ({ setShowModal, videoId, old_title, old_description, old_videourl, old_imgurl}) => {
+const EditVideoForm = ({ setShowModal, videoId, old_title, old_description, username, old_videourl, old_imgurl}) => {
 
     const dispatch = useDispatch();
     const history = useHistory()
@@ -74,7 +74,7 @@ const EditVideoForm = ({ setShowModal, videoId, old_title, old_description, old_
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/videos/${videoId}`)
+                    history.push(`/channel/@${username}`)
                 }
             }
         )

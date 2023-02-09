@@ -5,6 +5,7 @@ import DeleteVideoModal from "../DeleteVideoModal"
 import './UserUpLoad.css'
 
 export function UserUpLoad({ upload }) {
+    console.log("@@@@@@@@@@@@@upload", upload)
     const [showMenu, setShowMenu] = useState(false);
     const [showVideoDeleteModal, setShowVideoDeleteModal] = useState(false)
     const [showVideoEditModal, setShowVideoEditModal] = useState(false)
@@ -50,13 +51,13 @@ export function UserUpLoad({ upload }) {
                         <i className="edit-delete-dropdown-channel fa-solid fa-pencil"></i>
                         Edit
                     </button>
-                    {showVideoEditModal && <EditVideoModal videoId={upload.id} showVideoEditModal={showVideoEditModal} setShowVideoEditModal={setShowVideoEditModal} old_title={upload.title} old_description={upload.description} old_videourl={upload.url} old_imgurl={upload.thumbnail_pic} />}
+                    {showVideoEditModal && <EditVideoModal videoId={upload.id} showVideoEditModal={showVideoEditModal} setShowVideoEditModal={setShowVideoEditModal} old_title={upload.title} old_description={upload.description} old_videourl={upload.url} old_imgurl={upload.thumbnail_pic} username={upload.user.username} />}
 
                     <button className="edit-delete-dropdown-channel" onClick={() => setShowVideoDeleteModal(true)}>
                         <i className="edit-delete-dropdown-channel fa-regular fa-trash-can"></i>
                         Delete
                     </button>
-                    {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+                    {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal}  username={upload.user.username}/>}
 
                 </div>
             )}

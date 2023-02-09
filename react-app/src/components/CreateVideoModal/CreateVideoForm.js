@@ -68,7 +68,7 @@ const CreateVideoForm = ({ setShowModal }) => {
                 } else {
                     setShowModal(false)
                     setIsLoading(false)
-                    history.push(`/channel/${currUser.username}`)
+                    history.push(`/channel/@${currUser.username}`)
                 }
             }
         )
