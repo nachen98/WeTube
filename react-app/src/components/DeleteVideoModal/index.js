@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 import { ConfirmDeleteVideo } from './ConfirmDeleteVideo';
 
-function DeleteVideoModal({ videoId, showVideoDeleteModal, setShowVideoDeleteModal }) {
+function DeleteVideoModal({ videoId, showVideoDeleteModal, setShowVideoDeleteModal, username }) {
     const sessionUser = useSelector((state) => state.session.user);
     if (!sessionUser) {
         return null;
@@ -13,7 +13,7 @@ function DeleteVideoModal({ videoId, showVideoDeleteModal, setShowVideoDeleteMod
         <>
             {showVideoDeleteModal && (
                 <Modal onClose={() => setShowVideoDeleteModal(false)}>
-                    <ConfirmDeleteVideo videoId={videoId} setShowVideoDeleteModal={setShowVideoDeleteModal} />
+                    <ConfirmDeleteVideo videoId={videoId} setShowVideoDeleteModal={setShowVideoDeleteModal} username={username}/>
                 </Modal>
             )}
 

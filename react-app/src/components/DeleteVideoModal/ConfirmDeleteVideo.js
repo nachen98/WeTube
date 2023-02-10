@@ -5,7 +5,7 @@ import { deleteVideo } from "../../store/video"
 import "./ConfirmDeleteVideo.css"
 // why cann't it be arrow function
 //export default ConfirmDeleteVideo = ({ videoId, setShowVideoDeleteModal }) => {
-export function ConfirmDeleteVideo({ videoId, setShowVideoDeleteModal }) {
+export function ConfirmDeleteVideo({ videoId, setShowVideoDeleteModal, username }) {
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -14,7 +14,7 @@ export function ConfirmDeleteVideo({ videoId, setShowVideoDeleteModal }) {
 
         e.preventDefault();
         await dispatch(deleteVideo(videoId))
-        history.push('/')
+        history.push(`/channel/@${username}`)
     }
 
     const cancelDeleteButton = async (e) => {

@@ -5,6 +5,7 @@ import DeleteVideoModal from "../DeleteVideoModal"
 import './UserUpLoad.css'
 
 export function UserUpLoad({ upload }) {
+    console.log("@@@@@@@@@@@@@upload", upload)
     const [showMenu, setShowMenu] = useState(false);
     const [showVideoDeleteModal, setShowVideoDeleteModal] = useState(false)
     const [showVideoEditModal, setShowVideoEditModal] = useState(false)
@@ -46,20 +47,20 @@ export function UserUpLoad({ upload }) {
             {showMenu && (
                 <div id="edit-delete-dropdown-channelpage" className="edit-delete-dropdown-channel flx-col-justify-align-ctr">
 
-                    <button className="edit-delete-dropdown-channel" onClick={() => setShowVideoEditModal(true)}>
+                    <button className="edit-delete-dropdown-channel" onClick={() => {setShowMenu(false); setShowVideoEditModal(true)}}>
                         <i className="edit-delete-dropdown-channel fa-solid fa-pencil"></i>
                         Edit
                     </button>
-                    {showVideoEditModal && <EditVideoModal videoId={upload.id} showVideoEditModal={showVideoEditModal} setShowVideoEditModal={setShowVideoEditModal} old_title={upload.title} old_description={upload.description} old_videourl={upload.url} old_imgurl={upload.thumbnail_pic} />}
 
-                    <button className="edit-delete-dropdown-channel" onClick={() => setShowVideoDeleteModal(true)}>
+                    <button className="edit-delete-dropdown-channel" onClick={() => {setShowMenu(false); setShowVideoDeleteModal(true)}}>
                         <i className="edit-delete-dropdown-channel fa-regular fa-trash-can"></i>
                         Delete
                     </button>
-                    {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
 
                 </div>
             )}
+            {showVideoEditModal && <EditVideoModal videoId={upload.id} showVideoEditModal={showVideoEditModal} setShowVideoEditModal={setShowVideoEditModal} old_title={upload.title} old_description={upload.description} old_videourl={upload.url} old_imgurl={upload.thumbnail_pic} username={upload.user.username} />}
+            {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} username={upload.user.username} />}
         </div>
     )
 }
