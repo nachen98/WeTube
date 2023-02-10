@@ -47,11 +47,7 @@ export function UserUpLoad({ upload }) {
             {showMenu && (
                 <div id="edit-delete-dropdown-channelpage" className="edit-delete-dropdown-channel flx-col-justify-align-ctr">
 
-                    <button className="edit-delete-dropdown-channel" onClick={() => {setShowMenu(false); 
-                        console.log("Before ShowVideoEdit...........", showVideoEditModal)
-                        setShowVideoEditModal(true)
-                        console.log("after ShowVideoEdit...........", showVideoEditModal)
-                        }}>
+                    <button className="edit-delete-dropdown-channel" onClick={() => {setShowMenu(false); setShowVideoEditModal(true)}}>
                         <i className="edit-delete-dropdown-channel fa-solid fa-pencil"></i>
                         Edit
                     </button>
@@ -64,7 +60,7 @@ export function UserUpLoad({ upload }) {
                 </div>
             )}
             {showVideoEditModal && <EditVideoModal videoId={upload.id} showVideoEditModal={showVideoEditModal} setShowVideoEditModal={setShowVideoEditModal} old_title={upload.title} old_description={upload.description} old_videourl={upload.url} old_imgurl={upload.thumbnail_pic} username={upload.user.username} />}
-            {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} />}
+            {showVideoDeleteModal && <DeleteVideoModal videoId={upload.id} showVideoDeleteModal={showVideoDeleteModal} setShowVideoDeleteModal={setShowVideoDeleteModal} username={upload.user.username} />}
         </div>
     )
 }
