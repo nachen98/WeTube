@@ -1,36 +1,43 @@
-#comment-input{
+.post-comment-form-container{
+    width: 100%;
+    margin-bottom: 30px
+}
+
+.comment-input{
   border:none;
-  outline: none;
-  width: 62vw;
+  outline:none;
+  width: 100%;
   height: 28px;
+  border-bottom: 1px solid grey ;
 
 }
 
-#comment-input:focus{
+.comment-input:focus{
   border-bottom: 2px solid black
 }
 
-#comment-maker-icon{
+.comment-maker-icon{
     margin-right: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#comment-input-container{
-    margin-left: 3.5%;
-    margin-top: -45px;
-   
-    width: 62vw;
-    height: 30px;
-    border-bottom: 1px solid grey ;
+.comment-input-container{
+
+    width: 61vw;
+    height: 100%;
+
 }
 
-.comment-buttons{
+.comment-buttons-container{
     margin-top: 15px;
-    display: flex;
-    flex-direction: row;
+
     gap: 15px;
-    justify-content: flex-end;
-    width: 64vw;
-    margin-left: 7px
+
+    width: 100%;
+
+
 }
 
 #cancel-button{
@@ -92,4 +99,16 @@
 #form-container{
     width: fit-content;
     height: fit-content
+}
+
+@media (min-width: 1325px) and (max-width: 1659px){
+    .comment-input-container{
+        width: 62vw
+    }
+}
+
+@media(min-width: 1660px) and (max-width: 2500px) {
+    .comment-input-container{
+        width: 63vw
+    }
 }

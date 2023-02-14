@@ -76,35 +76,35 @@ export function CreateCommentForm({ videoId, commentId, content, placeholder, bu
 
 
     return (
-        <div id="form-container">
+        <div className="post-comment-form-container flx-col-start">
             {errors.length ? <div id="comment-error-messages">{errors}</div> : null}
-            <div className="create-comment-container flx-row-wrap">
-                <div id="comment-maker-icon" >
+            <div className="create-comment-container flx-row-start">
+                <div className="comment-maker-icon" >
                     {getProfileIcon(currUser)}
                 </div>
 
-                <div >
-                    <form>
-                        <div id="comment-input-container">
 
-                            <input
-                                type="text"
-                                id="comment-input"
-                                value={comment}
-                                onFocus={() => { document.getElementById(`buttons_${buttonName}`).className = "" }}
-                                placeholder={placeholder}
-                                onChange={(e) => setComment(e.target.value)}
-                            />
+                <form className="comment-input-container flx-col-just-align-flex-start">
+
+
+                    <input
+                        type="text"
+                        className="comment-input"
+                        value={comment}
+                        onFocus={() => { document.getElementById(`buttons_${buttonName}`).className = "" }}
+                        placeholder={placeholder}
+                        onChange={(e) => setComment(e.target.value)}
+                    />
+        
+                    <div className="comment-buttons-container flx-row-end">
+                        <div id={`buttons_${buttonName}`} className={commentId === 0 ? "display-none" : ""}>
+                        <button type="submit" id="cancel-button" onClick={handleCancel}>Cancel</button>
+                        <button type="submit" id="submit-button" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
                         </div>
-                        <div className="comment-buttons flx-row-end">
-                            <div id={`buttons_${buttonName}`} className={commentId === 0 ? "display-none" : ""}>
-                                <button type="submit" id="cancel-button" onClick={handleCancel}>Cancel</button>
-                                <button type="submit" id="submit-button" disabled={disabled} onClick={handleSubmit}>{buttonName}</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+
             </div>
-        </div>
+        </div >
     )
 }

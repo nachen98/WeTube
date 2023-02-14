@@ -22,7 +22,7 @@ export function VideoComment({ commentContent }) {
             {!editable && (
                 <div id="individual-comment" className="justify-space-btw">
                     <div className="flx-row-start">
-                        <div id="comment-maker-icon">
+                        <div className="comment-maker-icon">
                             {getProfileIcon(commentContent.user)}
 
                         </div>
