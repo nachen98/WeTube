@@ -21,23 +21,30 @@ export function VideoComment({ commentContent }) {
         <div id="comment-container">
             {!editable && (
                 <div id="individual-comment" className="justify-space-btw">
-                    <div className="flx-row-wrap">
-                        <div id="comment-maker-icon">
+                    <div className="flx-row-start">
+                        <div className="comment-maker-icon">
                             {getProfileIcon(commentContent.user)}
 
                         </div>
-                        <div id="comment-username">
-                            {commentContent.user.username}
+                        <div className="name-time-comment flx-col-justify-ctr">
+                            <div className="name-time flx-row-wrap">
+                                <div className="comment-username">
+                                    {commentContent.user.username}
+                                </div>
+
+                                <div className="posted-time">
+                                    {formatedUpdateTime}
+
+                                </div>
+                            </div>
+
+
+                            <div className="comment-content">
+                                {commentContent.content}
+                            </div>
+
                         </div>
 
-                        <div id="posted-time">
-                            {formatedUpdateTime}
-
-                        </div>
-
-                        <div id="comment-content">
-                            {commentContent.content}
-                        </div>
                     </div>
                     <div id="edit-delete-comment-icon">
                         {currUserIsOwner && (

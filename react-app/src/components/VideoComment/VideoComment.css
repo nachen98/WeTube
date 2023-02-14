@@ -5,23 +5,24 @@
     height: 50px
 }
 
-#comment-username{
+.comment-username{
     font-weight: 500;
     margin-right: 8px;
     font-size: 12px
 }
 
-#posted-time{
+.posted-time{
     font-size: 12px;
     color: gray
 }
 
-#comment-content{
-    margin-left: 4.5%;
-    margin-top: -25px;
+.comment-content{
+    font-size: 13px;
+    margin-top: 5px;
     width: 60vw;
     height: 15px;
     word-break:break-all;
+    white-space: pre-line;
 
 }
 
